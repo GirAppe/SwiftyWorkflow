@@ -12,12 +12,12 @@ import UIKit
 class ApplicationWorkflow: Workflow, FlowConnector, NavigationProvider {
     typealias In = Window
     struct Out {
-        static var login = Transition<Void>()
-        static var notification = Transition<Void>()
-        static var uploadLink = Transition<String>()
+        static var login = Transition<Void>("login")
+        static var notification = Transition<Void>("notification")
+        static var uploadLink = Transition<String>("uploadLink")
     }
     struct Start {
-        static var fromDashboard = Transition<Window>()
+        static var fromDashboard = Transition<Window>("fromDashboard")
     }
 
     weak var view: ViewType!
@@ -48,6 +48,7 @@ extension ApplicationWorkflow {
             connector(input, destination)
         }
         connectors[transation.id] = connect
+        debugPrint("[\(String(describing: self))] adding initial \(node.name) for \(transation.name)")
     }
 
     func start(from transition: Transition<In>, with argument: In) throws {

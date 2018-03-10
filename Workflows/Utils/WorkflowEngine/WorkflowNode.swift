@@ -2,6 +2,7 @@ import Foundation
 
 class WorkflowNode<S: FlowConnector> {
     let id: ID = UUID().uuidString
+    var name: String { return "<\(String(describing: S.self)) : \(id)>" }
     private let registration: Workflow.Registration<S>
     private var connectors: [String: Any] = [:]
 
@@ -9,7 +10,12 @@ class WorkflowNode<S: FlowConnector> {
         self.registration = registration
     }
 
+    deinit {
+        debugPrint("Released \(name)")
+    }
+
     func resolve(with input: S.In) -> S {
+        debugPrint("Resolving \(name)")
         let controller = registration.build(with: input)
         controller.flowNavigation = self
         return controller
@@ -24,6 +30,7 @@ class WorkflowNode<S: FlowConnector> {
     }
 
     func bridge<New, Arg>(to node: WorkflowNode<New>, for transation: Transition<Arg>, bridge: @escaping (Arg) -> New.In, connector: @escaping (S,New) -> Void) {
+        debugPrint("[\(name)] adding \(transation.name) to \(node.name)")
         let connect: (Arg,S) -> Void = { output, source in
             let input = bridge(output)
             let destination = node.resolve(with: input) // keep destination node alive

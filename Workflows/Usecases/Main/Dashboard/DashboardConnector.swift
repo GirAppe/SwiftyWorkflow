@@ -16,8 +16,8 @@ protocol DashboardConnector {
 class DashboardFlow: BaseConncetor, FlowConnector, DashboardConnector {
     typealias In = Void
     struct Out {
-        static var settings = Transition<Void>()
-        static var upload = Transition<Void>()
+        static var settings = Transition<Void>("settings")
+        static var upload = Transition<Void>("upload")
     }
 
     init(resolver: Resolver) {

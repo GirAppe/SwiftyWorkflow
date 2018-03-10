@@ -17,8 +17,10 @@ class Workflow: FlowContainer, WorkflowType {
     var nodes: [Any] = []
     var parent: Container?
     var registrations: [RegsteredInstance]  = []
+    fileprivate var name: String { return String(describing: self) }
 
     init() {
+        debugPrint("Init workflow: \(String(describing: self))")
         build()
     }
 
@@ -26,6 +28,7 @@ class Workflow: FlowContainer, WorkflowType {
     }
 
     func assemble(in parent: Container) {
+        debugPrint("Assembled workflow: \(String(describing: self))")
         self.parent = parent
     }
 }
@@ -34,13 +37,20 @@ class Workflow: FlowContainer, WorkflowType {
 extension Workflow {
     class Registration<S: FlowConnector> {
         private var factory: (S.In) -> S
+        private var name: String { return String(describing: S.self) }
         weak private var instance: S?
 
         init(factory: @escaping (S.In) -> S) {
+            debugPrint("Registered connector for \(String(describing: S.self))")
             self.factory = factory
         }
 
+        deinit {
+            debugPrint("Releasing registration for \(String(describing: S.self))")
+        }
+
         func build(with input: S.In) -> S {
+            debugPrint(instance != nil ? "Using existing instance of \(name)" : "Building new instance of \(name)")
             let resolved = instance ?? factory(input)
             instance = resolved
             return resolved
@@ -64,6 +74,7 @@ extension Workflow {
 
         let node = WorkflowNode<S>(Registration<S>(factory: make))
         nodes.append(node)
+        debugPrint("[\(name)] adding \(node.name)")
         return node
     }
 }
