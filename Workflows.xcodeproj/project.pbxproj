@@ -7,12 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC91A573205403FA006AA59D /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC91A572205403FA006AA59D /* Container.swift */; };
 		CCFE62D420534040000B057B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE62D320534040000B057B /* AppDelegate.swift */; };
 		CCFE62D620534040000B057B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE62D520534040000B057B /* ViewController.swift */; };
 		CCFE62D920534040000B057B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCFE62D720534040000B057B /* Main.storyboard */; };
 		CCFE62DB20534040000B057B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCFE62DA20534040000B057B /* Assets.xcassets */; };
 		CCFE62DE20534040000B057B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCFE62DC20534040000B057B /* LaunchScreen.storyboard */; };
 		CCFE62E920534040000B057B /* WorkflowsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE62E820534040000B057B /* WorkflowsTests.swift */; };
+		CCFE62F420534078000B057B /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE62F320534078000B057B /* Transition.swift */; };
+		CCFE62F620534095000B057B /* ViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE62F520534095000B057B /* ViewType.swift */; };
+		CCFE62F8205340AD000B057B /* Workflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE62F7205340AD000B057B /* Workflow.swift */; };
+		CCFE62FA205340C3000B057B /* UIViewController+ViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE62F9205340C3000B057B /* UIViewController+ViewType.swift */; };
+		CCFE62FC20534858000B057B /* UploadWorkflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE62FB20534858000B057B /* UploadWorkflow.swift */; };
+		CCFE62FE205355A3000B057B /* WorkflowNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE62FD205355A3000B057B /* WorkflowNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CC91A572205403FA006AA59D /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		CCFE62D020534040000B057B /* Workflows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workflows.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFE62D320534040000B057B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCFE62D520534040000B057B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +44,12 @@
 		CCFE62E420534040000B057B /* WorkflowsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkflowsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFE62E820534040000B057B /* WorkflowsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkflowsTests.swift; sourceTree = "<group>"; };
 		CCFE62EA20534040000B057B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCFE62F320534078000B057B /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
+		CCFE62F520534095000B057B /* ViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewType.swift; sourceTree = "<group>"; };
+		CCFE62F7205340AD000B057B /* Workflow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workflow.swift; sourceTree = "<group>"; };
+		CCFE62F9205340C3000B057B /* UIViewController+ViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ViewType.swift"; sourceTree = "<group>"; };
+		CCFE62FB20534858000B057B /* UploadWorkflow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadWorkflow.swift; sourceTree = "<group>"; };
+		CCFE62FD205355A3000B057B /* WorkflowNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkflowNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +92,13 @@
 			isa = PBXGroup;
 			children = (
 				CCFE62D320534040000B057B /* AppDelegate.swift */,
+				CCFE62F7205340AD000B057B /* Workflow.swift */,
+				CC91A572205403FA006AA59D /* Container.swift */,
+				CCFE62F320534078000B057B /* Transition.swift */,
+				CCFE62FD205355A3000B057B /* WorkflowNode.swift */,
+				CCFE62FB20534858000B057B /* UploadWorkflow.swift */,
+				CCFE62F520534095000B057B /* ViewType.swift */,
+				CCFE62F9205340C3000B057B /* UIViewController+ViewType.swift */,
 				CCFE62D520534040000B057B /* ViewController.swift */,
 				CCFE62D720534040000B057B /* Main.storyboard */,
 				CCFE62DA20534040000B057B /* Assets.xcassets */,
@@ -199,8 +220,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCFE62F420534078000B057B /* Transition.swift in Sources */,
 				CCFE62D620534040000B057B /* ViewController.swift in Sources */,
+				CCFE62FC20534858000B057B /* UploadWorkflow.swift in Sources */,
+				CCFE62F620534095000B057B /* ViewType.swift in Sources */,
 				CCFE62D420534040000B057B /* AppDelegate.swift in Sources */,
+				CCFE62F8205340AD000B057B /* Workflow.swift in Sources */,
+				CCFE62FE205355A3000B057B /* WorkflowNode.swift in Sources */,
+				CC91A573205403FA006AA59D /* Container.swift in Sources */,
+				CCFE62FA205340C3000B057B /* UIViewController+ViewType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
