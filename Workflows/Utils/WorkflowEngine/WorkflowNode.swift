@@ -9,7 +9,7 @@ class WorkflowNode<S: FlowConnector> {
         self.registration = registration
     }
 
-    private func resolve(with input: S.In) -> S {
+    func resolve(with input: S.In) -> S {
         let controller = registration.build(with: input)
         controller.flowNavigation = self
         return controller

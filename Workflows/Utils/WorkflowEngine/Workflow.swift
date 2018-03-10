@@ -1,7 +1,8 @@
 import Foundation
 
 protocol FlowContainer: Container {
-    func registerFlow<S: FlowConnector>(_ type: S.Type, factory:  @escaping (Resolver, S.In) -> S) -> WorkflowNode<S>
+    func setNode<S: FlowConnector>(_ type: S.Type, factory: @escaping (Resolver) -> S) -> WorkflowNode<S> where S.In == Void
+    func setNode<S: FlowConnector>(_ type: S.Type, input: S.In.Type, factory: @escaping (Resolver, S.In) -> S) -> WorkflowNode<S>
 }
 
 // MARK: - WorkflowType
@@ -16,6 +17,17 @@ class Workflow: FlowContainer, WorkflowType {
     var nodes: [Any] = []
     var parent: Container?
     var registrations: [RegsteredInstance]  = []
+
+    init() {
+        build()
+    }
+
+    func build() {
+    }
+
+    func assemble(in parent: Container) {
+        self.parent = parent
+    }
 }
 
 // MARK: - Registration
@@ -35,9 +47,19 @@ extension Workflow {
         }
     }
 
-    func registerFlow<S: FlowConnector>(_ type: S.Type, factory: @escaping (Resolver, S.In) -> S) -> WorkflowNode<S> {
+    func setNode<S: FlowConnector>(_ type: S.Type, factory: @escaping (Resolver) -> S) -> WorkflowNode<S> where S.In == Void {
+        return setNode(type, input: S.In.self, factory: { (resolver, _) -> S in
+            return factory(resolver)
+        })
+    }
+
+    func setNode<S: FlowConnector>(_ type: S.Type, input: S.In.Type, factory: @escaping (Resolver, S.In) -> S) -> WorkflowNode<S> {
         let make: (S.In) -> S = { [unowned self] input in
-            return factory(self, input)
+            let instance = factory(self, input)
+            if let container = instance as? Container {
+                container.assemble(in: self)
+            }
+            return instance
         }
 
         let node = WorkflowNode<S>(Registration<S>(factory: make))

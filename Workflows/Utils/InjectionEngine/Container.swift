@@ -12,18 +12,24 @@ extension Resolver {
     }
 }
 
+// MARK: - Assembly
+protocol Assembly {
+    func assemble(in parent: Container)
+}
+
 // MARK: - Container
-protocol Container: Resolver {
+protocol Container: Resolver, Assembly {
     var parent: Container? { get set }
     var registrations: [RegsteredInstance] { get set }
 
-    func assemble(in parent: Container?)
     @discardableResult func register<T,Arg>(_ type: T.Type, factory: @escaping (Resolver,Arg) -> T) -> Registration<T,Arg>
 }
 
 extension Container {
-    func assemble(in parent: Container?) {
-        self.parent = parent
+    @discardableResult func register<T>(_ type: T.Type, factory: @escaping (Resolver) -> T) -> Registration<T,Void> {
+        return register(type) { (resolver: Resolver, arg: Void) -> T in
+            return factory(resolver)
+        }
     }
 
     @discardableResult func register<T,Arg>(_ type: T.Type, factory: @escaping (Resolver,Arg) -> T) -> Registration<T,Arg> {

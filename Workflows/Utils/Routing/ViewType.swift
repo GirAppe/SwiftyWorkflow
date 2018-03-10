@@ -27,6 +27,9 @@ public protocol ViewType: class {
     func dismiss(animated flag: Bool, completion: NavigationCompletion?)
     // Other
     func replace(_ view: ViewType, animated: Bool)
+
+    // Helpers
+    func wrappedInNavigation() -> ViewType
 }
 
 public extension ViewType {

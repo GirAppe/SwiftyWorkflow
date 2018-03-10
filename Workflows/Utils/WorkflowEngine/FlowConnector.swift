@@ -1,16 +1,18 @@
 import Foundation
 
 // MARK: - FlowConnector
-protocol FlowConnector: class {
-    associatedtype In
-    associatedtype Out
-
+protocol AnyFlowConnector: class {
     weak var view: ViewType! { get }
     /// Set automatically by WorkflowEngine - do not set manually!!!
     weak var flowNavigation: NavigationProvider! { get set }
 
     func perform(_ transition: Transition<Void>)
     func perform<Arg>(_ transition: Transition<Arg>, with argument: Arg)
+}
+
+protocol FlowConnector: AnyFlowConnector {
+    associatedtype In
+    associatedtype Out
 }
 
 extension FlowConnector {
@@ -25,4 +27,10 @@ extension FlowConnector {
             assertionFailure("Transition failed: \(String(describing: error))")
         }
     }
+}
+
+// MARK: - Helper
+class BaseConncetor {
+    weak var view: ViewType!
+    weak var flowNavigation: NavigationProvider!
 }

@@ -69,4 +69,14 @@ extension UIViewController: ViewType {
             })
         }
     }
+
+    // Helpers
+    public func wrappedInNavigation() -> ViewType {
+        guard !(self is UINavigationController) else {
+            return self
+        }
+        let navigation = UINavigationController()
+        navigation.setViewControllers([self], animated: false)
+        return navigation
+    }
 }

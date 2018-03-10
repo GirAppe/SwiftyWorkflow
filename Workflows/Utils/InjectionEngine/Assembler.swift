@@ -3,14 +3,17 @@ import Foundation
 class Assembler: Container {
     var parent: Container?
     var registrations: [RegsteredInstance] = []
-    var containers: [Container]
 
-    init(assemble containers: [Container]) {
-        self.containers = containers
+    init(_ assemblies: [Assembly]) {
+        assemblies.forEach { $0.assemble(in: self) }
+    }
+
+    func assemble(in parent: Container) {
+        self.parent = parent
     }
 
     func resolve<T,Arg>(_ type: T.Type, with argument: Arg) -> T! {
-        return parent?.resolve(type, with: argument) ?? containers.flatMapFirst({ $0.resolve(type, with: argument) })
+        return parent?.resolve(type, with: argument) ?? self.registration(type, Arg.self)?.resolve(with: argument)
     }
 
     private func instance<T>(_ type: T.Type) -> T? {

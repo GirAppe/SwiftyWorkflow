@@ -51,29 +51,23 @@ class UploadWorkflow: Workflow, FlowConnector {
     weak var view: ViewType!
     weak var flowNavigation: NavigationProvider!
 
-    override init() {
-        super.init()
-
-
-    }
-
-    func build() {
-        let node = registerFlow(ScanDocumentsStep.self) { (container, input) -> ScanDocumentsStep in
-            return ScanDocumentsStep()
-        }
-
-        let upload = registerFlow(UploadWorkflow.self) { (container, input: UploadWorkflow.In) -> UploadWorkflow in
-            switch input {
-            case UploadWorkflow.In.passport:
-                return UploadWorkflow()
-            case UploadWorkflow.In.id:
-                return UploadWorkflow()
-            }
-        }
-
-        node.bridge(to: upload, for: ScanDocumentsStep.Out.confirm, bridge: { _ in .id }, connector: { (scan, upload) in
-            scan.view?.present(upload.view, animated: true)
-        })
+    override func build() {
+//        let node = setNode(ScanDocumentsStep.self) { (container, input) -> ScanDocumentsStep in
+//            return ScanDocumentsStep()
+//        }
+//
+//        let upload = setNode(UploadWorkflow.self) { (container, input: UploadWorkflow.In) -> UploadWorkflow in
+//            switch input {
+//            case UploadWorkflow.In.passport:
+//                return UploadWorkflow()
+//            case UploadWorkflow.In.id:
+//                return UploadWorkflow()
+//            }
+//        }
+//
+//        node.bridge(to: upload, for: ScanDocumentsStep.Out.confirm, bridge: { _ in .id }, connector: { (scan, upload) in
+//            scan.view?.present(upload.view, animated: true)
+//        })
 
 
 
