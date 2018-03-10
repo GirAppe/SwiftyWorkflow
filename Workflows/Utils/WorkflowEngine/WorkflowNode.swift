@@ -1,6 +1,6 @@
 import Foundation
 
-class WorkflowNode<S: FlowController> {
+class WorkflowNode<S: FlowConnector> {
     let id: ID = UUID().uuidString
     private let registration: Workflow.Registration<S>
     private var connectors: [String: Any] = [:]
@@ -32,11 +32,11 @@ class WorkflowNode<S: FlowController> {
         connectors[transation.id] = connect
     }
 
-    func end<F>(flow: F, with transition: Transition<Void>, outro: @escaping (F) -> Void) where F: WorkflowType, F: FlowController {
+    func end<F>(flow: F, with transition: Transition<Void>, outro: @escaping (F) -> Void) where F: WorkflowType, F: FlowConnector {
         end(flow: flow, with: transition, outro: { flow, _ in outro(flow) })
     }
 
-    func end<F,Arg>(flow: F, with transition: Transition<Arg>, outro: @escaping (F,Arg) -> Void) where F: WorkflowType, F: FlowController {
+    func end<F,Arg>(flow: F, with transition: Transition<Arg>, outro: @escaping (F,Arg) -> Void) where F: WorkflowType, F: FlowConnector {
         let ending: (Arg) -> Void = { argument in
             outro(flow, argument)
         }

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		CC91A573205403FA006AA59D /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC91A572205403FA006AA59D /* Container.swift */; };
+		CC91A579205420E2006AA59D /* FlowConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC91A578205420E2006AA59D /* FlowConnector.swift */; };
+		CC9D2F1920542640004952FA /* Assembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F1820542640004952FA /* Assembler.swift */; };
+		CC9D2F1C205429A5004952FA /* Sequence+FlatMapFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F1B205429A5004952FA /* Sequence+FlatMapFirst.swift */; };
 		CCFE62D420534040000B057B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE62D320534040000B057B /* AppDelegate.swift */; };
 		CCFE62D620534040000B057B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE62D520534040000B057B /* ViewController.swift */; };
 		CCFE62D920534040000B057B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCFE62D720534040000B057B /* Main.storyboard */; };
@@ -34,6 +37,9 @@
 
 /* Begin PBXFileReference section */
 		CC91A572205403FA006AA59D /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		CC91A578205420E2006AA59D /* FlowConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowConnector.swift; sourceTree = "<group>"; };
+		CC9D2F1820542640004952FA /* Assembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembler.swift; sourceTree = "<group>"; };
+		CC9D2F1B205429A5004952FA /* Sequence+FlatMapFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+FlatMapFirst.swift"; sourceTree = "<group>"; };
 		CCFE62D020534040000B057B /* Workflows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workflows.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFE62D320534040000B057B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCFE62D520534040000B057B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +76,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC91A57420542065006AA59D /* WorkflowEngine */ = {
+			isa = PBXGroup;
+			children = (
+				CC91A578205420E2006AA59D /* FlowConnector.swift */,
+				CCFE62F7205340AD000B057B /* Workflow.swift */,
+				CCFE62FD205355A3000B057B /* WorkflowNode.swift */,
+				CCFE62F320534078000B057B /* Transition.swift */,
+			);
+			path = WorkflowEngine;
+			sourceTree = "<group>";
+		};
+		CC91A57520542077006AA59D /* InjectionEngine */ = {
+			isa = PBXGroup;
+			children = (
+				CC91A572205403FA006AA59D /* Container.swift */,
+				CC9D2F1820542640004952FA /* Assembler.swift */,
+			);
+			path = InjectionEngine;
+			sourceTree = "<group>";
+		};
+		CC91A57620542086006AA59D /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				CCFE62F520534095000B057B /* ViewType.swift */,
+				CCFE62F9205340C3000B057B /* UIViewController+ViewType.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		CC91A577205420B9006AA59D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CC9D2F1A20542997004952FA /* Categories */,
+				CC91A57420542065006AA59D /* WorkflowEngine */,
+				CC91A57520542077006AA59D /* InjectionEngine */,
+				CC91A57620542086006AA59D /* Routing */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		CC9D2F1A20542997004952FA /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				CC9D2F1B205429A5004952FA /* Sequence+FlatMapFirst.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		CCFE62C720534040000B057B = {
 			isa = PBXGroup;
 			children = (
@@ -91,14 +145,9 @@
 		CCFE62D220534040000B057B /* Workflows */ = {
 			isa = PBXGroup;
 			children = (
+				CC91A577205420B9006AA59D /* Utils */,
 				CCFE62D320534040000B057B /* AppDelegate.swift */,
-				CCFE62F7205340AD000B057B /* Workflow.swift */,
-				CC91A572205403FA006AA59D /* Container.swift */,
-				CCFE62F320534078000B057B /* Transition.swift */,
-				CCFE62FD205355A3000B057B /* WorkflowNode.swift */,
 				CCFE62FB20534858000B057B /* UploadWorkflow.swift */,
-				CCFE62F520534095000B057B /* ViewType.swift */,
-				CCFE62F9205340C3000B057B /* UIViewController+ViewType.swift */,
 				CCFE62D520534040000B057B /* ViewController.swift */,
 				CCFE62D720534040000B057B /* Main.storyboard */,
 				CCFE62DA20534040000B057B /* Assets.xcassets */,
@@ -223,7 +272,10 @@
 				CCFE62F420534078000B057B /* Transition.swift in Sources */,
 				CCFE62D620534040000B057B /* ViewController.swift in Sources */,
 				CCFE62FC20534858000B057B /* UploadWorkflow.swift in Sources */,
+				CC9D2F1C205429A5004952FA /* Sequence+FlatMapFirst.swift in Sources */,
+				CC91A579205420E2006AA59D /* FlowConnector.swift in Sources */,
 				CCFE62F620534095000B057B /* ViewType.swift in Sources */,
+				CC9D2F1920542640004952FA /* Assembler.swift in Sources */,
 				CCFE62D420534040000B057B /* AppDelegate.swift in Sources */,
 				CCFE62F8205340AD000B057B /* Workflow.swift in Sources */,
 				CCFE62FE205355A3000B057B /* WorkflowNode.swift in Sources */,

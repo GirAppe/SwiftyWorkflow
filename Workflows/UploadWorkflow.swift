@@ -2,7 +2,7 @@ import Foundation
 import UIKit.UIImage
 
 // MARK: - Tests
-class ScanDocumentsStep: FlowController {
+class ScanDocumentsStep: FlowConnector {
     typealias In = Void
     struct Out {
         static var confirm = Transition<UIImage>()
@@ -23,7 +23,7 @@ class ScanDocumentsStep: FlowController {
         perform(Out.deny)
     }
 }
-class VerifyImageStep: FlowController {
+class VerifyImageStep: FlowConnector {
     typealias In = UIImage
     struct Out {
         static var ok = Transition<Void>()
@@ -38,7 +38,7 @@ class VerifyImageStep: FlowController {
 }
 
 // MARK: - UploadWorkflow
-class UploadWorkflow: Workflow, FlowController {
+class UploadWorkflow: Workflow, FlowConnector {
     enum In {
         case passport
         case id
