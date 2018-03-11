@@ -13,7 +13,7 @@ protocol DashboardConnector {
     func didSelectUpload()
 }
 
-class DashboardFlow: BaseConncetor, FlowConnector, DashboardConnector {
+class DashboardFlow: Flow, Navigatable, DashboardConnector {
     typealias In = Void
     struct Out {
         static var settings = Transition<Void>("settings")

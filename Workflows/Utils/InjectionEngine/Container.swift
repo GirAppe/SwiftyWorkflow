@@ -22,17 +22,17 @@ protocol Container: Resolver, Assembly {
     var parent: Container? { get set }
     var registrations: [RegsteredInstance] { get set }
 
-    @discardableResult func register<T,Arg>(_ type: T.Type, factory: @escaping (Resolver,Arg) -> T) -> Registration<T,Arg>
+    @discardableResult func register<T,Arg>(_ type: T.Type, arg: Arg.Type, factory: @escaping (Resolver,Arg) -> T) -> Registration<T,Arg>
 }
 
 extension Container {
     @discardableResult func register<T>(_ type: T.Type, factory: @escaping (Resolver) -> T) -> Registration<T,Void> {
-        return register(type) { (resolver: Resolver, arg: Void) -> T in
+        return register(type, arg: Void.self) { (resolver: Resolver, arg: Void) -> T in
             return factory(resolver)
         }
     }
 
-    @discardableResult func register<T,Arg>(_ type: T.Type, factory: @escaping (Resolver,Arg) -> T) -> Registration<T,Arg> {
+    @discardableResult func register<T,Arg>(_ type: T.Type, arg: Arg.Type, factory: @escaping (Resolver,Arg) -> T) -> Registration<T,Arg> {
         let registration = Registration<T,Arg> { [unowned self] (argument) -> T in
             return factory(self, argument)
         }

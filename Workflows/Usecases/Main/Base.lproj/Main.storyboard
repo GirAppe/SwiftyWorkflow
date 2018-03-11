@@ -32,11 +32,17 @@
                                                     <constraint firstAttribute="width" secondItem="KAT-ma-wBE" secondAttribute="height" priority="999" id="t2v-3c-xhL"/>
                                                 </constraints>
                                                 <state key="normal" title="Upload"/>
+                                                <connections>
+                                                    <action selector="selectedUpload:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Md3-lp-qiG"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Agb-Qj-6sG">
                                                 <rect key="frame" x="175.5" y="0.0" width="167.5" height="167.5"/>
                                                 <color key="backgroundColor" white="0.93444010420000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Settings"/>
+                                                <connections>
+                                                    <action selector="selectedSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nKR-lo-M6v"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

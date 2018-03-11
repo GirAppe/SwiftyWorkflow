@@ -29,8 +29,22 @@ extension MainAssembly {
     }
 
     func assembleSettings(in container: Container) {
-        container.register(SettingsView.self) { _ in
-            return R.storyboard.settings.settingsViewController()!
+        container.register(SettingsView.self) { r in
+            let view = R.storyboard.settings.settingsViewController()!
+            view.presenter = r.resolve(SettingsPresenter.self)
+            return view
+        }
+
+        container.register(SettingsPresenter.self) { _ in
+            return SettingsPresenterConcrete()
+        }
+
+        container.register(SettingView.self) { _ in
+            return R.storyboard.settings.settingViewController()!
+        }
+
+        container.register(SettingPresenter.self, arg: Setting.self) { _, setting in
+            return SettingPresenterConcrete(setting: setting)
         }
     }
 }

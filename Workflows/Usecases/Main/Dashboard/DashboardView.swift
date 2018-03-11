@@ -17,4 +17,12 @@ class DashboardViewController: UIViewController, DashboardView {
     @IBOutlet weak var settingsButton: UIButton!
 
     var presenter: DashboardPresenter!
+
+    @IBAction func selectedUpload(_ sender: Any) {
+        presenter.didSelectUpload()
+    }
+
+    @IBAction func selectedSettings(_ sender: Any) {
+        presenter.didSelectSettings()
+    }
 }

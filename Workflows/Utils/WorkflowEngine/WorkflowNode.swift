@@ -1,49 +1,51 @@
 import Foundation
 
-class WorkflowNode<S: FlowConnector> {
+class WorkflowNode<S: Navigatable> {
     let id: ID = UUID().uuidString
     var name: String { return "<\(String(describing: S.self)) : \(id)>" }
-    private let registration: Workflow.Registration<S>
-    private var connectors: [String: Any] = [:]
+    fileprivate let registration: Workflow.Registration<S>
+    fileprivate var connectors: [String: Any] = [:]
 
     init(_ registration: Workflow.Registration<S>) {
         self.registration = registration
     }
 
     deinit {
-        debugPrint("Released \(name)")
+        debugPrint("[N] Released \(name)")
     }
 
     func resolve(with input: S.In) -> S {
-        debugPrint("Resolving \(name)")
+        debugPrint("[N] Resolving \(name)")
         let controller = registration.build(with: input)
         controller.flowNavigation = self
         return controller
     }
+}
 
-    func connect<New>(to node: WorkflowNode<New>, for transation: Transition<Void>, connector: @escaping (S,New) -> Void) where New.In == Void {
-        bridge(to: node, for: transation, bridge: { }, connector: connector)
+extension WorkflowNode {
+    func connect<New>(to node: WorkflowNode<New>, for transition: Transition<Void>, connector: @escaping (S,New) -> Void) where New.In == Void {
+        bridge(to: node, for: transition, bridge: { }, connector: connector)
     }
 
-    func connect<New, Arg>(to node: WorkflowNode<New>, for transation: Transition<Arg>, connector: @escaping (S,New) -> Void) where New.In == Arg {
-        bridge(to: node, for: transation, bridge: { $0 }, connector: connector)
+    func connect<New, Arg>(to node: WorkflowNode<New>, for transition: Transition<Arg>, connector: @escaping (S,New) -> Void) where New.In == Arg {
+        bridge(to: node, for: transition, bridge: { $0 }, connector: connector)
     }
 
-    func bridge<New, Arg>(to node: WorkflowNode<New>, for transation: Transition<Arg>, bridge: @escaping (Arg) -> New.In, connector: @escaping (S,New) -> Void) {
-        debugPrint("[\(name)] adding \(transation.name) to \(node.name)")
+    func bridge<New, Arg>(to node: WorkflowNode<New>, for transition: Transition<Arg>, bridge: @escaping (Arg) -> New.In, connector: @escaping (S,New) -> Void) {
+        debugPrint("[N] [\(name)] adding \(transition.name) to \(node.name)")
         let connect: (Arg,S) -> Void = { output, source in
             let input = bridge(output)
             let destination = node.resolve(with: input) // keep destination node alive
             connector(source, destination)
         }
-        connectors[transation.id] = connect
+        connectors[transition.id] = connect
     }
 
-    func end<F>(flow: F, with transition: Transition<Void>, outro: @escaping (F) -> Void) where F: WorkflowType, F: FlowConnector {
+    func end<F>(flow: F, with transition: Transition<Void>, outro: @escaping (F) -> Void) where F: WorkflowType, F: Navigatable {
         end(flow: flow, with: transition, outro: { flow, _ in outro(flow) })
     }
 
-    func end<F,Arg>(flow: F, with transition: Transition<Arg>, outro: @escaping (F,Arg) -> Void) where F: WorkflowType, F: FlowConnector {
+    func end<F,Arg>(flow: F, with transition: Transition<Arg>, outro: @escaping (F,Arg) -> Void) where F: WorkflowType, F: Navigatable {
         let ending: (Arg) -> Void = { argument in
             outro(flow, argument)
         }

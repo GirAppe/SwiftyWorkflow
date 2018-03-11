@@ -25,10 +25,10 @@ class DashboardPresenterConcrete: DashboardPresenter {
     }
 
     func didSelectUpload() {
-
+        connector.didSelectUpload()
     }
 
     func didSelectSettings() {
-
+        connector.didSelectSettings()
     }
 }

@@ -1,27 +1,40 @@
 import Foundation
 
+// MARK: - FlowContainer
 protocol FlowContainer: Container {
-    func setNode<S: FlowConnector>(_ type: S.Type, factory: @escaping (Resolver) -> S) -> WorkflowNode<S> where S.In == Void
-    func setNode<S: FlowConnector>(_ type: S.Type, input: S.In.Type, factory: @escaping (Resolver, S.In) -> S) -> WorkflowNode<S>
+    func addNode<S: Navigatable>(_ type: S.Type, factory: @escaping (Resolver) -> S) -> WorkflowNode<S> where S.In == Void
+    func addNode<S: Navigatable>(_ type: S.Type, input: S.In.Type, factory: @escaping (Resolver, S.In) -> S) -> WorkflowNode<S>
 }
 
 // MARK: - WorkflowType
-protocol WorkflowType {
-    // head flow
-    // maybe stack? need to be notified from Node to push to stack, but problem with pop will arise...
-}
+protocol WorkflowType { }
 
 // MARK: - Workflow
 /// Base Workflow class. All workflows should inhrit from it.
 class Workflow: FlowContainer, WorkflowType {
+    static var start = Transition<Void>()
+
     var nodes: [Any] = []
     var parent: Container?
     var registrations: [RegsteredInstance]  = []
+    var workflow: WorkflowType?
+
+    fileprivate var connectors: [String: Any] = [:]
     fileprivate var name: String { return String(describing: self) }
 
+    weak var view: ViewType!
+    weak var flowNavigation: NavigationProvider!
+
     init() {
+        if self is NavigationProvider {
+            flowNavigation = self as? NavigationProvider
+        }
         debugPrint("Init workflow: \(String(describing: self))")
         build()
+    }
+
+    deinit {
+        debugPrint("[W] Released \(String(describing: self))")
     }
 
     func build() {
@@ -33,39 +46,157 @@ class Workflow: FlowContainer, WorkflowType {
     }
 }
 
+// MARK: - Initial State and Start
+extension Navigatable where Self: Workflow {
+    /// Simple entry point, when transition matches workflow In, and flow is Void
+    ///
+    /// - Parameters:
+    ///   - node: initial node
+    ///   - transition: transition
+    ///   - connector: allows to specify main workflow view for this entrance
+    func setEntry<New>(_ node: WorkflowNode<New>, for transition: Transition<In>, connector: @escaping (In,New) -> ViewType) where New.In == Void {
+        bridgeEntry(node, for: transition, bridge: { _ in }, connector: connector)
+    }
+
+    /// Entry point, where transitions arguments matches flow input
+    ///
+    /// - Parameters:
+    ///   - node: initial node
+    ///   - transition: transition
+    ///   - connector: allows to specify main workflow view for this entrance
+    func setEntry<New,Arg>(_ node: WorkflowNode<New>, for transition: Transition<Arg>, connector: @escaping (Arg,New) -> ViewType) where New.In == Arg {
+        bridgeEntry(node, for: transition, bridge: { $0 }, connector: connector)
+    }
+
+    /// Entry point, when transition Arg and initial flow In do not match
+    ///
+    /// - Parameters:
+    ///   - node: initial node
+    ///   - transition: transition
+    ///   - bridge: transform transition arguments into flow input
+    ///   - connector: allows to specify main workflow view for this entrance
+    func bridgeEntry<New,Arg>(_ node: WorkflowNode<New>, for transition: Transition<Arg>, bridge: @escaping (Arg) -> New.In, connector: @escaping (Arg,New) -> ViewType) {
+        let intro: (Arg) -> ViewType = { [weak self] output in
+            let input = bridge(output)
+            let destination = node.resolve(with: input) // keep destination node alive
+            let view = connector(output, destination)   // connecor returns initial main view
+            self?.view = view                           // set the mani view for workflow
+            return view
+        }
+        connectors[transition.id] = intro
+        debugPrint("[\(String(describing: self))] adding initial \(node.name) for \(transition.name)")
+    }
+
+    /// Start workflow with argumetns from given transition.
+    ///
+    /// - Parameters:
+    ///   - transition: Entry transition
+    ///   - argument: Entry parameters
+    /// - Returns: Workflow main view
+    /// - Throws: TransitionError if not set or wronf type
+    @discardableResult func start<Arg>(from transition: Transition<Arg>, with argument: Arg) throws -> ViewType {
+        guard let registered = connectors[transition.id] else {
+            throw TransitionError.notSet
+        }
+
+        if let intro = registered as? (Arg) -> ViewType {
+            return intro(argument)
+        } else {
+            throw TransitionError.wrongType
+        }
+    }
+}
+
+extension Navigatable where Self: Workflow, In == Void {
+    /// Default entry point, where all transitions arguments are Void
+    ///
+    /// - Parameters:
+    ///   - node: initial node
+    ///   - connector: allows to specify main workflow view for this entrance
+    func setEntry<New>(_ node: WorkflowNode<New>, connector: @escaping (New) -> ViewType) where New.In == Void {
+        bridgeEntry(node, for: Workflow.start, bridge: { _ in }) { _, new -> ViewType in
+            return connector(new)
+        }
+    }
+
+    /// Simple entry point, where all transitions arguments are Void
+    ///
+    /// - Parameters:
+    ///   - node: initial node
+    ///   - transition: transition
+    ///   - connector: allows to specify main workflow view for this entrance
+    func setEntry<New>(_ node: WorkflowNode<New>, for transition: Transition<Void>, connector: @escaping (New) -> ViewType) where New.In == Void {
+        bridgeEntry(node, for: transition, bridge: { _ in }) { _, new -> ViewType in
+            return connector(new)
+        }
+    }
+
+    /// Start workflow with given transition.
+    ///
+    /// - Parameter transition: Entry Transition
+    /// - Returns: Workflow main view
+    /// - Throws: TransitionError if not set or wronf type
+    @discardableResult func start() throws -> ViewType {
+        return try start(from: Workflow.start, with: ())
+    }
+
+    /// Start workflow with given transition.
+    ///
+    /// - Parameter transition: Entry Transition
+    /// - Returns: Workflow main view
+    /// - Throws: TransitionError if not set or wronf type
+    @discardableResult func start(from transition: Transition<Void>) throws -> ViewType {
+        return try start(from: transition, with: ())
+    }
+}
+
 // MARK: - Registration
 extension Workflow {
-    class Registration<S: FlowConnector> {
+    class Registration<S: Navigatable> {
         private var factory: (S.In) -> S
         private var name: String { return String(describing: S.self) }
         weak private var instance: S?
 
         init(factory: @escaping (S.In) -> S) {
-            debugPrint("Registered connector for \(String(describing: S.self))")
+            debugPrint("[R] Registered connector for \(String(describing: S.self))")
             self.factory = factory
         }
 
         deinit {
-            debugPrint("Releasing registration for \(String(describing: S.self))")
+            debugPrint("[R] Releasing registration for \(String(describing: S.self))")
         }
 
         func build(with input: S.In) -> S {
-            debugPrint(instance != nil ? "Using existing instance of \(name)" : "Building new instance of \(name)")
+            debugPrint(instance != nil ? "[R] Using existing instance of \(name)" : "[R] Building new instance of \(name)")
             let resolved = instance ?? factory(input)
             instance = resolved
             return resolved
         }
     }
 
-    func setNode<S: FlowConnector>(_ type: S.Type, factory: @escaping (Resolver) -> S) -> WorkflowNode<S> where S.In == Void {
-        return setNode(type, input: S.In.self, factory: { (resolver, _) -> S in
+    /// Adds new node into graph. Node is strong referenced by a graph.
+    ///
+    /// - Parameters:
+    ///   - type: Node type, that will be wrapped in registration
+    ///   - factory: Transform In type into instance
+    /// - Returns: Node<Type>, as connectable instance. Can be used to connect top other instances
+    func addNode<S: Navigatable>(_ type: S.Type, factory: @escaping (Resolver) -> S) -> WorkflowNode<S> where S.In == Void {
+        return addNode(type, input: S.In.self, factory: { (resolver, _) -> S in
             return factory(resolver)
         })
     }
 
-    func setNode<S: FlowConnector>(_ type: S.Type, input: S.In.Type, factory: @escaping (Resolver, S.In) -> S) -> WorkflowNode<S> {
+    /// Adds new node into graph, that requires parameters. Node is strong referenced by a graph.
+    ///
+    /// - Parameters:
+    ///   - type: Node type, that will be wrapped in registration
+    ///   - input: Input type passed into factory
+    ///   - factory: Transform In type into instance
+    /// - Returns: Node<Type>, as connectable instance. Can be used to connect top other instances
+    func addNode<S: Navigatable>(_ type: S.Type, input: S.In.Type, factory: @escaping (Resolver, S.In) -> S) -> WorkflowNode<S> {
         let make: (S.In) -> S = { [unowned self] input in
             let instance = factory(self, input)
+            instance.workflow = self    // keep workflow around while flow is around
             if let container = instance as? Container {
                 container.assemble(in: self)
             }

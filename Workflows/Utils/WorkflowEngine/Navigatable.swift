@@ -1,21 +1,18 @@
 import Foundation
 
-// MARK: - FlowConnector
-protocol AnyFlowConnector: class {
+protocol Navigatable: class {
+    associatedtype In
+    associatedtype Out
+
     weak var view: ViewType! { get }
-    /// Set automatically by WorkflowEngine - do not set manually!!!
     weak var flowNavigation: NavigationProvider! { get set }
+    var workflow: WorkflowType? { get set }
 
     func perform(_ transition: Transition<Void>)
     func perform<Arg>(_ transition: Transition<Arg>, with argument: Arg)
 }
 
-protocol FlowConnector: AnyFlowConnector {
-    associatedtype In
-    associatedtype Out
-}
-
-extension FlowConnector {
+extension Navigatable {
     func perform(_ transition: Transition<Void>) {
         perform(transition, with: ())
     }
@@ -23,14 +20,8 @@ extension FlowConnector {
         do {
             try flowNavigation?.move(transition, with: argument, from: self)
         } catch {
-            debugPrint("Transition failed: \(String(describing: error))")
-            assertionFailure("Transition failed: \(String(describing: error))")
+            debugPrint("[T] Transition \(transition.name) failed: \(String(describing: error))")
+            assertionFailure("Transition \(transition.name) failed: \(String(describing: error))")
         }
     }
-}
-
-// MARK: - Helper
-class BaseConncetor {
-    weak var view: ViewType!
-    weak var flowNavigation: NavigationProvider!
 }

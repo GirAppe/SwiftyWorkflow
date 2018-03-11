@@ -10,7 +10,7 @@
 		453637B403F452CB3F26DBEC /* Pods_WorkflowsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68802B71D0B66A8E04404D56 /* Pods_WorkflowsTests.framework */; };
 		C786AD855AB4DFE10AB742F5 /* Pods_Workflows.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3DD0B1801E71437C68D908 /* Pods_Workflows.framework */; };
 		CC91A573205403FA006AA59D /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC91A572205403FA006AA59D /* Container.swift */; };
-		CC91A579205420E2006AA59D /* FlowConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC91A578205420E2006AA59D /* FlowConnector.swift */; };
+		CC91A579205420E2006AA59D /* Navigatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC91A578205420E2006AA59D /* Navigatable.swift */; };
 		CC9D2F1920542640004952FA /* Assembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F1820542640004952FA /* Assembler.swift */; };
 		CC9D2F1C205429A5004952FA /* Sequence+FlatMapFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F1B205429A5004952FA /* Sequence+FlatMapFirst.swift */; };
 		CC9D2F2020542C58004952FA /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F1F20542C58004952FA /* R.generated.swift */; };
@@ -20,15 +20,19 @@
 		CC9D2F2C20543869004952FA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F2B20543869004952FA /* SettingsView.swift */; };
 		CC9D2F2E20543870004952FA /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F2D20543870004952FA /* SettingsPresenter.swift */; };
 		CC9D2F302054388F004952FA /* LanguageConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F2F2054388F004952FA /* LanguageConnector.swift */; };
-		CC9D2F322054389D004952FA /* SwitchConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F312054389D004952FA /* SwitchConnector.swift */; };
+		CC9D2F322054389D004952FA /* SettingsFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F312054389D004952FA /* SettingsFlow.swift */; };
 		CC9D2F3420544F92004952FA /* Splash.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC9D2F3320544F92004952FA /* Splash.xib */; };
 		CC9D2F3720544FD1004952FA /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F3620544FD1004952FA /* Splash.swift */; };
 		CC9D2F3A20545512004952FA /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F3920545512004952FA /* DashboardView.swift */; };
 		CC9D2F3C2054551C004952FA /* DashboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F3B2054551C004952FA /* DashboardPresenter.swift */; };
-		CC9D2F3E20545528004952FA /* DashboardConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F3D20545528004952FA /* DashboardConnector.swift */; };
+		CC9D2F3E20545528004952FA /* DashboardFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F3D20545528004952FA /* DashboardFlow.swift */; };
 		CC9D2F4020546432004952FA /* MainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F3F20546432004952FA /* MainAssembly.swift */; };
 		CC9D2F4220546ADF004952FA /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F4120546ADF004952FA /* Window.swift */; };
 		CC9D2F4420546B2E004952FA /* UIWindow+Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F4320546B2E004952FA /* UIWindow+Window.swift */; };
+		CC9D2F48205490BC004952FA /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F47205490BC004952FA /* SettingView.swift */; };
+		CC9D2F4A20549145004952FA /* SettingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F4920549145004952FA /* SettingPresenter.swift */; };
+		CC9D2F4C20549339004952FA /* SettingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F4B20549339004952FA /* SettingFlow.swift */; };
+		CC9D2F4E205558D0004952FA /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F4D205558D0004952FA /* Flow.swift */; };
 		CCFE62D420534040000B057B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE62D320534040000B057B /* AppDelegate.swift */; };
 		CCFE62D620534040000B057B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE62D520534040000B057B /* ViewController.swift */; };
 		CCFE62D920534040000B057B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCFE62D720534040000B057B /* Main.storyboard */; };
@@ -61,7 +65,7 @@
 		AEDAD6DD94C86989550412AB /* Pods-WorkflowsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkflowsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WorkflowsTests/Pods-WorkflowsTests.release.xcconfig"; sourceTree = "<group>"; };
 		BEDD15D32AAE7D2185688CBC /* Pods-Workflows.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workflows.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Workflows/Pods-Workflows.debug.xcconfig"; sourceTree = "<group>"; };
 		CC91A572205403FA006AA59D /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
-		CC91A578205420E2006AA59D /* FlowConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowConnector.swift; sourceTree = "<group>"; };
+		CC91A578205420E2006AA59D /* Navigatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigatable.swift; sourceTree = "<group>"; };
 		CC9D2F1820542640004952FA /* Assembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembler.swift; sourceTree = "<group>"; };
 		CC9D2F1B205429A5004952FA /* Sequence+FlatMapFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+FlatMapFirst.swift"; sourceTree = "<group>"; };
 		CC9D2F1F20542C58004952FA /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
@@ -71,15 +75,19 @@
 		CC9D2F2B20543869004952FA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		CC9D2F2D20543870004952FA /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		CC9D2F2F2054388F004952FA /* LanguageConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageConnector.swift; sourceTree = "<group>"; };
-		CC9D2F312054389D004952FA /* SwitchConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchConnector.swift; sourceTree = "<group>"; };
+		CC9D2F312054389D004952FA /* SettingsFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFlow.swift; sourceTree = "<group>"; };
 		CC9D2F3320544F92004952FA /* Splash.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Splash.xib; sourceTree = "<group>"; };
 		CC9D2F3620544FD1004952FA /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
 		CC9D2F3920545512004952FA /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		CC9D2F3B2054551C004952FA /* DashboardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPresenter.swift; sourceTree = "<group>"; };
-		CC9D2F3D20545528004952FA /* DashboardConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardConnector.swift; sourceTree = "<group>"; };
+		CC9D2F3D20545528004952FA /* DashboardFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardFlow.swift; sourceTree = "<group>"; };
 		CC9D2F3F20546432004952FA /* MainAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembly.swift; sourceTree = "<group>"; };
 		CC9D2F4120546ADF004952FA /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		CC9D2F4320546B2E004952FA /* UIWindow+Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Window.swift"; sourceTree = "<group>"; };
+		CC9D2F47205490BC004952FA /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		CC9D2F4920549145004952FA /* SettingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPresenter.swift; sourceTree = "<group>"; };
+		CC9D2F4B20549339004952FA /* SettingFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingFlow.swift; sourceTree = "<group>"; };
+		CC9D2F4D205558D0004952FA /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
 		CCFE62D020534040000B057B /* Workflows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workflows.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFE62D320534040000B057B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCFE62D520534040000B057B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -141,7 +149,8 @@
 		CC91A57420542065006AA59D /* WorkflowEngine */ = {
 			isa = PBXGroup;
 			children = (
-				CC91A578205420E2006AA59D /* FlowConnector.swift */,
+				CC91A578205420E2006AA59D /* Navigatable.swift */,
+				CC9D2F4D205558D0004952FA /* Flow.swift */,
 				CCFE62F7205340AD000B057B /* Workflow.swift */,
 				CCFE62FD205355A3000B057B /* WorkflowNode.swift */,
 				CCFE62F320534078000B057B /* Transition.swift */,
@@ -212,10 +221,10 @@
 			isa = PBXGroup;
 			children = (
 				CCFE62D720534040000B057B /* Main.storyboard */,
-				CC9D2F3820545503004952FA /* Dashboard */,
-				CC9D2F3520544FC7004952FA /* Splash */,
 				CC9D2F2520542E00004952FA /* ApplicationWorkflow.swift */,
 				CC9D2F3F20546432004952FA /* MainAssembly.swift */,
+				CC9D2F3820545503004952FA /* Dashboard */,
+				CC9D2F3520544FC7004952FA /* Splash */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -233,10 +242,11 @@
 			children = (
 				CC9D2F2720543845004952FA /* Settings.storyboard */,
 				CC9D2F292054385D004952FA /* SettingsWorkflow.swift */,
-				CC9D2F2B20543869004952FA /* SettingsView.swift */,
+				CC9D2F312054389D004952FA /* SettingsFlow.swift */,
 				CC9D2F2D20543870004952FA /* SettingsPresenter.swift */,
-				CC9D2F2F2054388F004952FA /* LanguageConnector.swift */,
-				CC9D2F312054389D004952FA /* SwitchConnector.swift */,
+				CC9D2F2B20543869004952FA /* SettingsView.swift */,
+				CC9D2F46205490B1004952FA /* Setting */,
+				CC9D2F4520548ED8004952FA /* EnableEmailNotifications */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -253,11 +263,29 @@
 		CC9D2F3820545503004952FA /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				CC9D2F3920545512004952FA /* DashboardView.swift */,
+				CC9D2F3D20545528004952FA /* DashboardFlow.swift */,
 				CC9D2F3B2054551C004952FA /* DashboardPresenter.swift */,
-				CC9D2F3D20545528004952FA /* DashboardConnector.swift */,
+				CC9D2F3920545512004952FA /* DashboardView.swift */,
 			);
 			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		CC9D2F4520548ED8004952FA /* EnableEmailNotifications */ = {
+			isa = PBXGroup;
+			children = (
+				CC9D2F2F2054388F004952FA /* LanguageConnector.swift */,
+			);
+			path = EnableEmailNotifications;
+			sourceTree = "<group>";
+		};
+		CC9D2F46205490B1004952FA /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				CC9D2F4B20549339004952FA /* SettingFlow.swift */,
+				CC9D2F4920549145004952FA /* SettingPresenter.swift */,
+				CC9D2F47205490BC004952FA /* SettingView.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		CCFE62C720534040000B057B = {
@@ -537,11 +565,12 @@
 				CC9D2F4420546B2E004952FA /* UIWindow+Window.swift in Sources */,
 				CC9D2F4220546ADF004952FA /* Window.swift in Sources */,
 				CCFE62D620534040000B057B /* ViewController.swift in Sources */,
-				CC9D2F3E20545528004952FA /* DashboardConnector.swift in Sources */,
+				CC9D2F3E20545528004952FA /* DashboardFlow.swift in Sources */,
 				CCFE62FC20534858000B057B /* UploadWorkflow.swift in Sources */,
 				CC9D2F2E20543870004952FA /* SettingsPresenter.swift in Sources */,
+				CC9D2F4A20549145004952FA /* SettingPresenter.swift in Sources */,
 				CC9D2F1C205429A5004952FA /* Sequence+FlatMapFirst.swift in Sources */,
-				CC91A579205420E2006AA59D /* FlowConnector.swift in Sources */,
+				CC91A579205420E2006AA59D /* Navigatable.swift in Sources */,
 				CC9D2F2620542E00004952FA /* ApplicationWorkflow.swift in Sources */,
 				CCFE62F620534095000B057B /* ViewType.swift in Sources */,
 				CC9D2F2020542C58004952FA /* R.generated.swift in Sources */,
@@ -553,12 +582,15 @@
 				CCFE62D420534040000B057B /* AppDelegate.swift in Sources */,
 				CCFE62F8205340AD000B057B /* Workflow.swift in Sources */,
 				CC9D2F3720544FD1004952FA /* Splash.swift in Sources */,
+				CC9D2F4E205558D0004952FA /* Flow.swift in Sources */,
 				CCFE62FE205355A3000B057B /* WorkflowNode.swift in Sources */,
+				CC9D2F48205490BC004952FA /* SettingView.swift in Sources */,
 				CC9D2F3C2054551C004952FA /* DashboardPresenter.swift in Sources */,
 				CC9D2F2A2054385D004952FA /* SettingsWorkflow.swift in Sources */,
 				CC91A573205403FA006AA59D /* Container.swift in Sources */,
-				CC9D2F322054389D004952FA /* SwitchConnector.swift in Sources */,
+				CC9D2F322054389D004952FA /* SettingsFlow.swift in Sources */,
 				CCFE62FA205340C3000B057B /* UIViewController+ViewType.swift in Sources */,
+				CC9D2F4C20549339004952FA /* SettingFlow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -49,8 +49,11 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 0 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `SettingsTTableViewCell`.
+    static let settingsTTableViewCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "SettingsTTableViewCell")
+    
     fileprivate init() {}
   }
   
@@ -160,7 +163,12 @@ struct _R: Rswift.Validatable {
     struct settings: Rswift.StoryboardResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "Settings"
+      let settingViewController = StoryboardViewControllerResource<SettingViewController>(identifier: "SettingViewController")
       let settingsViewController = StoryboardViewControllerResource<SettingsViewController>(identifier: "SettingsViewController")
+      
+      func settingViewController(_: Void = ()) -> SettingViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: settingViewController)
+      }
       
       func settingsViewController(_: Void = ()) -> SettingsViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: settingsViewController)
@@ -168,6 +176,7 @@ struct _R: Rswift.Validatable {
       
       static func validate() throws {
         if _R.storyboard.settings().settingsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'settingsViewController' could not be loaded from storyboard 'Settings' as 'SettingsViewController'.") }
+        if _R.storyboard.settings().settingViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'settingViewController' could not be loaded from storyboard 'Settings' as 'SettingViewController'.") }
       }
       
       fileprivate init() {}
