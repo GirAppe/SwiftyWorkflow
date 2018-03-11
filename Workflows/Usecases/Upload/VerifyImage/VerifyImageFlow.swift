@@ -17,10 +17,12 @@ protocol VerifyImageConnector {
 
 class VerifyImageFlow: Flow, Navigatable, VerifyImageConnector {
     typealias In = UIImage
-    struct Out {
-        static var ok = Workflow.end
-        static var cancel = Workflow.cancel
-        static var tryAgain = Transition<DocumentType>()
+    class Out: FlowTransition {
+        static var ok = Out(Void.self)
+        static var cancel = Out(Void.self)
+        static var tryAgain = Out(Void.self)
+
+        init<T>(_ type: T.Type) { super.init(type) }
     }
 
     var type: DocumentType!
@@ -36,14 +38,14 @@ class VerifyImageFlow: Flow, Navigatable, VerifyImageConnector {
     }
 
     func didVerify() {
-        perform(Out.ok)
+        perform(.ok)
     }
 
     func didSelectTryAgain() {
-        perform(Out.tryAgain, with: type)
+        perform(.tryAgain)
     }
 
     func didSelectCancelUpload() {
-        perform(Out.cancel)
+        perform(.cancel)
     }
 }

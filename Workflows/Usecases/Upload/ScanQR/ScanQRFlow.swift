@@ -15,9 +15,11 @@ protocol ScanQRConnector {
 
 class ScanQRFlow: Flow, Navigatable, ScanQRConnector {
     typealias In = Void
-    struct Out {
-        static var ok = Transition<DocumentType>()
-        static var cancel = Workflow.cancel
+    class Out: FlowTransition {
+        static var ok = Out(DocumentType.self)
+        static var cancel = Out(Void.self)
+        
+        init<T>(_ type: T.Type) { super.init(type) }
     }
 
     init(resolver: Resolver) {
@@ -31,10 +33,10 @@ class ScanQRFlow: Flow, Navigatable, ScanQRConnector {
     }
 
     func didScan(document type: DocumentType) {
-        perform(Out.ok, with: type)
+        perform(.ok, with: type)
     }
 
     func didSelectCancelUpload() {
-        perform(Out.cancel)
+        perform(.cancel)
     }
 }

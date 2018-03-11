@@ -13,7 +13,7 @@ protocol SettingConnector {
 
 class SettingFlow: Flow, Navigatable, SettingConnector {
     typealias In = Setting
-    typealias Out = Void
+    class Out: FlowTransition { }
 
     init(resolver: Resolver, setting: Setting) {
         super.init()

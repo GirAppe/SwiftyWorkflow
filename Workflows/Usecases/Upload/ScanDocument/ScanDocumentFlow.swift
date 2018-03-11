@@ -22,9 +22,11 @@ protocol ScanDocumentConnector {
 
 class ScanDocumentFlow: Flow, Navigatable, ScanDocumentConnector {
     typealias In = DocumentType
-    struct Out {
-        static var ok = Transition<UIImage>()
-        static var cancel = Workflow.cancel
+    class Out: FlowTransition {
+        static var ok = Out(UIImage.self)
+        static var cancel = Out(Void.self)
+
+        init<T>(_ type: T.Type) { super.init(type) }
     }
 
     var type: DocumentType
@@ -41,10 +43,10 @@ class ScanDocumentFlow: Flow, Navigatable, ScanDocumentConnector {
     }
 
     func didScan(document image: UIImage) {
-        perform(Out.ok, with: image)
+        perform(.ok, with: image)
     }
 
     func didSelectCancelUpload() {
-        perform(Out.cancel)
+        perform(.cancel)
     }
 }

@@ -16,9 +16,11 @@ protocol SettingsConnector {
 
 class SettingsFlow: Flow, Navigatable, SettingsConnector {
     typealias In = Void
-    struct Out {
-        static var cancel = Transition<Void>("cancel")
-        static var setting = Transition<Setting>("setSettings")
+    class Out: FlowTransition {
+        static var cancel = Out(Void.self)
+        static var setting = Out(Setting.self)
+
+        init<T>(_ type: T.Type) { super.init(type) }
     }
     
     init(resolver: Resolver) {
@@ -29,10 +31,10 @@ class SettingsFlow: Flow, Navigatable, SettingsConnector {
     }
 
     func didCancel() {
-        perform(Out.cancel)
+        perform(.cancel)
     }
 
     func didSelect(setting: Setting) {
-        perform(Out.setting, with: setting)
+        perform(.setting, with: setting)
     }
 }

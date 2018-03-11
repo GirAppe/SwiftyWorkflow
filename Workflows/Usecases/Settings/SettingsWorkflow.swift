@@ -17,29 +17,22 @@ enum Setting: String {
 
 class SettingsWorkflow: Workflow, Navigatable {
     typealias In = Void
-    typealias Out = Void
-    struct Entry {
-        static var showSetting = Transition<Setting>()
+    class Out: FlowTransition { }
+
+    override weak var view: ViewType! {
+        get { return super.view ?? self.start() }
+        set { super.view = newValue }
+    }
+
+    init(resolver: Resolver) {
+        super.init()
     }
 
     override func build() {
-        let allSettings = addNode(SettingsFlow.self) { r in
-            return SettingsFlow(resolver: r)
-        }
+        let allSettings = add(SettingsFlow.self, factory: SettingsFlow.init)
+        let setting = add(SettingFlow.self, input: Setting.self, factory: SettingFlow.init)
 
-        let setting = addNode(SettingFlow.self, input: Setting.self) { r, setting in
-            return SettingFlow(resolver: r, setting: setting)
-        }
-
-        // conncet
-        allSettings.connect(to: setting, for: SettingsFlow.Out.setting) { (allSettings, setting) in
-            allSettings.view.push(setting.view, animated: true)
-        }
-
-        // Entry points
-        setEntry(allSettings)
-        setEntry(setting, for: Entry.showSetting) { (setting, flow) -> ViewType in
-            return flow.view
-        }
+        starts(with: allSettings)
+        allSettings.on(.setting, push: setting, animated: true)
     }
 }

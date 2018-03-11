@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func start() {
         setupAssembly()
         self.window = UIWindow()
-        main.start(with: ApplicationWorkflow.Start.fromDashboard, and: window!)
+        main.start(with: window!)
     }
 
     func setupAssembly() {
