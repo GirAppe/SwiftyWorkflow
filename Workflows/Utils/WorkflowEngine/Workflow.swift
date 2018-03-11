@@ -94,15 +94,20 @@ extension Navigatable where Self: Workflow {
     ///   - argument: Entry parameters
     /// - Returns: Workflow main view
     /// - Throws: TransitionError if not set or wronf type
-    @discardableResult func start<Arg>(from transition: Transition<Arg>, with argument: Arg) throws -> ViewType {
-        guard let registered = connectors[transition.id] else {
-            throw TransitionError.notSet
-        }
+    @discardableResult func start<Arg>(with transition: Transition<Arg>, and argument: Arg) -> ViewType {
+        do {
+            guard let registered = connectors[transition.id] else {
+                throw TransitionError.notSet
+            }
 
-        if let intro = registered as? (Arg) -> ViewType {
-            return intro(argument)
-        } else {
-            throw TransitionError.wrongType
+            if let intro = registered as? (Arg) -> ViewType {
+                return intro(argument)
+            } else {
+                throw TransitionError.wrongType
+            }
+        } catch {
+            debugPrint("[W] Start error in \(name): \(String(describing: error)) for \(transition.name)")
+            fatalError("[W] Start error in \(name): \(String(describing: error)) for \(transition.name)")
         }
     }
 }
@@ -136,8 +141,8 @@ extension Navigatable where Self: Workflow, In == Void {
     /// - Parameter transition: Entry Transition
     /// - Returns: Workflow main view
     /// - Throws: TransitionError if not set or wronf type
-    @discardableResult func start() throws -> ViewType {
-        return try start(from: Workflow.start, with: ())
+    @discardableResult func start() -> ViewType {
+        return start(with: Workflow.start, and: ())
     }
 
     /// Start workflow with given transition.
@@ -145,8 +150,8 @@ extension Navigatable where Self: Workflow, In == Void {
     /// - Parameter transition: Entry Transition
     /// - Returns: Workflow main view
     /// - Throws: TransitionError if not set or wronf type
-    @discardableResult func start(from transition: Transition<Void>) throws -> ViewType {
-        return try start(from: transition, with: ())
+    @discardableResult func start(with transition: Transition<Void>) -> ViewType {
+        return start(with: transition, and: ())
     }
 }
 

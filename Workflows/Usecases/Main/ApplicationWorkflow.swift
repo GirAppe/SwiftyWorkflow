@@ -36,7 +36,7 @@ class ApplicationWorkflow: Workflow, Navigatable {
         }
 
         dashboard.connect(to: settings, for: DashboardFlow.Out.settings) { (dashboard, settingsFlow) in
-            let view = try! settingsFlow.start(from: Workflow.start)
+            let view = settingsFlow.start(with: Workflow.start)
             dashboard.view.push(view, animated: true)
         }
     }
