@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyWorkflow
 
 protocol DashboardConnector {
     func didSelectSettings()

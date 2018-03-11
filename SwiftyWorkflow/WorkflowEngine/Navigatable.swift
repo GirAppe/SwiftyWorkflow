@@ -1,6 +1,6 @@
 import Foundation
 
-protocol Navigatable: class {
+public protocol Navigatable: class {
     associatedtype In
     associatedtype Out
 
@@ -12,11 +12,11 @@ protocol Navigatable: class {
     func perform<Arg>(_ transition: Transition<Arg>, with argument: Arg)
 }
 
-extension Navigatable {
-    func perform(_ transition: Transition<Void>) {
+public extension Navigatable {
+    public func perform(_ transition: Transition<Void>) {
         perform(transition, with: ())
     }
-    func perform<Arg>(_ transition: Transition<Arg>, with argument: Arg) {
+    public func perform<Arg>(_ transition: Transition<Arg>, with argument: Arg) {
         do {
             try flowNavigation?.move(transition, with: argument, from: self)
         } catch {

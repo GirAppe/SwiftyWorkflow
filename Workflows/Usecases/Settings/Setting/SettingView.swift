@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyWorkflow
 
 protocol SettingView: ViewType {
     var presenter: SettingPresenter! { get set }

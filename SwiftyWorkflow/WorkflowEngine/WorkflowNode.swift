@@ -1,6 +1,6 @@
 import Foundation
 
-class WorkflowNode<S: Navigatable> {
+public class WorkflowNode<S: Navigatable> {
     let id: ID = UUID().uuidString
     var name: String { return "<\(String(describing: S.self)) : \(id)>" }
     fileprivate let registration: Workflow.Registration<S>
@@ -22,16 +22,16 @@ class WorkflowNode<S: Navigatable> {
     }
 }
 
-extension WorkflowNode {
-    func connect<New>(to node: WorkflowNode<New>, for transition: Transition<Void>, connector: @escaping (S,New) -> Void) where New.In == Void {
+public extension WorkflowNode {
+    public func connect<New>(to node: WorkflowNode<New>, for transition: Transition<Void>, connector: @escaping (S,New) -> Void) where New.In == Void {
         bridge(to: node, for: transition, bridge: { }, connector: connector)
     }
 
-    func connect<New, Arg>(to node: WorkflowNode<New>, for transition: Transition<Arg>, connector: @escaping (S,New) -> Void) where New.In == Arg {
+    public func connect<New, Arg>(to node: WorkflowNode<New>, for transition: Transition<Arg>, connector: @escaping (S,New) -> Void) where New.In == Arg {
         bridge(to: node, for: transition, bridge: { $0 }, connector: connector)
     }
 
-    func bridge<New, Arg>(to node: WorkflowNode<New>, for transition: Transition<Arg>, bridge: @escaping (Arg) -> New.In, connector: @escaping (S,New) -> Void) {
+    public func bridge<New, Arg>(to node: WorkflowNode<New>, for transition: Transition<Arg>, bridge: @escaping (Arg) -> New.In, connector: @escaping (S,New) -> Void) {
         debugPrint("[N] [\(name)] adding \(transition.name) to \(node.name)")
         let connect: (Arg,S) -> Void = { output, source in
             let input = bridge(output)
@@ -41,11 +41,11 @@ extension WorkflowNode {
         connectors[transition.id] = connect
     }
 
-    func end<F>(flow: F, with transition: Transition<Void>, outro: @escaping (F) -> Void) where F: WorkflowType, F: Navigatable {
+    public func end<F>(flow: F, with transition: Transition<Void>, outro: @escaping (F) -> Void) where F: WorkflowType, F: Navigatable {
         end(flow: flow, with: transition, outro: { flow, _ in outro(flow) })
     }
 
-    func end<F,Arg>(flow: F, with transition: Transition<Arg>, outro: @escaping (F,Arg) -> Void) where F: WorkflowType, F: Navigatable {
+    public func end<F,Arg>(flow: F, with transition: Transition<Arg>, outro: @escaping (F,Arg) -> Void) where F: WorkflowType, F: Navigatable {
         let ending: (Arg) -> Void = { argument in
             outro(flow, argument)
         }
@@ -55,11 +55,11 @@ extension WorkflowNode {
 
 // MARK: - NavigationProvider
 extension WorkflowNode: NavigationProvider{
-    func move<S>(_ transition: Transition<Void>, from source: S) throws {
+    public func move<S>(_ transition: Transition<Void>, from source: S) throws {
         try move(transition, with: (), from: source)
     }
 
-    func move<Arg,S>(_ transition: Transition<Arg>, with argument: Arg, from source: S) throws {
+    public func move<Arg,S>(_ transition: Transition<Arg>, with argument: Arg, from source: S) throws {
         guard let registered = connectors[transition.id] else {
             throw TransitionError.notSet
         }

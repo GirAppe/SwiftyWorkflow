@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyWorkflow
 
 protocol DashboardView: ViewType {
     var presenter: DashboardPresenter! { get set }

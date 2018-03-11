@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		453637B403F452CB3F26DBEC /* Pods_WorkflowsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68802B71D0B66A8E04404D56 /* Pods_WorkflowsTests.framework */; };
 		C786AD855AB4DFE10AB742F5 /* Pods_Workflows.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3DD0B1801E71437C68D908 /* Pods_Workflows.framework */; };
-		CC91A573205403FA006AA59D /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC91A572205403FA006AA59D /* Container.swift */; };
-		CC91A579205420E2006AA59D /* Navigatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC91A578205420E2006AA59D /* Navigatable.swift */; };
-		CC9D2F1920542640004952FA /* Assembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F1820542640004952FA /* Assembler.swift */; };
-		CC9D2F1C205429A5004952FA /* Sequence+FlatMapFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F1B205429A5004952FA /* Sequence+FlatMapFirst.swift */; };
 		CC9D2F2020542C58004952FA /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F1F20542C58004952FA /* R.generated.swift */; };
 		CC9D2F2620542E00004952FA /* ApplicationWorkflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F2520542E00004952FA /* ApplicationWorkflow.swift */; };
 		CC9D2F2820543845004952FA /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC9D2F2720543845004952FA /* Settings.storyboard */; };
@@ -27,27 +23,58 @@
 		CC9D2F3C2054551C004952FA /* DashboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F3B2054551C004952FA /* DashboardPresenter.swift */; };
 		CC9D2F3E20545528004952FA /* DashboardFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F3D20545528004952FA /* DashboardFlow.swift */; };
 		CC9D2F4020546432004952FA /* MainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F3F20546432004952FA /* MainAssembly.swift */; };
-		CC9D2F4220546ADF004952FA /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F4120546ADF004952FA /* Window.swift */; };
-		CC9D2F4420546B2E004952FA /* UIWindow+Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F4320546B2E004952FA /* UIWindow+Window.swift */; };
 		CC9D2F48205490BC004952FA /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F47205490BC004952FA /* SettingView.swift */; };
 		CC9D2F4A20549145004952FA /* SettingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F4920549145004952FA /* SettingPresenter.swift */; };
 		CC9D2F4C20549339004952FA /* SettingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F4B20549339004952FA /* SettingFlow.swift */; };
-		CC9D2F4E205558D0004952FA /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F4D205558D0004952FA /* Flow.swift */; };
+		CCD082CD205579AB00CC66E5 /* SwiftyWorkflow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD082C4205579AB00CC66E5 /* SwiftyWorkflow.framework */; };
+		CCD082D4205579AB00CC66E5 /* SwiftyWorkflowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD082D3205579AB00CC66E5 /* SwiftyWorkflowTests.swift */; };
+		CCD082D6205579AB00CC66E5 /* SwiftyWorkflow.h in Headers */ = {isa = PBXBuildFile; fileRef = CCD082C6205579AB00CC66E5 /* SwiftyWorkflow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CCD082D9205579AB00CC66E5 /* SwiftyWorkflow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCD082C4205579AB00CC66E5 /* SwiftyWorkflow.framework */; };
+		CCD082DA205579AB00CC66E5 /* SwiftyWorkflow.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CCD082C4205579AB00CC66E5 /* SwiftyWorkflow.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CCD082F3205579DB00CC66E5 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD082E3205579DB00CC66E5 /* Resolver.swift */; };
+		CCD082F4205579DB00CC66E5 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD082E4205579DB00CC66E5 /* Container.swift */; };
+		CCD082F5205579DB00CC66E5 /* Assembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD082E5205579DB00CC66E5 /* Assembler.swift */; };
+		CCD082F6205579DB00CC66E5 /* Sequence+FlatMapFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD082E7205579DB00CC66E5 /* Sequence+FlatMapFirst.swift */; };
+		CCD082F7205579DB00CC66E5 /* ViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD082E9205579DB00CC66E5 /* ViewType.swift */; };
+		CCD082F8205579DB00CC66E5 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD082EA205579DB00CC66E5 /* Window.swift */; };
+		CCD082F9205579DB00CC66E5 /* UIViewController+ViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD082EB205579DB00CC66E5 /* UIViewController+ViewType.swift */; };
+		CCD082FA205579DB00CC66E5 /* UIWindow+Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD082EC205579DB00CC66E5 /* UIWindow+Window.swift */; };
+		CCD082FB205579DB00CC66E5 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD082EE205579DB00CC66E5 /* Flow.swift */; };
+		CCD082FC205579DB00CC66E5 /* Workflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD082EF205579DB00CC66E5 /* Workflow.swift */; };
+		CCD082FD205579DB00CC66E5 /* WorkflowNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD082F0205579DB00CC66E5 /* WorkflowNode.swift */; };
+		CCD082FE205579DB00CC66E5 /* Navigatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD082F1205579DB00CC66E5 /* Navigatable.swift */; };
+		CCD082FF205579DB00CC66E5 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD082F2205579DB00CC66E5 /* Transition.swift */; };
 		CCFE62D420534040000B057B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE62D320534040000B057B /* AppDelegate.swift */; };
 		CCFE62D620534040000B057B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE62D520534040000B057B /* ViewController.swift */; };
 		CCFE62D920534040000B057B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCFE62D720534040000B057B /* Main.storyboard */; };
 		CCFE62DB20534040000B057B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCFE62DA20534040000B057B /* Assets.xcassets */; };
 		CCFE62DE20534040000B057B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCFE62DC20534040000B057B /* LaunchScreen.storyboard */; };
 		CCFE62E920534040000B057B /* WorkflowsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE62E820534040000B057B /* WorkflowsTests.swift */; };
-		CCFE62F420534078000B057B /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE62F320534078000B057B /* Transition.swift */; };
-		CCFE62F620534095000B057B /* ViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE62F520534095000B057B /* ViewType.swift */; };
-		CCFE62F8205340AD000B057B /* Workflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE62F7205340AD000B057B /* Workflow.swift */; };
-		CCFE62FA205340C3000B057B /* UIViewController+ViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE62F9205340C3000B057B /* UIViewController+ViewType.swift */; };
 		CCFE62FC20534858000B057B /* UploadWorkflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE62FB20534858000B057B /* UploadWorkflow.swift */; };
-		CCFE62FE205355A3000B057B /* WorkflowNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE62FD205355A3000B057B /* WorkflowNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CCD082CE205579AB00CC66E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CCFE62C820534040000B057B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CCD082C3205579AB00CC66E5;
+			remoteInfo = SwiftyWorkflow;
+		};
+		CCD082D0205579AB00CC66E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CCFE62C820534040000B057B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CCFE62CF20534040000B057B;
+			remoteInfo = Workflows;
+		};
+		CCD082D7205579AB00CC66E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CCFE62C820534040000B057B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CCD082C3205579AB00CC66E5;
+			remoteInfo = SwiftyWorkflow;
+		};
 		CCFE62E520534040000B057B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CCFE62C820534040000B057B /* Project object */;
@@ -57,6 +84,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		CCD082DE205579AC00CC66E5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CCD082DA205579AB00CC66E5 /* SwiftyWorkflow.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		13C16ED8D8C63D30E19E512B /* Pods-WorkflowsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkflowsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WorkflowsTests/Pods-WorkflowsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2C3DD0B1801E71437C68D908 /* Pods_Workflows.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Workflows.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,10 +105,6 @@
 		97C1916E701C5AACC79AA918 /* Pods-Workflows.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workflows.release.xcconfig"; path = "Pods/Target Support Files/Pods-Workflows/Pods-Workflows.release.xcconfig"; sourceTree = "<group>"; };
 		AEDAD6DD94C86989550412AB /* Pods-WorkflowsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkflowsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WorkflowsTests/Pods-WorkflowsTests.release.xcconfig"; sourceTree = "<group>"; };
 		BEDD15D32AAE7D2185688CBC /* Pods-Workflows.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workflows.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Workflows/Pods-Workflows.debug.xcconfig"; sourceTree = "<group>"; };
-		CC91A572205403FA006AA59D /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
-		CC91A578205420E2006AA59D /* Navigatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigatable.swift; sourceTree = "<group>"; };
-		CC9D2F1820542640004952FA /* Assembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembler.swift; sourceTree = "<group>"; };
-		CC9D2F1B205429A5004952FA /* Sequence+FlatMapFirst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+FlatMapFirst.swift"; sourceTree = "<group>"; };
 		CC9D2F1F20542C58004952FA /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		CC9D2F2520542E00004952FA /* ApplicationWorkflow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationWorkflow.swift; sourceTree = "<group>"; };
 		CC9D2F2720543845004952FA /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -82,12 +119,28 @@
 		CC9D2F3B2054551C004952FA /* DashboardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPresenter.swift; sourceTree = "<group>"; };
 		CC9D2F3D20545528004952FA /* DashboardFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardFlow.swift; sourceTree = "<group>"; };
 		CC9D2F3F20546432004952FA /* MainAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembly.swift; sourceTree = "<group>"; };
-		CC9D2F4120546ADF004952FA /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
-		CC9D2F4320546B2E004952FA /* UIWindow+Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Window.swift"; sourceTree = "<group>"; };
 		CC9D2F47205490BC004952FA /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		CC9D2F4920549145004952FA /* SettingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPresenter.swift; sourceTree = "<group>"; };
 		CC9D2F4B20549339004952FA /* SettingFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingFlow.swift; sourceTree = "<group>"; };
-		CC9D2F4D205558D0004952FA /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
+		CCD082C4205579AB00CC66E5 /* SwiftyWorkflow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyWorkflow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCD082C6205579AB00CC66E5 /* SwiftyWorkflow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftyWorkflow.h; sourceTree = "<group>"; };
+		CCD082C7205579AB00CC66E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCD082CC205579AB00CC66E5 /* SwiftyWorkflowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftyWorkflowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCD082D3205579AB00CC66E5 /* SwiftyWorkflowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyWorkflowTests.swift; sourceTree = "<group>"; };
+		CCD082D5205579AB00CC66E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCD082E3205579DB00CC66E5 /* Resolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
+		CCD082E4205579DB00CC66E5 /* Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		CCD082E5205579DB00CC66E5 /* Assembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assembler.swift; sourceTree = "<group>"; };
+		CCD082E7205579DB00CC66E5 /* Sequence+FlatMapFirst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+FlatMapFirst.swift"; sourceTree = "<group>"; };
+		CCD082E9205579DB00CC66E5 /* ViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewType.swift; sourceTree = "<group>"; };
+		CCD082EA205579DB00CC66E5 /* Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
+		CCD082EB205579DB00CC66E5 /* UIViewController+ViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+ViewType.swift"; sourceTree = "<group>"; };
+		CCD082EC205579DB00CC66E5 /* UIWindow+Window.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Window.swift"; sourceTree = "<group>"; };
+		CCD082EE205579DB00CC66E5 /* Flow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
+		CCD082EF205579DB00CC66E5 /* Workflow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workflow.swift; sourceTree = "<group>"; };
+		CCD082F0205579DB00CC66E5 /* WorkflowNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkflowNode.swift; sourceTree = "<group>"; };
+		CCD082F1205579DB00CC66E5 /* Navigatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigatable.swift; sourceTree = "<group>"; };
+		CCD082F2205579DB00CC66E5 /* Transition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		CCFE62D020534040000B057B /* Workflows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workflows.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFE62D320534040000B057B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCFE62D520534040000B057B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,20 +151,31 @@
 		CCFE62E420534040000B057B /* WorkflowsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkflowsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFE62E820534040000B057B /* WorkflowsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkflowsTests.swift; sourceTree = "<group>"; };
 		CCFE62EA20534040000B057B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CCFE62F320534078000B057B /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
-		CCFE62F520534095000B057B /* ViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewType.swift; sourceTree = "<group>"; };
-		CCFE62F7205340AD000B057B /* Workflow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workflow.swift; sourceTree = "<group>"; };
-		CCFE62F9205340C3000B057B /* UIViewController+ViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ViewType.swift"; sourceTree = "<group>"; };
 		CCFE62FB20534858000B057B /* UploadWorkflow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadWorkflow.swift; sourceTree = "<group>"; };
-		CCFE62FD205355A3000B057B /* WorkflowNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkflowNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CCD082C0205579AB00CC66E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCD082C9205579AB00CC66E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCD082CD205579AB00CC66E5 /* SwiftyWorkflow.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CCFE62CD20534040000B057B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C786AD855AB4DFE10AB742F5 /* Pods_Workflows.framework in Frameworks */,
+				CCD082D9205579AB00CC66E5 /* SwiftyWorkflow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,57 +208,6 @@
 				AEDAD6DD94C86989550412AB /* Pods-WorkflowsTests.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		CC91A57420542065006AA59D /* WorkflowEngine */ = {
-			isa = PBXGroup;
-			children = (
-				CC91A578205420E2006AA59D /* Navigatable.swift */,
-				CC9D2F4D205558D0004952FA /* Flow.swift */,
-				CCFE62F7205340AD000B057B /* Workflow.swift */,
-				CCFE62FD205355A3000B057B /* WorkflowNode.swift */,
-				CCFE62F320534078000B057B /* Transition.swift */,
-			);
-			path = WorkflowEngine;
-			sourceTree = "<group>";
-		};
-		CC91A57520542077006AA59D /* InjectionEngine */ = {
-			isa = PBXGroup;
-			children = (
-				CC91A572205403FA006AA59D /* Container.swift */,
-				CC9D2F1820542640004952FA /* Assembler.swift */,
-			);
-			path = InjectionEngine;
-			sourceTree = "<group>";
-		};
-		CC91A57620542086006AA59D /* Routing */ = {
-			isa = PBXGroup;
-			children = (
-				CCFE62F520534095000B057B /* ViewType.swift */,
-				CC9D2F4120546ADF004952FA /* Window.swift */,
-				CCFE62F9205340C3000B057B /* UIViewController+ViewType.swift */,
-				CC9D2F4320546B2E004952FA /* UIWindow+Window.swift */,
-			);
-			path = Routing;
-			sourceTree = "<group>";
-		};
-		CC91A577205420B9006AA59D /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				CC9D2F1A20542997004952FA /* Categories */,
-				CC91A57420542065006AA59D /* WorkflowEngine */,
-				CC91A57520542077006AA59D /* InjectionEngine */,
-				CC91A57620542086006AA59D /* Routing */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		CC9D2F1A20542997004952FA /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				CC9D2F1B205429A5004952FA /* Sequence+FlatMapFirst.swift */,
-			);
-			path = Categories;
 			sourceTree = "<group>";
 		};
 		CC9D2F1E20542C58004952FA /* Resources */ = {
@@ -288,11 +301,76 @@
 			path = Setting;
 			sourceTree = "<group>";
 		};
+		CCD082C5205579AB00CC66E5 /* SwiftyWorkflow */ = {
+			isa = PBXGroup;
+			children = (
+				CCD082E6205579DB00CC66E5 /* Categories */,
+				CCD082E2205579DB00CC66E5 /* InjectionEngine */,
+				CCD082E8205579DB00CC66E5 /* Routing */,
+				CCD082ED205579DB00CC66E5 /* WorkflowEngine */,
+				CCD082C6205579AB00CC66E5 /* SwiftyWorkflow.h */,
+				CCD082C7205579AB00CC66E5 /* Info.plist */,
+			);
+			path = SwiftyWorkflow;
+			sourceTree = "<group>";
+		};
+		CCD082D2205579AB00CC66E5 /* SwiftyWorkflowTests */ = {
+			isa = PBXGroup;
+			children = (
+				CCD082D3205579AB00CC66E5 /* SwiftyWorkflowTests.swift */,
+				CCD082D5205579AB00CC66E5 /* Info.plist */,
+			);
+			path = SwiftyWorkflowTests;
+			sourceTree = "<group>";
+		};
+		CCD082E2205579DB00CC66E5 /* InjectionEngine */ = {
+			isa = PBXGroup;
+			children = (
+				CCD082E3205579DB00CC66E5 /* Resolver.swift */,
+				CCD082E4205579DB00CC66E5 /* Container.swift */,
+				CCD082E5205579DB00CC66E5 /* Assembler.swift */,
+			);
+			path = InjectionEngine;
+			sourceTree = "<group>";
+		};
+		CCD082E6205579DB00CC66E5 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				CCD082E7205579DB00CC66E5 /* Sequence+FlatMapFirst.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		CCD082E8205579DB00CC66E5 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				CCD082E9205579DB00CC66E5 /* ViewType.swift */,
+				CCD082EA205579DB00CC66E5 /* Window.swift */,
+				CCD082EB205579DB00CC66E5 /* UIViewController+ViewType.swift */,
+				CCD082EC205579DB00CC66E5 /* UIWindow+Window.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		CCD082ED205579DB00CC66E5 /* WorkflowEngine */ = {
+			isa = PBXGroup;
+			children = (
+				CCD082EE205579DB00CC66E5 /* Flow.swift */,
+				CCD082EF205579DB00CC66E5 /* Workflow.swift */,
+				CCD082F0205579DB00CC66E5 /* WorkflowNode.swift */,
+				CCD082F1205579DB00CC66E5 /* Navigatable.swift */,
+				CCD082F2205579DB00CC66E5 /* Transition.swift */,
+			);
+			path = WorkflowEngine;
+			sourceTree = "<group>";
+		};
 		CCFE62C720534040000B057B = {
 			isa = PBXGroup;
 			children = (
 				CCFE62D220534040000B057B /* Workflows */,
 				CCFE62E720534040000B057B /* WorkflowsTests */,
+				CCD082C5205579AB00CC66E5 /* SwiftyWorkflow */,
+				CCD082D2205579AB00CC66E5 /* SwiftyWorkflowTests */,
 				CCFE62D120534040000B057B /* Products */,
 				C186D20EBB6EC6C6C1156F95 /* Pods */,
 				249074B1C96507BBC4F87C28 /* Frameworks */,
@@ -304,6 +382,8 @@
 			children = (
 				CCFE62D020534040000B057B /* Workflows.app */,
 				CCFE62E420534040000B057B /* WorkflowsTests.xctest */,
+				CCD082C4205579AB00CC66E5 /* SwiftyWorkflow.framework */,
+				CCD082CC205579AB00CC66E5 /* SwiftyWorkflowTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -312,7 +392,6 @@
 			isa = PBXGroup;
 			children = (
 				CC9D2F2120542C5E004952FA /* Usecases */,
-				CC91A577205420B9006AA59D /* Utils */,
 				CC9D2F1E20542C58004952FA /* Resources */,
 				CCFE62D320534040000B057B /* AppDelegate.swift */,
 				CCFE62D520534040000B057B /* ViewController.swift */,
@@ -332,7 +411,55 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		CCD082C1205579AB00CC66E5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCD082D6205579AB00CC66E5 /* SwiftyWorkflow.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		CCD082C3205579AB00CC66E5 /* SwiftyWorkflow */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCD082DB205579AC00CC66E5 /* Build configuration list for PBXNativeTarget "SwiftyWorkflow" */;
+			buildPhases = (
+				CCD082BF205579AB00CC66E5 /* Sources */,
+				CCD082C0205579AB00CC66E5 /* Frameworks */,
+				CCD082C1205579AB00CC66E5 /* Headers */,
+				CCD082C2205579AB00CC66E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftyWorkflow;
+			productName = SwiftyWorkflow;
+			productReference = CCD082C4205579AB00CC66E5 /* SwiftyWorkflow.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CCD082CB205579AB00CC66E5 /* SwiftyWorkflowTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCD082DF205579AC00CC66E5 /* Build configuration list for PBXNativeTarget "SwiftyWorkflowTests" */;
+			buildPhases = (
+				CCD082C8205579AB00CC66E5 /* Sources */,
+				CCD082C9205579AB00CC66E5 /* Frameworks */,
+				CCD082CA205579AB00CC66E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CCD082CF205579AB00CC66E5 /* PBXTargetDependency */,
+				CCD082D1205579AB00CC66E5 /* PBXTargetDependency */,
+			);
+			name = SwiftyWorkflowTests;
+			productName = SwiftyWorkflowTests;
+			productReference = CCD082CC205579AB00CC66E5 /* SwiftyWorkflowTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		CCFE62CF20534040000B057B /* Workflows */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CCFE62ED20534040000B057B /* Build configuration list for PBXNativeTarget "Workflows" */;
@@ -344,10 +471,12 @@
 				CCFE62CE20534040000B057B /* Resources */,
 				C214A7644318019CF5C87530 /* [CP] Embed Pods Frameworks */,
 				DEFD3A1CA9FC265E574BCB31 /* [CP] Copy Pods Resources */,
+				CCD082DE205579AC00CC66E5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CCD082D8205579AB00CC66E5 /* PBXTargetDependency */,
 			);
 			name = Workflows;
 			productName = Workflows;
@@ -385,6 +514,15 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Andrzej Michnia";
 				TargetAttributes = {
+					CCD082C3205579AB00CC66E5 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					CCD082CB205579AB00CC66E5 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = CCFE62CF20534040000B057B;
+					};
 					CCFE62CF20534040000B057B = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -411,11 +549,27 @@
 			targets = (
 				CCFE62CF20534040000B057B /* Workflows */,
 				CCFE62E320534040000B057B /* WorkflowsTests */,
+				CCD082C3205579AB00CC66E5 /* SwiftyWorkflow */,
+				CCD082CB205579AB00CC66E5 /* SwiftyWorkflowTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CCD082C2205579AB00CC66E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCD082CA205579AB00CC66E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CCFE62CE20534040000B057B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -557,39 +711,55 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CCD082BF205579AB00CC66E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCD082F3205579DB00CC66E5 /* Resolver.swift in Sources */,
+				CCD082FA205579DB00CC66E5 /* UIWindow+Window.swift in Sources */,
+				CCD082FE205579DB00CC66E5 /* Navigatable.swift in Sources */,
+				CCD082F5205579DB00CC66E5 /* Assembler.swift in Sources */,
+				CCD082FD205579DB00CC66E5 /* WorkflowNode.swift in Sources */,
+				CCD082F7205579DB00CC66E5 /* ViewType.swift in Sources */,
+				CCD082FF205579DB00CC66E5 /* Transition.swift in Sources */,
+				CCD082FC205579DB00CC66E5 /* Workflow.swift in Sources */,
+				CCD082F9205579DB00CC66E5 /* UIViewController+ViewType.swift in Sources */,
+				CCD082F4205579DB00CC66E5 /* Container.swift in Sources */,
+				CCD082FB205579DB00CC66E5 /* Flow.swift in Sources */,
+				CCD082F6205579DB00CC66E5 /* Sequence+FlatMapFirst.swift in Sources */,
+				CCD082F8205579DB00CC66E5 /* Window.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CCD082C8205579AB00CC66E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCD082D4205579AB00CC66E5 /* SwiftyWorkflowTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CCFE62CC20534040000B057B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCFE62F420534078000B057B /* Transition.swift in Sources */,
-				CC9D2F4420546B2E004952FA /* UIWindow+Window.swift in Sources */,
-				CC9D2F4220546ADF004952FA /* Window.swift in Sources */,
 				CCFE62D620534040000B057B /* ViewController.swift in Sources */,
 				CC9D2F3E20545528004952FA /* DashboardFlow.swift in Sources */,
 				CCFE62FC20534858000B057B /* UploadWorkflow.swift in Sources */,
 				CC9D2F2E20543870004952FA /* SettingsPresenter.swift in Sources */,
 				CC9D2F4A20549145004952FA /* SettingPresenter.swift in Sources */,
-				CC9D2F1C205429A5004952FA /* Sequence+FlatMapFirst.swift in Sources */,
-				CC91A579205420E2006AA59D /* Navigatable.swift in Sources */,
 				CC9D2F2620542E00004952FA /* ApplicationWorkflow.swift in Sources */,
-				CCFE62F620534095000B057B /* ViewType.swift in Sources */,
 				CC9D2F2020542C58004952FA /* R.generated.swift in Sources */,
 				CC9D2F4020546432004952FA /* MainAssembly.swift in Sources */,
-				CC9D2F1920542640004952FA /* Assembler.swift in Sources */,
 				CC9D2F3A20545512004952FA /* DashboardView.swift in Sources */,
 				CC9D2F2C20543869004952FA /* SettingsView.swift in Sources */,
 				CC9D2F302054388F004952FA /* LanguageConnector.swift in Sources */,
 				CCFE62D420534040000B057B /* AppDelegate.swift in Sources */,
-				CCFE62F8205340AD000B057B /* Workflow.swift in Sources */,
 				CC9D2F3720544FD1004952FA /* Splash.swift in Sources */,
-				CC9D2F4E205558D0004952FA /* Flow.swift in Sources */,
-				CCFE62FE205355A3000B057B /* WorkflowNode.swift in Sources */,
 				CC9D2F48205490BC004952FA /* SettingView.swift in Sources */,
 				CC9D2F3C2054551C004952FA /* DashboardPresenter.swift in Sources */,
 				CC9D2F2A2054385D004952FA /* SettingsWorkflow.swift in Sources */,
-				CC91A573205403FA006AA59D /* Container.swift in Sources */,
 				CC9D2F322054389D004952FA /* SettingsFlow.swift in Sources */,
-				CCFE62FA205340C3000B057B /* UIViewController+ViewType.swift in Sources */,
 				CC9D2F4C20549339004952FA /* SettingFlow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -605,6 +775,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		CCD082CF205579AB00CC66E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CCD082C3205579AB00CC66E5 /* SwiftyWorkflow */;
+			targetProxy = CCD082CE205579AB00CC66E5 /* PBXContainerItemProxy */;
+		};
+		CCD082D1205579AB00CC66E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CCFE62CF20534040000B057B /* Workflows */;
+			targetProxy = CCD082D0205579AB00CC66E5 /* PBXContainerItemProxy */;
+		};
+		CCD082D8205579AB00CC66E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CCD082C3205579AB00CC66E5 /* SwiftyWorkflow */;
+			targetProxy = CCD082D7205579AB00CC66E5 /* PBXContainerItemProxy */;
+		};
 		CCFE62E620534040000B057B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CCFE62CF20534040000B057B /* Workflows */;
@@ -632,6 +817,86 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		CCD082DC205579AC00CC66E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = YYAKJ5SR76;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SwiftyWorkflow/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.makeAWishFoundation.SwiftyWorkflow;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CCD082DD205579AC00CC66E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = YYAKJ5SR76;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SwiftyWorkflow/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.makeAWishFoundation.SwiftyWorkflow;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CCD082E0205579AC00CC66E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YYAKJ5SR76;
+				INFOPLIST_FILE = SwiftyWorkflowTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.makeAWishFoundation.SwiftyWorkflowTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Workflows.app/Workflows";
+			};
+			name = Debug;
+		};
+		CCD082E1205579AC00CC66E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YYAKJ5SR76;
+				INFOPLIST_FILE = SwiftyWorkflowTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.makeAWishFoundation.SwiftyWorkflowTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Workflows.app/Workflows";
+			};
+			name = Release;
+		};
 		CCFE62EB20534040000B057B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -743,6 +1008,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BEDD15D32AAE7D2185688CBC /* Pods-Workflows.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YYAKJ5SR76;
@@ -759,6 +1025,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 97C1916E701C5AACC79AA918 /* Pods-Workflows.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YYAKJ5SR76;
@@ -810,6 +1077,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CCD082DB205579AC00CC66E5 /* Build configuration list for PBXNativeTarget "SwiftyWorkflow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCD082DC205579AC00CC66E5 /* Debug */,
+				CCD082DD205579AC00CC66E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CCD082DF205579AC00CC66E5 /* Build configuration list for PBXNativeTarget "SwiftyWorkflowTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCD082E0205579AC00CC66E5 /* Debug */,
+				CCD082E1205579AC00CC66E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CCFE62CB20534040000B057B /* Build configuration list for PBXProject "Workflows" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

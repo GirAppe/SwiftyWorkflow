@@ -3,14 +3,14 @@ import UIKit.UIImage
 
 typealias ID = String
 
-struct Transition<A> {
+public struct Transition<A> {
     let id: String
 
-    init() {
+    public init() {
         self.id = UUID().uuidString
     }
 
-    init(_ id: String) {
+    public init(_ id: String) {
         self.id = id
     }
 }
@@ -19,12 +19,12 @@ extension Transition {
     var name: String { return "-- \(String(describing: A.self)) -- \(id) -->" }
 }
 
-protocol NavigationProvider: class {
+public protocol NavigationProvider: class {
     func move<S>(_ transition: Transition<Void>, from source: S) throws
     func move<Arg,S>(_ transition: Transition<Arg>, with argument: Arg, from source: S) throws
 }
 
-enum TransitionError: Error {
+public enum TransitionError: Error {
     case notSet
     case wrongType
 }

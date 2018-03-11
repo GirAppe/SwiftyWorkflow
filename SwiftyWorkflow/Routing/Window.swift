@@ -1,6 +1,6 @@
 import Foundation
 
-protocol Window: class {
+public protocol Window: class {
     var rootView: ViewType? { get set }
     func makeKeyAndVisible()
 }

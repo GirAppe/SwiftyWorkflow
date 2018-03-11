@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwiftyWorkflow
 
 class ApplicationWorkflow: Workflow, Navigatable {
     typealias In = Window

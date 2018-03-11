@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyWorkflow
 
 class MainAssembly: Assembly {
     func assemble(in parent: Container) {

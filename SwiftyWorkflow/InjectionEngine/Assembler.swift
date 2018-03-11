@@ -1,18 +1,24 @@
 import Foundation
 
-class Assembler: Container {
-    var parent: Container?
-    var registrations: [RegsteredInstance] = []
+// MARK: - Assembly
+public protocol Assembly {
+    func assemble(in parent: Container)
+}
 
-    init(_ assemblies: [Assembly]) {
+// MARK: - Assembler
+public class Assembler: Container {
+    public var parent: Container?
+    public var registrations: [RegsteredInstance] = []
+
+    public init(_ assemblies: [Assembly]) {
         assemblies.forEach { $0.assemble(in: self) }
     }
 
-    func assemble(in parent: Container) {
+    public func assemble(in parent: Container) {
         self.parent = parent
     }
 
-    func resolve<T,Arg>(_ type: T.Type, with argument: Arg) -> T! {
+    public func resolve<T,Arg>(_ type: T.Type, with argument: Arg) -> T! {
         return parent?.resolve(type, with: argument) ?? self.registration(type, Arg.self)?.resolve(with: argument)
     }
 

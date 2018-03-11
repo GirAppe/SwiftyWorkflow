@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyWorkflow
 
 enum Setting: String {
     case enableEmailNotifications
@@ -19,12 +20,6 @@ class SettingsWorkflow: Workflow, Navigatable {
     typealias Out = Void
     struct Entry {
         static var showSetting = Transition<Setting>()
-    }
-
-    var main: WorkflowNode<SettingsFlow>!
-    override var view: ViewType! {
-        get { return main.resolve(with: ()).view ?? super.view }
-        set { super.view = newValue }
     }
 
     override func build() {
@@ -47,7 +42,5 @@ class SettingsWorkflow: Workflow, Navigatable {
         setEntry(setting, for: Entry.showSetting) { (setting, flow) -> ViewType in
             return flow.view
         }
-
-        self.main = allSettings
     }
 }
