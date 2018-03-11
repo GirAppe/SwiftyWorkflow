@@ -6,7 +6,7 @@
 //  Copyright © 2018 Andrzej Michnia. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for SwiftyWorkflow.
 FOUNDATION_EXPORT double SwiftyWorkflowVersionNumber;

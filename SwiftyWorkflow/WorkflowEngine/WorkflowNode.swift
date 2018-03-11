@@ -23,10 +23,6 @@ public class WorkflowNode<S: Navigatable> {
 }
 
 public extension WorkflowNode {
-    public func connect<New>(to node: WorkflowNode<New>, for transition: Transition<Void>, connector: @escaping (S,New) -> Void) where New.In == Void {
-        bridge(to: node, for: transition, bridge: { }, connector: connector)
-    }
-
     public func connect<New, Arg>(to node: WorkflowNode<New>, for transition: Transition<Arg>, connector: @escaping (S,New) -> Void) where New.In == Arg {
         bridge(to: node, for: transition, bridge: { $0 }, connector: connector)
     }
@@ -41,11 +37,31 @@ public extension WorkflowNode {
         connectors[transition.id] = connect
     }
 
-    public func end<F>(flow: F, with transition: Transition<Void>, outro: @escaping (F) -> Void) where F: WorkflowType, F: Navigatable {
-        end(flow: flow, with: transition, outro: { flow, _ in outro(flow) })
+    public func end<F>(flow: F) where F: WorkflowType, F: Navigatable {
+        finish(flow: flow, with: Workflow.end, outro: { flow, _ in
+            flow.perform(Workflow.end)
+        })
     }
 
-    public func end<F,Arg>(flow: F, with transition: Transition<Arg>, outro: @escaping (F,Arg) -> Void) where F: WorkflowType, F: Navigatable {
+    public func end<F>(flow: F, outro: @escaping (F) -> Void) where F: WorkflowType, F: Navigatable {
+        finish(flow: flow, with: Workflow.end, outro: { flow, _ in outro(flow) })
+    }
+
+    public func cancel<F>(flow: F) where F: WorkflowType, F: Navigatable {
+        finish(flow: flow, with: Workflow.cancel, outro: { flow, _ in
+            flow.perform(Workflow.cancel)
+        })
+    }
+
+    public func cancel<F>(flow: F, outro: @escaping (F) -> Void) where F: WorkflowType, F: Navigatable {
+        finish(flow: flow, with: Workflow.cancel, outro: { flow, _ in outro(flow) })
+    }
+
+    public func finish<F>(flow: F, with transition: Transition<Void>, outro: @escaping (F) -> Void) where F: WorkflowType, F: Navigatable {
+        finish(flow: flow, with: transition, outro: { flow, _ in outro(flow) })
+    }
+
+    public func finish<F,Arg>(flow: F, with transition: Transition<Arg>, outro: @escaping (F,Arg) -> Void) where F: WorkflowType, F: Navigatable {
         let ending: (Arg) -> Void = { argument in
             outro(flow, argument)
         }

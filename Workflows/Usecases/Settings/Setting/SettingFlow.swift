@@ -6,7 +6,6 @@
 //  Copyright © 2018 Andrzej Michnia. All rights reserved.
 //
 
-import Foundation
 import SwiftyWorkflow
 
 protocol SettingConnector {

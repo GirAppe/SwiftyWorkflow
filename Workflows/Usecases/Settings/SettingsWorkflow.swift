@@ -31,14 +31,13 @@ class SettingsWorkflow: Workflow, Navigatable {
             return SettingFlow(resolver: r, setting: setting)
         }
 
-        setEntry(allSettings) { flow -> ViewType in
-            return flow.view
-        }
-
+        // conncet
         allSettings.connect(to: setting, for: SettingsFlow.Out.setting) { (allSettings, setting) in
             allSettings.view.push(setting.view, animated: true)
         }
 
+        // Entry points
+        setEntry(allSettings)
         setEntry(setting, for: Entry.showSetting) { (setting, flow) -> ViewType in
             return flow.view
         }

@@ -1,5 +1,4 @@
 import Foundation
-import UIKit.UIImage
 
 typealias ID = String
 

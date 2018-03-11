@@ -30,6 +30,10 @@ class ApplicationWorkflow: Workflow, Navigatable {
             return SettingsWorkflow()
         }
 
+        let upload = addNode(UploadWorkflow.self) { _ in
+            return UploadWorkflow()
+        }
+
         setEntry(dashboard, for: Start.fromDashboard) { (window, dashboard) in
             window.rootView = dashboard.view.wrappedInNavigation()
             window.makeKeyAndVisible()
@@ -39,6 +43,20 @@ class ApplicationWorkflow: Workflow, Navigatable {
         dashboard.connect(to: settings, for: DashboardFlow.Out.settings) { (dashboard, settingsFlow) in
             let view = settingsFlow.start(with: Workflow.start)
             dashboard.view.push(view, animated: true)
+        }
+
+        // Upload
+        dashboard.connect(to: upload, for: DashboardFlow.Out.upload) { dashboard, upload in
+            let view = upload.start().wrappedInNavigation()
+            dashboard.view.present(view, animated: true)
+        }
+
+        upload.connect(to: dashboard, for: Workflow.end) { _, dashboard in
+            dashboard.view.dismiss(animated: true)
+        }
+
+        upload.connect(to: dashboard, for: Workflow.cancel) { _, dashboard in
+            dashboard.view.dismiss(animated: true)
         }
     }
 }

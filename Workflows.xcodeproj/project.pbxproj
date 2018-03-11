@@ -15,7 +15,6 @@
 		CC9D2F2A2054385D004952FA /* SettingsWorkflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F292054385D004952FA /* SettingsWorkflow.swift */; };
 		CC9D2F2C20543869004952FA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F2B20543869004952FA /* SettingsView.swift */; };
 		CC9D2F2E20543870004952FA /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F2D20543870004952FA /* SettingsPresenter.swift */; };
-		CC9D2F302054388F004952FA /* LanguageConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F2F2054388F004952FA /* LanguageConnector.swift */; };
 		CC9D2F322054389D004952FA /* SettingsFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F312054389D004952FA /* SettingsFlow.swift */; };
 		CC9D2F3420544F92004952FA /* Splash.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC9D2F3320544F92004952FA /* Splash.xib */; };
 		CC9D2F3720544FD1004952FA /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F3620544FD1004952FA /* Splash.swift */; };
@@ -44,6 +43,16 @@
 		CCD082FD205579DB00CC66E5 /* WorkflowNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD082F0205579DB00CC66E5 /* WorkflowNode.swift */; };
 		CCD082FE205579DB00CC66E5 /* Navigatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD082F1205579DB00CC66E5 /* Navigatable.swift */; };
 		CCD082FF205579DB00CC66E5 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD082F2205579DB00CC66E5 /* Transition.swift */; };
+		CCD0830120557DDC00CC66E5 /* Upload.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCD0830020557DDC00CC66E5 /* Upload.storyboard */; };
+		CCD0830620557E3100CC66E5 /* ScanQRFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD0830520557E3100CC66E5 /* ScanQRFlow.swift */; };
+		CCD0830820557E3D00CC66E5 /* ScanQRPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD0830720557E3D00CC66E5 /* ScanQRPresenter.swift */; };
+		CCD0830A20557E4500CC66E5 /* ScanQRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD0830920557E4500CC66E5 /* ScanQRView.swift */; };
+		CCD0830C20557E5300CC66E5 /* ScanDocumentFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD0830B20557E5300CC66E5 /* ScanDocumentFlow.swift */; };
+		CCD0830E20557E5C00CC66E5 /* ScanDocumentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD0830D20557E5C00CC66E5 /* ScanDocumentPresenter.swift */; };
+		CCD0831020557E6D00CC66E5 /* ScanDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD0830F20557E6D00CC66E5 /* ScanDocumentView.swift */; };
+		CCD0831220557E7700CC66E5 /* VerifyImageFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD0831120557E7700CC66E5 /* VerifyImageFlow.swift */; };
+		CCD0831420557E8900CC66E5 /* VerifyImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD0831320557E8900CC66E5 /* VerifyImagePresenter.swift */; };
+		CCD0831620557E9400CC66E5 /* VerifyImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD0831520557E9400CC66E5 /* VerifyImageView.swift */; };
 		CCFE62D420534040000B057B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE62D320534040000B057B /* AppDelegate.swift */; };
 		CCFE62D620534040000B057B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFE62D520534040000B057B /* ViewController.swift */; };
 		CCFE62D920534040000B057B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCFE62D720534040000B057B /* Main.storyboard */; };
@@ -111,7 +120,6 @@
 		CC9D2F292054385D004952FA /* SettingsWorkflow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWorkflow.swift; sourceTree = "<group>"; };
 		CC9D2F2B20543869004952FA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		CC9D2F2D20543870004952FA /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
-		CC9D2F2F2054388F004952FA /* LanguageConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageConnector.swift; sourceTree = "<group>"; };
 		CC9D2F312054389D004952FA /* SettingsFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFlow.swift; sourceTree = "<group>"; };
 		CC9D2F3320544F92004952FA /* Splash.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Splash.xib; sourceTree = "<group>"; };
 		CC9D2F3620544FD1004952FA /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
@@ -141,6 +149,16 @@
 		CCD082F0205579DB00CC66E5 /* WorkflowNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkflowNode.swift; sourceTree = "<group>"; };
 		CCD082F1205579DB00CC66E5 /* Navigatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigatable.swift; sourceTree = "<group>"; };
 		CCD082F2205579DB00CC66E5 /* Transition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
+		CCD0830020557DDC00CC66E5 /* Upload.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Upload.storyboard; sourceTree = "<group>"; };
+		CCD0830520557E3100CC66E5 /* ScanQRFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRFlow.swift; sourceTree = "<group>"; };
+		CCD0830720557E3D00CC66E5 /* ScanQRPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRPresenter.swift; sourceTree = "<group>"; };
+		CCD0830920557E4500CC66E5 /* ScanQRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRView.swift; sourceTree = "<group>"; };
+		CCD0830B20557E5300CC66E5 /* ScanDocumentFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDocumentFlow.swift; sourceTree = "<group>"; };
+		CCD0830D20557E5C00CC66E5 /* ScanDocumentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDocumentPresenter.swift; sourceTree = "<group>"; };
+		CCD0830F20557E6D00CC66E5 /* ScanDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDocumentView.swift; sourceTree = "<group>"; };
+		CCD0831120557E7700CC66E5 /* VerifyImageFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyImageFlow.swift; sourceTree = "<group>"; };
+		CCD0831320557E8900CC66E5 /* VerifyImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyImagePresenter.swift; sourceTree = "<group>"; };
+		CCD0831520557E9400CC66E5 /* VerifyImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyImageView.swift; sourceTree = "<group>"; };
 		CCFE62D020534040000B057B /* Workflows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workflows.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCFE62D320534040000B057B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCFE62D520534040000B057B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -245,7 +263,11 @@
 		CC9D2F2320542C8E004952FA /* Upload */ = {
 			isa = PBXGroup;
 			children = (
+				CCD0830020557DDC00CC66E5 /* Upload.storyboard */,
 				CCFE62FB20534858000B057B /* UploadWorkflow.swift */,
+				CCD0830220557DE700CC66E5 /* ScanQR */,
+				CCD0830320557DF600CC66E5 /* ScanDocument */,
+				CCD0830420557E0900CC66E5 /* VerifyImage */,
 			);
 			path = Upload;
 			sourceTree = "<group>";
@@ -259,7 +281,6 @@
 				CC9D2F2D20543870004952FA /* SettingsPresenter.swift */,
 				CC9D2F2B20543869004952FA /* SettingsView.swift */,
 				CC9D2F46205490B1004952FA /* Setting */,
-				CC9D2F4520548ED8004952FA /* EnableEmailNotifications */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -283,14 +304,6 @@
 			path = Dashboard;
 			sourceTree = "<group>";
 		};
-		CC9D2F4520548ED8004952FA /* EnableEmailNotifications */ = {
-			isa = PBXGroup;
-			children = (
-				CC9D2F2F2054388F004952FA /* LanguageConnector.swift */,
-			);
-			path = EnableEmailNotifications;
-			sourceTree = "<group>";
-		};
 		CC9D2F46205490B1004952FA /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,10 +317,10 @@
 		CCD082C5205579AB00CC66E5 /* SwiftyWorkflow */ = {
 			isa = PBXGroup;
 			children = (
-				CCD082E6205579DB00CC66E5 /* Categories */,
+				CCD082ED205579DB00CC66E5 /* WorkflowEngine */,
 				CCD082E2205579DB00CC66E5 /* InjectionEngine */,
 				CCD082E8205579DB00CC66E5 /* Routing */,
-				CCD082ED205579DB00CC66E5 /* WorkflowEngine */,
+				CCD082E6205579DB00CC66E5 /* Categories */,
 				CCD082C6205579AB00CC66E5 /* SwiftyWorkflow.h */,
 				CCD082C7205579AB00CC66E5 /* Info.plist */,
 			);
@@ -362,6 +375,36 @@
 				CCD082F2205579DB00CC66E5 /* Transition.swift */,
 			);
 			path = WorkflowEngine;
+			sourceTree = "<group>";
+		};
+		CCD0830220557DE700CC66E5 /* ScanQR */ = {
+			isa = PBXGroup;
+			children = (
+				CCD0830520557E3100CC66E5 /* ScanQRFlow.swift */,
+				CCD0830720557E3D00CC66E5 /* ScanQRPresenter.swift */,
+				CCD0830920557E4500CC66E5 /* ScanQRView.swift */,
+			);
+			path = ScanQR;
+			sourceTree = "<group>";
+		};
+		CCD0830320557DF600CC66E5 /* ScanDocument */ = {
+			isa = PBXGroup;
+			children = (
+				CCD0830B20557E5300CC66E5 /* ScanDocumentFlow.swift */,
+				CCD0830D20557E5C00CC66E5 /* ScanDocumentPresenter.swift */,
+				CCD0830F20557E6D00CC66E5 /* ScanDocumentView.swift */,
+			);
+			path = ScanDocument;
+			sourceTree = "<group>";
+		};
+		CCD0830420557E0900CC66E5 /* VerifyImage */ = {
+			isa = PBXGroup;
+			children = (
+				CCD0831120557E7700CC66E5 /* VerifyImageFlow.swift */,
+				CCD0831320557E8900CC66E5 /* VerifyImagePresenter.swift */,
+				CCD0831520557E9400CC66E5 /* VerifyImageView.swift */,
+			);
+			path = VerifyImage;
 			sourceTree = "<group>";
 		};
 		CCFE62C720534040000B057B = {
@@ -575,6 +618,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCFE62DE20534040000B057B /* LaunchScreen.storyboard in Resources */,
+				CCD0830120557DDC00CC66E5 /* Upload.storyboard in Resources */,
 				CCFE62DB20534040000B057B /* Assets.xcassets in Resources */,
 				CC9D2F3420544F92004952FA /* Splash.xib in Resources */,
 				CCFE62D920534040000B057B /* Main.storyboard in Resources */,
@@ -745,15 +789,21 @@
 			files = (
 				CCFE62D620534040000B057B /* ViewController.swift in Sources */,
 				CC9D2F3E20545528004952FA /* DashboardFlow.swift in Sources */,
+				CCD0830E20557E5C00CC66E5 /* ScanDocumentPresenter.swift in Sources */,
+				CCD0830A20557E4500CC66E5 /* ScanQRView.swift in Sources */,
 				CCFE62FC20534858000B057B /* UploadWorkflow.swift in Sources */,
 				CC9D2F2E20543870004952FA /* SettingsPresenter.swift in Sources */,
+				CCD0831420557E8900CC66E5 /* VerifyImagePresenter.swift in Sources */,
 				CC9D2F4A20549145004952FA /* SettingPresenter.swift in Sources */,
 				CC9D2F2620542E00004952FA /* ApplicationWorkflow.swift in Sources */,
 				CC9D2F2020542C58004952FA /* R.generated.swift in Sources */,
 				CC9D2F4020546432004952FA /* MainAssembly.swift in Sources */,
 				CC9D2F3A20545512004952FA /* DashboardView.swift in Sources */,
+				CCD0830C20557E5300CC66E5 /* ScanDocumentFlow.swift in Sources */,
+				CCD0831620557E9400CC66E5 /* VerifyImageView.swift in Sources */,
+				CCD0830820557E3D00CC66E5 /* ScanQRPresenter.swift in Sources */,
+				CCD0831220557E7700CC66E5 /* VerifyImageFlow.swift in Sources */,
 				CC9D2F2C20543869004952FA /* SettingsView.swift in Sources */,
-				CC9D2F302054388F004952FA /* LanguageConnector.swift in Sources */,
 				CCFE62D420534040000B057B /* AppDelegate.swift in Sources */,
 				CC9D2F3720544FD1004952FA /* Splash.swift in Sources */,
 				CC9D2F48205490BC004952FA /* SettingView.swift in Sources */,
@@ -761,6 +811,8 @@
 				CC9D2F2A2054385D004952FA /* SettingsWorkflow.swift in Sources */,
 				CC9D2F322054389D004952FA /* SettingsFlow.swift in Sources */,
 				CC9D2F4C20549339004952FA /* SettingFlow.swift in Sources */,
+				CCD0830620557E3100CC66E5 /* ScanQRFlow.swift in Sources */,
+				CCD0831020557E6D00CC66E5 /* ScanDocumentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

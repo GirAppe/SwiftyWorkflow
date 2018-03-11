@@ -12,7 +12,9 @@ public protocol WorkflowType: FlowContainer { }
 // MARK: - Workflow
 /// Base Workflow class. All workflows should inhrit from it.
 open class Workflow: FlowContainer, WorkflowType {
-    public static var start = Transition<Void>()
+    public static var start = Transition<Void>("start")
+    public static var end = Transition<Void>("end")
+    public static var cancel = Transition<Void>("cancel")
 
     var nodes: [Any] = []
     public var parent: Container?
@@ -113,6 +115,14 @@ extension Navigatable where Self: Workflow {
 }
 
 extension Navigatable where Self: Workflow, In == Void {
+    /// Default entry point, use default view
+    ///
+    /// - Parameters:
+    ///   - node: initial node
+    public func setEntry<New>(_ node: WorkflowNode<New>) where New.In == Void {
+        setEntry(node) { $0.view }
+    }
+
     /// Default entry point, where all transitions arguments are Void
     ///
     /// - Parameters:

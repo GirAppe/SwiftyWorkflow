@@ -31,8 +31,23 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 0 images.
+  /// This `R.image` struct is generated, and contains static references to 2 images.
   struct image {
+    /// Image `cat1`.
+    static let cat1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "cat1")
+    /// Image `cat2`.
+    static let cat2 = Rswift.ImageResource(bundle: R.hostingBundle, name: "cat2")
+    
+    /// `UIImage(named: "cat1", bundle: ..., traitCollection: ...)`
+    static func cat1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.cat1, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "cat2", bundle: ..., traitCollection: ...)`
+    static func cat2(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.cat2, compatibleWith: traitCollection)
+    }
+    
     fileprivate init() {}
   }
   
@@ -62,7 +77,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 4 storyboards.
   struct storyboard {
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
@@ -70,6 +85,8 @@ struct R: Rswift.Validatable {
     static let main = _R.storyboard.main()
     /// Storyboard `Settings`.
     static let settings = _R.storyboard.settings()
+    /// Storyboard `Upload`.
+    static let upload = _R.storyboard.upload()
     
     /// `UIStoryboard(name: "LaunchScreen", bundle: ...)`
     static func launchScreen(_: Void = ()) -> UIKit.UIStoryboard {
@@ -84,6 +101,11 @@ struct R: Rswift.Validatable {
     /// `UIStoryboard(name: "Settings", bundle: ...)`
     static func settings(_: Void = ()) -> UIKit.UIStoryboard {
       return UIKit.UIStoryboard(resource: R.storyboard.settings)
+    }
+    
+    /// `UIStoryboard(name: "Upload", bundle: ...)`
+    static func upload(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.upload)
     }
     
     fileprivate init() {}
@@ -129,8 +151,9 @@ struct _R: Rswift.Validatable {
   
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
-      try settings.validate()
       try main.validate()
+      try settings.validate()
+      try upload.validate()
     }
     
     struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType {
@@ -177,6 +200,35 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if _R.storyboard.settings().settingsViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'settingsViewController' could not be loaded from storyboard 'Settings' as 'SettingsViewController'.") }
         if _R.storyboard.settings().settingViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'settingViewController' could not be loaded from storyboard 'Settings' as 'SettingViewController'.") }
+      }
+      
+      fileprivate init() {}
+    }
+    
+    struct upload: Rswift.StoryboardResourceType, Rswift.Validatable {
+      let bundle = R.hostingBundle
+      let name = "Upload"
+      let scanDocumentViewController = StoryboardViewControllerResource<ScanDocumentViewController>(identifier: "ScanDocumentViewController")
+      let scanQRViewController = StoryboardViewControllerResource<ScanQRViewController>(identifier: "ScanQRViewController")
+      let verifyImageViewController = StoryboardViewControllerResource<VerifyImageViewController>(identifier: "VerifyImageViewController")
+      
+      func scanDocumentViewController(_: Void = ()) -> ScanDocumentViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: scanDocumentViewController)
+      }
+      
+      func scanQRViewController(_: Void = ()) -> ScanQRViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: scanQRViewController)
+      }
+      
+      func verifyImageViewController(_: Void = ()) -> VerifyImageViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: verifyImageViewController)
+      }
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "cat1") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'cat1' is used in storyboard 'Upload', but couldn't be loaded.") }
+        if _R.storyboard.upload().verifyImageViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'verifyImageViewController' could not be loaded from storyboard 'Upload' as 'VerifyImageViewController'.") }
+        if _R.storyboard.upload().scanDocumentViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'scanDocumentViewController' could not be loaded from storyboard 'Upload' as 'ScanDocumentViewController'.") }
+        if _R.storyboard.upload().scanQRViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'scanQRViewController' could not be loaded from storyboard 'Upload' as 'ScanQRViewController'.") }
       }
       
       fileprivate init() {}

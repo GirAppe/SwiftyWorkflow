@@ -1,4 +1,4 @@
-import UIKit
+import UIKit.UIWindow
 
 extension UIWindow: Window {
     public var rootView: ViewType? {

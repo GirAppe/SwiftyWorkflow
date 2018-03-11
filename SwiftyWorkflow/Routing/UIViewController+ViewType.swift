@@ -1,4 +1,4 @@
-import UIKit
+import UIKit.UIViewController
 
 extension UIViewController: ViewType {
     public var presentingView: ViewType? {
