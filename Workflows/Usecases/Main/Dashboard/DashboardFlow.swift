@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyWorkflow
 
 protocol DashboardConnector {
     func didSelectSettings()
@@ -14,10 +15,12 @@ protocol DashboardConnector {
 }
 
 class DashboardFlow: Flow, Navigatable, DashboardConnector {
-    typealias In = Void
-    struct Out {
-        static var settings = Transition<Void>("settings")
-        static var upload = Transition<Void>("upload")
+    typealias In = Window
+    class Out: FlowTransition {
+        static var goToSettings = Out(Void.self)
+        static var startUpload = Out(Void.self)
+
+        init<T>(_ type: T.Type) { super.init(type) }
     }
 
     init(resolver: Resolver) {
@@ -29,10 +32,10 @@ class DashboardFlow: Flow, Navigatable, DashboardConnector {
     }
 
     func didSelectSettings() {
-        perform(Out.settings)
+        perform(.goToSettings)
     }
 
     func didSelectUpload() {
-        perform(Out.upload)
+        perform(.startUpload)
     }
 }

@@ -8,36 +8,44 @@
 
 import Foundation
 import UIKit
+import SwiftyWorkflow
 
 class ApplicationWorkflow: Workflow, Navigatable {
     typealias In = Window
-    struct Out {
+    class Out: FlowTransition {
         static var login = Transition<Void>("login")
         static var notification = Transition<Void>("notification")
         static var uploadLink = Transition<String>("uploadLink")
+
+        init<T>(_ type: T.Type) { super.init(type) }
     }
     struct Start {
         static var fromDashboard = Transition<Window>("fromDashboard")
     }
 
     override func build() {
-        let dashboard = self.addNode(DashboardFlow.self) { (resolver) -> DashboardFlow in
-            return DashboardFlow(resolver: resolver)
+        // nodes
+        let dashboard = self.add(DashboardFlow.self, input: Window.self) { r, _ in
+            return DashboardFlow(resolver: r)
         }
+        let settings = add(SettingsWorkflow.self, factory: SettingsWorkflow.init)
+        let upload = add(UploadWorkflow.self, factory: UploadWorkflow.init)
 
-        let settings = addNode(SettingsWorkflow.self) { _ in
-            return SettingsWorkflow()
-        }
-
-        setEntry(dashboard, for: Start.fromDashboard) { (window, dashboard) in
+        // graph
+        starts(with: dashboard) { (window, dashboard) -> ViewType in
             window.rootView = dashboard.view.wrappedInNavigation()
             window.makeKeyAndVisible()
             return dashboard.view
         }
 
-        dashboard.connect(to: settings, for: DashboardFlow.Out.settings) { (dashboard, settingsFlow) in
-            let view = try! settingsFlow.start(from: Workflow.start)
-            dashboard.view.push(view, animated: true)
+        dashboard.on(.goToSettings, push: settings, animated: true)
+        dashboard.on(.startUpload, connect: upload) { source, destination in
+            let view = destination.start().wrappedInNavigation()
+            source.view.present(view, animated: true)
+        }
+
+        upload.on(.cancel, .success, unwind: dashboard) { _, dashboard in
+            dashboard?.view.dismiss(animated: true)
         }
     }
 }

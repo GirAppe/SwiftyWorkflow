@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyWorkflow
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func start() {
         setupAssembly()
         self.window = UIWindow()
-        try! main.start(from: ApplicationWorkflow.Start.fromDashboard, with: window!)
+        main.start(with: window!)
     }
 
     func setupAssembly() {

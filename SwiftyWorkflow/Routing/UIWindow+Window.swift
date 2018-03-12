@@ -1,7 +1,7 @@
-import UIKit
+import UIKit.UIWindow
 
 extension UIWindow: Window {
-    var rootView: ViewType? {
+    public var rootView: ViewType? {
         get { return rootViewController }
         set { rootViewController = newValue as? UIViewController }
     }
