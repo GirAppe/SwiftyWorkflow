@@ -16,7 +16,7 @@ protocol ScanQRConnector {
 class ScanQRFlow: Flow, Navigatable, ScanQRConnector {
     typealias In = Void
     class Out: FlowTransition {
-        static var ok = Out(DocumentType.self)
+        static var success = Out(DocumentType.self)
         static var cancel = Out(Void.self)
         
         init<T>(_ type: T.Type) { super.init(type) }
@@ -33,7 +33,7 @@ class ScanQRFlow: Flow, Navigatable, ScanQRConnector {
     }
 
     func didScan(document type: DocumentType) {
-        perform(.ok, with: type)
+        perform(.success, with: type)
     }
 
     func didSelectCancelUpload() {

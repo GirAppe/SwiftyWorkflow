@@ -1,5 +1,6 @@
 import Foundation
 
+/// Wraps Flows and Workflows into graph node, resolved when needed. Stores transitions to other nodes.
 public class WorkflowNode<S: Navigatable> {
     let id: ID = UUID().uuidString
     var name: String { return "<\(String(describing: S.self)) : \(id)>" }
@@ -27,26 +28,60 @@ public class WorkflowNode<S: Navigatable> {
 }
 
 public extension WorkflowNode {
+    /// Connect to node with custom navigation transition. **Assumes transition Out type matches node In.**
+    ///
+    /// - Parameters:
+    ///   - transition: On which transition
+    ///   - node: Node to connect to
+    ///   - connector: Closure, allowing to specify navigation operation.
     public func on<New>(_ transition: S.Out, connect node: WorkflowNode<New>, connector: @escaping (S,New) -> Void) {
         on(transition, bridge: node, with: New.In.self, bridge: { $0 }, connector: connector)
     }
 
+    /// Connect to node with custom navigation transition, when transition Out do not match In. Allows to pass In as static value.
+    ///
+    /// - Parameters:
+    ///   - transition: On which transition
+    ///   - node: Node to connect to
+    ///   - value: Node **In** to pass in.
+    ///   - connector: Closure, allowing to specify navigation operation.
     public func on<New>(_ transition: S.Out, connect node: WorkflowNode<New>, passing value: @autoclosure @escaping () -> New.In, connector: @escaping (S,New) -> Void) {
         on(transition, bridge: node, with: New.In.self, bridge: { _ in value() }, connector: connector)
     }
 
+    /// Connect to node with default *push* as navigation transition. **Assumes transition Out type matches node In.**
+    ///
+    /// - Parameters:
+    ///   - transition: On which transition
+    ///   - node: Node to connect to
+    ///   - animated: Should navigation be animated
     public func on<New>(_ transition: S.Out, push node: WorkflowNode<New>, animated: Bool) {
         on(transition, bridge: node, with: New.In.self, bridge: { $0 }) { source, destination in
             source.view.push(destination.view, animated: animated)
         }
     }
 
+    /// Connect to node with default *present* as navigation transition. **Assumes transition Out type matches node In.**
+    ///
+    /// - Parameters:
+    ///   - transition: On which transition
+    ///   - node: Node to connect to
+    ///   - animated: Should navigation be animated
     public func on<New>(_ transition: S.Out, present node: WorkflowNode<New>, animated: Bool) {
         on(transition, bridge: node, with: New.In.self, bridge: { $0 }) { source, destination in
             source.view.present(destination.view, animated: animated)
         }
     }
 
+    /// Connects to node with custom navigation transition, when transition **Out** and node **In** do not match. For that case
+    /// there is bridging closure specified.
+    ///
+    /// - Parameters:
+    ///   - transition: On which transition
+    ///   - node: Node to connect to
+    ///   - arg: Transition argument type (Out)
+    ///   - bridge: Transform transition **Out** into new node **In**
+    ///   - connector: Closure, allowing to specify navigation operation.
     public func on<New, Arg>(_ transition: S.Out, bridge node: WorkflowNode<New>, with arg: Arg.Type, bridge: @escaping (Arg) -> New.In, connector: @escaping (S,New) -> Void) {
         print("\(Arg.self) vs \(transition.name)")
         guard let transition: Transition<Arg> = transition.asTransition() else {
@@ -63,6 +98,16 @@ public extension WorkflowNode {
         connectors[transition.id] = connect
     }
 
+    /// Special case connection, for unwinding to node. **Transition has to be Void type!** It checks for existing instance
+    /// of previous flow, and aclls connector. If we unwind to node that do not exist, we will receive nil as second parameter
+    /// in the connector closure.
+    ///
+    /// This is the only type of connection, taking a list of transitions as paramter, allowing to unwind from flow on all given conditions.
+    ///
+    /// - Parameters:
+    ///   - transition: A list of Void type transitions.
+    ///   - node: Node to unwind to
+    ///   - connector: Closure, allowing to specify navigation operation.
     public func on<New>(_ transition: S.Out..., unwind node: WorkflowNode<New>, connector: @escaping (S,New?) -> Void) {
         transition.forEach { transition in
             guard let transition: Transition<Void> = transition.asTransition() else {

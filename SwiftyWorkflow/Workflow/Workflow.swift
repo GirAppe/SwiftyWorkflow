@@ -1,8 +1,7 @@
 import Foundation
 
 // MARK: - FlowContainer
-public protocol FlowContainer: Container {
-}
+public protocol FlowContainer: Container { }
 
 // MARK: - WorkflowType
 public protocol WorkflowType: FlowContainer { }
@@ -32,7 +31,6 @@ open class Workflow: FlowContainer, WorkflowType {
         }
         debugPrint("Init workflow: \(String(describing: self))")
         build()
-        connect()
         validate()
     }
 
@@ -40,12 +38,11 @@ open class Workflow: FlowContainer, WorkflowType {
         debugPrint("[W] Released \(String(describing: self))")
     }
 
+    /// Called in init. Place your workflow graph definition here.
     open func build() {
     }
 
-    open func connect() {
-    }
-
+    /// Still to do. Will trigger graph validation for tests purpose later on.
     open func validate() {
     }
 
@@ -57,22 +54,45 @@ open class Workflow: FlowContainer, WorkflowType {
 
 // MARK: - Starting Point
 extension Navigatable where Self: Workflow {
+    /// Set flow node as starting node. You can have only one starting node at a time. Will return flow view for workflow start.
+    /// Flow input has to match workflow input.
+    ///
+    /// - Parameter node: Flow to begin with.
     public func starts<New>(with node: WorkflowNode<New>) where New.In == Self.In {
         starts(with: node, bridge: { $0 }) { _, flow -> ViewType in
             return flow.view
         }
     }
 
+    /// Set flow node as starting node. You can have only one starting node at a time. Allows to specify custom connector workflow.
+    /// , that will return view for starting. Flow input has to match workflow input.
+    ///
+    /// - Parameters:
+    ///   - node: Flow to begin with.
+    ///   - connector: Indicates, what view to use when start begins.
     public func starts<New>(with node: WorkflowNode<New>, connector: @escaping (Self.In,New) -> ViewType) where New.In == Self.In {
         starts(with: node, bridge: { $0 }, connector: connector)
     }
 
+    /// Set flow node as starting node. You can have only one starting node at a time. Will return flow view  wrapped in
+    /// navigation view for workflow start, if wrap set to true. Flow input has to match workflow input.
+    ///
+    /// - Parameters:
+    ///   - node: Flow to begin with.
+    ///   - wrap: Should view be wrapped in navigation view by default.
     public func starts<New>(with node: WorkflowNode<New>, wrap: Bool) where New.In == Self.In {
         starts(with: node, bridge: { $0 }) { _, flow -> ViewType in
             return wrap ? flow.view!.wrappedInNavigation() : flow.view!
         }
     }
 
+    /// Set flow node as starting node, when input values do not match. You can have only one starting node at a time. Will return
+    ///  flow view  wrapped in navigation view for workflow start, if wrap set to true. Flow input has to match workflow input.
+    ///
+    /// - Parameters:
+    ///   - node: Flow to begin with.
+    ///   - bridge: Transform workflow input into flow input, when values don't match.
+    ///   - connector: Indicates, what view to use when start begins
     public func starts<New>(with node: WorkflowNode<New>, bridge: @escaping (Self.In) -> New.In, connector: @escaping (Self.In,New) -> ViewType) {
         let transition = Workflow.start
         let intro: (Self.In) -> ViewType = { [weak self] output in
@@ -89,13 +109,10 @@ extension Navigatable where Self: Workflow {
 
 // MARK: - Starting Flow
 extension Navigatable where Self: Workflow {
-    /// Start workflow with argumetns from given transition.
+    /// Start workflow with default transition, passing workflow **In** as input.
     ///
-    /// - Parameters:
-    ///   - transition: Entry transition
-    ///   - argument: Entry parameters
+    /// - Parameter parameter: Workflow **In** parameter
     /// - Returns: Workflow main view
-    /// - Throws: TransitionError if not set or wronf type
     @discardableResult public func start(with parameter: Self.In) -> ViewType {
         let transition = Workflow.start
         do {
@@ -116,11 +133,9 @@ extension Navigatable where Self: Workflow {
 }
 
 extension Navigatable where Self: Workflow, In == Void {
-    /// Start workflow with given transition.
+    /// Start workflow with default transition.
     ///
-    /// - Parameter transition: Entry Transition
     /// - Returns: Workflow main view
-    /// - Throws: TransitionError if not set or wronf type
     @discardableResult public func start() -> ViewType {
         return start(with: ())
     }
@@ -154,7 +169,7 @@ extension Workflow {
     ///
     /// - Parameters:
     ///   - type: Node type, that will be wrapped in registration
-    ///   - factory: Transform In type into instance
+    ///   - factory: Create new instance
     /// - Returns: Node<Type>, as connectable instance. Can be used to connect top other instances
     public func add<S: Navigatable>(_ type: S.Type, factory: @escaping (Resolver) -> S) -> WorkflowNode<S> where S.In == Void {
         return add(type, input: S.In.self, factory: { (resolver, _) -> S in
