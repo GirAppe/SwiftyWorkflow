@@ -13,14 +13,11 @@ import SwiftyWorkflow
 class ApplicationWorkflow: Workflow, Navigatable {
     typealias In = Window
     class Out: FlowTransition {
-        static var login = Transition<Void>("login")
-        static var notification = Transition<Void>("notification")
-        static var uploadLink = Transition<String>("uploadLink")
+        static var login = Out(Void.self)
+        static var notification = Out(Void.self)
+        static var uploadWithDeepLink = Out(String.self)
 
         init<T>(_ type: T.Type) { super.init(type) }
-    }
-    struct Start {
-        static var fromDashboard = Transition<Window>("fromDashboard")
     }
 
     override func build() {

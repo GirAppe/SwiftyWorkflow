@@ -228,6 +228,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C831A8932056820900303DBA /* AllSettings */ = {
+			isa = PBXGroup;
+			children = (
+				CC9D2F312054389D004952FA /* SettingsFlow.swift */,
+				CC9D2F2D20543870004952FA /* SettingsPresenter.swift */,
+				CC9D2F2B20543869004952FA /* SettingsView.swift */,
+			);
+			path = AllSettings;
+			sourceTree = "<group>";
+		};
 		CC9D2F1E20542C58004952FA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,9 +287,7 @@
 			children = (
 				CC9D2F2720543845004952FA /* Settings.storyboard */,
 				CC9D2F292054385D004952FA /* SettingsWorkflow.swift */,
-				CC9D2F312054389D004952FA /* SettingsFlow.swift */,
-				CC9D2F2D20543870004952FA /* SettingsPresenter.swift */,
-				CC9D2F2B20543869004952FA /* SettingsView.swift */,
+				C831A8932056820900303DBA /* AllSettings */,
 				CC9D2F46205490B1004952FA /* Setting */,
 			);
 			path = Settings;

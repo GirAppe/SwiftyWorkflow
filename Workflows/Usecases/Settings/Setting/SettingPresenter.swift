@@ -11,6 +11,7 @@ import Foundation
 protocol SettingPresenter: class {
     var connector: SettingConnector! { get set }
     var name: String { get }
+    
     func didSet(enabled: Bool)
 }
 

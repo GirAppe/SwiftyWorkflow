@@ -18,7 +18,7 @@ protocol VerifyImageConnector {
 class VerifyImageFlow: Flow, Navigatable, VerifyImageConnector {
     typealias In = UIImage
     class Out: FlowTransition {
-        static var ok = Out(Void.self)
+        static var success = Out(Void.self)
         static var cancel = Out(Void.self)
         static var tryAgain = Out(Void.self)
 
@@ -38,7 +38,7 @@ class VerifyImageFlow: Flow, Navigatable, VerifyImageConnector {
     }
 
     func didVerify() {
-        perform(.ok)
+        perform(.success)
     }
 
     func didSelectTryAgain() {
