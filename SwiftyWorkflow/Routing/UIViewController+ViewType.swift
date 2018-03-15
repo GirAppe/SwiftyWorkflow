@@ -67,6 +67,8 @@ extension UIViewController: ViewType {
             self.dismiss(animated: animated, completion: {
                 presenter?.present(view, animated: animated)
             })
+        } else if let window = self.view.window {
+            window.rootViewController = (view as? UIViewController)
         }
     }
 
