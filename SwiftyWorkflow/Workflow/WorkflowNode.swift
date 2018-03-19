@@ -123,6 +123,30 @@ public extension WorkflowNode {
             connectors[transition.id] = connect
         }
     }
+
+    /// Special case connection, for unwinding to node. **Transition has to be Void type!** It checks for existing instance
+    /// of previous flow, and aclls connector. If we unwind to node that do not exist, we will receive nil as second parameter
+    /// in the connector closure.
+    ///
+    /// This is the only type of connection, taking a list of transitions as paramter, allowing to unwind from flow on all given conditions.
+    ///
+    /// - Parameters:
+    ///   - transition: A list of Void type transitions.
+    ///   - node: Node to unwind to
+    ///   - connector: Closure, allowing to specify navigation operation.
+    public func on<New,Arg>(_ transition: S.Out, with: Arg.Type, unwind node: WorkflowNode<New>, connector: @escaping (S,Arg,New?) -> Void) {
+        guard let transition: Transition<Arg> = transition.asTransition() else {
+            debugPrint("[N] Wrong transition type set")
+            assertionFailure("[N]  Wrong transition type set")
+            return
+        }
+        debugPrint("[N] [\(name)] adding \(transition.name) to \(node.name)")
+        let connect: (Arg,S) -> Void = { output, source in
+            let destination = node.existingInstance()
+            connector(source, output, destination)
+        }
+        connectors[transition.id] = connect
+    }
 }
 
 public extension WorkflowNode {
