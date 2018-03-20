@@ -19,7 +19,10 @@ open class FlowTransition: TransitionConvertible {
 
     public func asTransition<T>() -> Transition<T>? {
         let mirror = Mirror(reflecting: T.self)
-        guard self.mirror.subjectType == mirror.subjectType else { return nil }
+        // cast on type if matches. Always can cast on void type
+        guard self.mirror.subjectType == mirror.subjectType || mirror.subjectType == Mirror(reflecting: Void.self).subjectType else {
+            return nil
+        }
         return Transition<T>(id)
     }
 }

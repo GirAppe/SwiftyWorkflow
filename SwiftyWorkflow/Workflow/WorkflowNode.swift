@@ -38,7 +38,7 @@ public extension WorkflowNode {
         on(transition, bridge: node, with: New.In.self, bridge: { $0 }, connector: connector)
     }
 
-    /// Connect to node with custom navigation transition, when transition Out do not match In. Allows to pass In as static value.
+    /// Connect to node with custom navigation transition, when transition Out do not match In. Allows to pass In as static value. Transition would be treated as Void.
     ///
     /// - Parameters:
     ///   - transition: On which transition
@@ -46,7 +46,7 @@ public extension WorkflowNode {
     ///   - value: Node **In** to pass in.
     ///   - connector: Closure, allowing to specify navigation operation.
     public func on<New>(_ transition: S.Out, connect node: WorkflowNode<New>, passing value: @autoclosure @escaping () -> New.In, connector: @escaping (S,New) -> Void) {
-        on(transition, bridge: node, with: New.In.self, bridge: { _ in value() }, connector: connector)
+        on(transition, bridge: node, with: Void.self, bridge: { _ in value() }, connector: connector)
     }
 
     /// Connect to node with default *push* as navigation transition. **Assumes transition Out type matches node In.**
