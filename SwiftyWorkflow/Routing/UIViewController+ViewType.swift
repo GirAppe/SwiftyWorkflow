@@ -20,7 +20,13 @@ extension UIViewController: ViewType {
     public func push(_ view: ViewType, animated: Bool) {
         guard let viewController = view as? UIViewController else { return }
         let nav = navigationView as? UINavigationController
-        nav?.pushViewController(viewController, animated: animated)
+        if let navigationToPush = viewController as? UINavigationController {
+            var stack = nav?.viewControllers ?? []
+            stack.append(contentsOf: navigationToPush.viewControllers)
+            nav?.setViewControllers(stack, animated: animated)
+        } else {
+            nav?.pushViewController(viewController, animated: animated)
+        }
     }
 
     public func pop(animated: Bool) {
