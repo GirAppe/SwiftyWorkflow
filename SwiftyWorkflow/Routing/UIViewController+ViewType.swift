@@ -1,5 +1,9 @@
 import UIKit.UIViewController
 
+public struct ViewToDismiss {
+    public static var viewTagsToDismiss: [Int] = []
+}
+
 extension UIViewController: ViewType {
     public var presentingView: ViewType? {
         return presentingViewController ?? navigationController?.presentingViewController
@@ -53,7 +57,20 @@ extension UIViewController: ViewType {
     public func present(_ view: ViewType, animated flag: Bool, completion: NavigationCompletion?) {
         guard let viewController = view as? UIViewController else { return }
         let source = tabBarController ?? navigationController ?? self
-        source.present(viewController, animated: flag, completion: completion)
+
+        let presentation = {
+            source.present(viewController, animated: flag, completion: completion)
+        }
+
+        if let tag = source.presentedViewController?.view.tag, ViewToDismiss.viewTagsToDismiss.contains(tag) {
+            source.dismiss(animated: flag, completion: presentation)
+        } else if source.presentedViewController is UIAlertController {
+            source.dismiss(animated: flag, completion: presentation)
+        } else if let presented = source.presentedViewController {
+            presented.present(view, animated: flag, completion: completion)
+        } else {
+            presentation()
+        }
     }
 
     public func present(error: Error) {
