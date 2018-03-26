@@ -15,7 +15,7 @@ open class Flow {
     public weak var flowNavigation: NavigationProvider! = nil
     public var workflow: WorkflowType?
     private var strongView: ViewType!
-    private var weakView: ViewType!
+    private weak var weakView: ViewType!
 
     public init() { }
 
