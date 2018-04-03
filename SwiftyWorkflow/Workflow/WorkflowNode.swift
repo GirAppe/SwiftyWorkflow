@@ -186,7 +186,7 @@ public extension WorkflowNode {
             assertionFailure("Wrong type")
             return
         }
-        let ending: (Arg) -> Void = { argument in
+        let ending: (Arg) -> Void = { [unowned flow] argument in
             outro(flow, argument)
         }
         connectors[transition.id] = ending
