@@ -4,6 +4,16 @@ public struct ViewToDismiss {
     public static var viewTagsToDismiss: [Int] = []
 }
 
+public class BaseNavigationController: UINavigationController {
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
+        return topViewController?.preferredStatusBarStyle ?? super.preferredStatusBarStyle
+    }
+
+    public override var prefersStatusBarHidden: Bool {
+        return topViewController?.prefersStatusBarHidden ?? super.prefersStatusBarHidden
+    }
+}
+
 extension UIViewController: ViewType {
     public var presentingView: ViewType? {
         return presentingViewController ?? navigationController?.presentingViewController
@@ -98,9 +108,11 @@ extension UIViewController: ViewType {
     // Helpers
     public func wrappedInNavigation() -> ViewType {
         guard !(self is UINavigationController) else {
-            return self
+            let base = BaseNavigationController()
+            base.setViewControllers((self as? UINavigationController)?.viewControllers ?? [self], animated: false)
+            return base
         }
-        let navigation = UINavigationController()
+        let navigation = BaseNavigationController()
         navigation.setViewControllers([self], animated: false)
         return navigation
     }
