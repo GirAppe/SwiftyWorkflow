@@ -24,9 +24,8 @@ class ScanDocumentFlow: Flow, Navigatable, ScanDocumentConnector {
     typealias In = DocumentType
     class Out: FlowTransition {
         static var ok = Out(UIImage.self)
+        static var oneMoreLetter = Out(Void.self)
         static var cancel = Out(Void.self)
-
-        init<T>(_ type: T.Type) { super.init(type) }
     }
 
     var type: DocumentType

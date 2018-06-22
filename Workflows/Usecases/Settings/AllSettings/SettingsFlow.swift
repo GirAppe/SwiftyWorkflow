@@ -19,8 +19,6 @@ class SettingsFlow: Flow, Navigatable, SettingsConnector {
     class Out: FlowTransition {
         static var cancel = Out(Void.self)
         static var setting = Out(Setting.self)
-
-        init<T>(_ type: T.Type) { super.init(type) }
     }
     
     init(resolver: Resolver) {

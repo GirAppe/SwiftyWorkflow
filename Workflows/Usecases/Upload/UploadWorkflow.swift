@@ -7,8 +7,6 @@ class UploadWorkflow: Workflow, Navigatable {
     class Out: FlowTransition {
         static var cancel = Out(Void.self)
         static var success = Out(Void.self)
-
-        init<T>(_ type: T.Type) { super.init(type) }
     }
 
     override weak var view: ViewType! {
@@ -28,7 +26,7 @@ class UploadWorkflow: Workflow, Navigatable {
         starts(with: scanQR)
 
         scanQR.on(.success, push: scanDocument, animated: true)
-        scanDocument.on(.success, push: verify, animated: true)
+        scanDocument.on(.ok, push: verify, animated: true)
         verify.on(.tryAgain, unwind: scanDocument) { source, destination in
             source.view.pop(animated: true)
         }
@@ -44,8 +42,7 @@ class UploadWorkflow: Workflow, Navigatable {
     func addAnotherLetter() {
         let newLetter = self.add(ScanDocumentFlow.self, input: DocumentType.self, factory: ScanDocumentFlow.init)
         newLetter.on(.cancel, end: self, with: .cancel)
-        lastLetter.on(.oneMore, push: newLetter, animated: true)
+        lastLetter.on(.oneMoreLetter, push: newLetter, animated: true)
         lastLetter = newLetter
-
     }
 }

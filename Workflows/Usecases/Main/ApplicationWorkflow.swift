@@ -16,8 +16,6 @@ class ApplicationWorkflow: Workflow, Navigatable {
         static var login = Out(Void.self)
         static var notification = Out(Void.self)
         static var uploadWithDeepLink = Out(String.self)
-
-        init<T>(_ type: T.Type) { super.init(type) }
     }
 
     override func build() {

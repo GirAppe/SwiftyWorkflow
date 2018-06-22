@@ -4,8 +4,8 @@ public protocol Navigatable: class {
     associatedtype In
     associatedtype Out: TransitionConvertible
 
-    weak var view: ViewType! { get }
-    weak var flowNavigation: NavigationProvider! { get set }
+    var view: ViewType! { get }
+    var flowNavigation: NavigationProvider! { get set }
     var workflow: WorkflowType? { get set }
 
     func perform(_ transition: Self.Out)

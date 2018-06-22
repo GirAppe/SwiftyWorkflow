@@ -21,8 +21,6 @@ class VerifyImageFlow: Flow, Navigatable, VerifyImageConnector {
         static var success = Out(Void.self)
         static var cancel = Out(Void.self)
         static var tryAgain = Out(Void.self)
-
-        init<T>(_ type: T.Type) { super.init(type) }
     }
 
     var type: DocumentType!
