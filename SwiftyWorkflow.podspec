@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwiftyWorkflow'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = 'Workflows abstraction for Swift. Business oriented declarative way of creating Swift apps.'
   s.description      = <<-DESC
 Library that abstracts navigation, to provide business oriented declarative way of creating views flow.
@@ -21,7 +21,7 @@ Handles dependency injection containers and UIKit independent navigation abstrac
   s.author           = { 'Andrzej Michnia' => 'amichnia@gmail.com' }
   s.source           = { :git => 'https://github.com/GirAppe/SwiftyWorkflow.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
   s.default_subspec  = "Core"
   s.preserve_paths = '*'
 
