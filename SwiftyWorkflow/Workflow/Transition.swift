@@ -2,17 +2,27 @@ import Foundation
 
 typealias ID = String
 
+public protocol OutTransition {
+    init<T>(_ type: T.Type)
+    init<T>(_ type: T.Type, _ id: String)
+}
+
 public protocol TransitionConvertible {
     var name: String { get }
     func asTransition<T>() -> Transition<T>?
 }
 
-open class FlowTransition: TransitionConvertible {
+open class FlowTransition: OutTransition, TransitionConvertible {
     let mirror: Mirror
     var id: ID = UUID().uuidString
     public var name: String { return "-- \(String(describing: mirror.subjectType.self)) -- \(id) -->" }
 
-    public init<T>(_ type: T.Type, _ id: String = UUID().uuidString) {
+    public required init<T>(_ type: T.Type) {
+        self.id = UUID().uuidString
+        self.mirror = Mirror(reflecting: T.self)
+    }
+
+    public required init<T>(_ type: T.Type, _ id: String) {
         self.id = id
         self.mirror = Mirror(reflecting: T.self)
     }

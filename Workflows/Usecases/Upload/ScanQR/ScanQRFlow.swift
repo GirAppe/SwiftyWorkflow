@@ -18,8 +18,6 @@ class ScanQRFlow: Flow, Navigatable, ScanQRConnector {
     class Out: FlowTransition {
         static var success = Out(DocumentType.self)
         static var cancel = Out(Void.self)
-        
-        init<T>(_ type: T.Type) { super.init(type) }
     }
 
     init(resolver: Resolver) {

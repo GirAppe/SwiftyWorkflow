@@ -19,8 +19,6 @@ class DashboardFlow: Flow, Navigatable, DashboardConnector {
     class Out: FlowTransition {
         static var goToSettings = Out(Void.self)
         static var startUpload = Out(Void.self)
-
-        init<T>(_ type: T.Type) { super.init(type) }
     }
 
     init(resolver: Resolver) {
