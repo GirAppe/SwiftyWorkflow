@@ -1,6 +1,7 @@
 import Foundation
 
 // MARK: - Container
+//sourcery: AutoMockable
 public protocol Container: Resolver, Assembly {
     var parent: Container? { get set }
     var registrations: [RegsteredInstance] { get set }
@@ -42,6 +43,7 @@ public extension Container {
     private func instance<T>(_ type: T.Type) -> T? {
         return registrations.compactMap({ $0.instance(of: T.self) }).first // TODO: Verify flow
     }
+
     private func registration<T,Arg>(_ type: T.Type, _ argument: Arg.Type) -> Registration<T,Arg>? {
         return registrations.first { $0 is Registration<T,Arg> } as? Registration<T,Arg>
     }

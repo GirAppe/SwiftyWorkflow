@@ -25,6 +25,7 @@ public class Assembler: Container {
     private func instance<T>(_ type: T.Type) -> T? {
         return registrations.compactMap({ $0.instance(of: T.self) }).first
     }
+    
     private func registration<T,Arg>(_ type: T.Type, _ argument: Arg.Type) -> Registration<T,Arg>? {
         return registrations.first { $0 is Registration<T,Arg> } as? Registration<T,Arg>
     }
