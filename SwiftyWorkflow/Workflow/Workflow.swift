@@ -10,8 +10,6 @@ public protocol WorkflowType: FlowContainer { }
 /// Base Workflow class. All workflows should inhrit from it.
 open class Workflow: FlowContainer, WorkflowType {
     public static var start = Transition<Void>("[W] startWorkflow")
-    public static var end = Transition<Void>("[W] endWorkflow")
-    public static var cancel = Transition<Void>("[W] cancelWorkflow")
 
     public var parent: Container?
     public var registrations: [RegsteredInstance]  = []
@@ -25,9 +23,12 @@ open class Workflow: FlowContainer, WorkflowType {
     fileprivate var connectors: [String: Any] = [:]
     fileprivate var name: String { return String(describing: self) }
 
-    public init() {
+    public init(with resolver: Resolver? = nil) {
         if self is NavigationProvider {
             flowNavigation = self as? NavigationProvider
+        }
+        if let container = resolver as? Container {
+            assemble(in: container)
         }
         debugPrint("Init workflow: \(String(describing: self))")
         build()
