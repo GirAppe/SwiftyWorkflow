@@ -169,8 +169,8 @@ public extension WorkflowNode {
     ///   - ending: flow ending to perform, transition of arg type
     ///   - arg: Type of argument passed (must match both transitions!!!)
     public func on<F,Arg>(_ transition: S.Out, end flow: F, with ending: F.Out, and arg: Arg.Type) where F: WorkflowType, F: Navigatable {
-        on(transition, finish: flow, with: Arg.self) { flow, _ in
-            flow.perform(ending)
+        on(transition, finish: flow, with: Arg.self) { flow, arg in
+            flow.perform(ending, with: arg)
         }
     }
 
