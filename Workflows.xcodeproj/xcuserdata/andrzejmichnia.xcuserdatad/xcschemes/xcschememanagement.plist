@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>SwiftyWorkflow.xcscheme</key>
+		<key>SwiftyWorkflow.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>5</integer>
@@ -17,6 +17,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>CCD082C3205579AB00CC66E5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>CCD082CB205579AB00CC66E5</key>
 		<dict>
 			<key>primary</key>
