@@ -27,6 +27,7 @@ public class WorkflowNode<S: Navigatable> {
     }
 }
 
+// MARK: - Transitions handling
 public extension WorkflowNode {
     /// Connect to node with custom navigation transition. **Assumes transition Out type matches node In.**
     ///
@@ -97,6 +98,33 @@ public extension WorkflowNode {
         }
         connectors[transition.id] = connect
     }
+}
+
+// MARK: - Unwind transitions
+extension WorkflowNode {
+    /// Shorthand to unwinding, when only popping pushed flow.
+    ///
+    /// - Parameters:
+    ///   - transition: Triggered transition
+    ///   - node: Unwind target
+    ///   - animated: animation flag
+    public func on<New>(_ transition: S.Out, popTo node: WorkflowNode<New>, animated: Bool = true) {
+        self.on(transition, unwind: node) { (source: S, dest: New?) in
+            source.view.pop(animated: animated)
+        }
+    }
+
+    /// Shorthand to unwinding, when only dismissing modally presented view.
+    ///
+    /// - Parameters:
+    ///   - transition: Triggered transition
+    ///   - node: Unwind target
+    ///   - animated: animation flag
+    public func on<New>(_ transition: S.Out, dismissTo node: WorkflowNode<New>, animated: Bool = true) {
+        self.on(transition, unwind: node) { (source: S, dest: New?) in
+            source.view.dismiss(animated: animated)
+        }
+    }
 
     /// Special case connection, for unwinding to node. **Transition has to be Void type!** It checks for existing instance
     /// of previous flow, and aclls connector. If we unwind to node that do not exist, we will receive nil as second parameter
@@ -149,6 +177,7 @@ public extension WorkflowNode {
     }
 }
 
+// MARK: - Finishing workflow transitions
 public extension WorkflowNode {
     /// When no arguments to pass, end flow with Void type ending.
     ///
