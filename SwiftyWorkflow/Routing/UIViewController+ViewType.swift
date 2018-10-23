@@ -33,6 +33,10 @@ extension UIViewController: ViewType {
     // Navigation stack
     public func push(_ view: ViewType, animated: Bool) {
         guard let viewController = view as? UIViewController else { return }
+        guard viewController.viewIfLoaded?.window == nil else {
+            debugPrint("Could not push already presented controller")
+            return
+        }
         let nav = navigationView as? UINavigationController
         if let navigationToPush = viewController as? UINavigationController {
             var stack = nav?.viewControllers ?? []
@@ -66,6 +70,10 @@ extension UIViewController: ViewType {
 
     public func present(_ view: ViewType, animated flag: Bool, completion: NavigationCompletion?) {
         guard let viewController = view as? UIViewController else { return }
+        guard viewController.viewIfLoaded?.window == nil else {
+            debugPrint("Could not push already presented controller")
+            return
+        }
         let source = tabBarController ?? navigationController ?? self
 
         let presentation = {
