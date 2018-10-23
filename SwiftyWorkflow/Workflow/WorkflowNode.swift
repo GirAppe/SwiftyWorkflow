@@ -22,6 +22,13 @@ public class WorkflowNode<S: Navigatable> {
         return controller
     }
 
+    func resolveNew(with input: S.In) -> S {
+        debugPrint("[N] Resolving \(name)")
+        let controller = registration.buildNew(with: input)
+        controller.flowNavigation = self
+        return controller
+    }
+
     func existingInstance() -> S? {
         return registration.instance
     }
@@ -93,7 +100,7 @@ public extension WorkflowNode {
         debugPrint("[N] [\(name)] adding \(transition.name) to \(node.name)")
         let connect: (Arg,S) -> Void = { output, source in
             let input = bridge(output)
-            let destination = node.resolve(with: input) // keep destination node alive
+            let destination = node.resolveNew(with: input) // keep destination node alive
             connector(source, destination)
         }
         connectors[transition.id] = connect

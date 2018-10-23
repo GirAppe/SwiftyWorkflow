@@ -164,6 +164,13 @@ extension Workflow {
             instance = resolved
             return resolved
         }
+
+        func buildNew(with input: S.In) -> S {
+            debugPrint("[R] Building new instance of \(name)")
+            let resolved = factory(input)
+            instance = resolved
+            return resolved
+        }
     }
 
     /// Adds new node into graph. Node is strong referenced by a graph.
