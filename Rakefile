@@ -40,7 +40,7 @@ task :deploy do
     ARGV.each { |a| task a.to_sym do ; end }
     version = ARGV[1].to_s
     if version
-        sh("sed 's|{{VERSION_NUMBER}}|#{version_number}|g' ./Podspec.template > ./SwiftyWorkflow.podspec")
+        sh("sed 's|{{VERSION_NUMBER}}|#{version}|g' ./Podspec.template > ./SwiftyWorkflow.podspec")
         sh("git tag #{version} && git push --tags")
         sh("pod trunk push")
     end
