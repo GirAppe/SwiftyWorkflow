@@ -10,7 +10,7 @@ def tools
 end
 
 def tests
-    pod 'SwiftyMocky', '~> 3.4.0'
+    pod 'SwiftyMocky', '~> 3.5.0'
 end
 
 # MArK: - Targets
