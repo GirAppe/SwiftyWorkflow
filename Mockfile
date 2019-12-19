@@ -1,0 +1,24 @@
+sourceryCommand: null
+SwiftyWorkflowTests:
+  sources:
+    include:
+    - ./SwiftyWorkflow
+  output: ./SwiftyWorkflowTests/Mock.generated.swift
+  targets:
+  - SwiftyWorkflowTests
+  testable:
+  - SwiftyWorkflow
+  - Workflows
+  import:
+  - Foundation
+WorkflowsTests:
+  sources:
+    include:
+    - ./Workflows
+  output: ./WorkflowsTests/Mock.generated.swift
+  targets:
+  - WorkflowsTests
+  testable:
+  - Workflows
+  import:
+  - Foundation

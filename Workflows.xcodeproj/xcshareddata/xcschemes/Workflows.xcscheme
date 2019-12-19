@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0940"
+   LastUpgradeVersion = "1120"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CCD082C3205579AB00CC66E5"
-               BuildableName = "SwiftyWorkflow.framework"
-               BlueprintName = "SwiftyWorkflow"
+               BlueprintIdentifier = "CCFE62CF20534040000B057B"
+               BuildableName = "Workflows.app"
+               BlueprintName = "Workflows"
                ReferencedContainer = "container:Workflows.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CCD082CB205579AB00CC66E5"
-               BuildableName = "SwiftyWorkflowTests.xctest"
-               BlueprintName = "SwiftyWorkflowTests"
+               BlueprintIdentifier = "CCFE62E320534040000B057B"
+               BuildableName = "WorkflowsTests.xctest"
+               BlueprintName = "WorkflowsTests"
                ReferencedContainer = "container:Workflows.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -50,15 +50,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CCD082C3205579AB00CC66E5"
-            BuildableName = "SwiftyWorkflow.framework"
-            BlueprintName = "SwiftyWorkflow"
+            BlueprintIdentifier = "CCFE62CF20534040000B057B"
+            BuildableName = "Workflows.app"
+            BlueprintName = "Workflows"
             ReferencedContainer = "container:Workflows.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -66,15 +67,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CCD082C3205579AB00CC66E5"
-            BuildableName = "SwiftyWorkflow.framework"
-            BlueprintName = "SwiftyWorkflow"
+            BlueprintIdentifier = "CCFE62CF20534040000B057B"
+            BuildableName = "Workflows.app"
+            BlueprintName = "Workflows"
             ReferencedContainer = "container:Workflows.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

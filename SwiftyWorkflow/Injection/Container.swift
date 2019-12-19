@@ -10,13 +10,13 @@ public protocol Container: Resolver, Assembly {
 }
 
 public extension Container {
-    @discardableResult public func register<T>(_ type: T.Type, factory: @escaping (Resolver) -> T) -> Registration<T,Void> {
+    @discardableResult func register<T>(_ type: T.Type, factory: @escaping (Resolver) -> T) -> Registration<T,Void> {
         return register(type, arg: Void.self) { (resolver: Resolver, arg: Void) -> T in
             return factory(resolver)
         }
     }
 
-    @discardableResult public func register<T,Arg>(_ type: T.Type, arg: Arg.Type, factory: @escaping (Resolver,Arg) -> T) -> Registration<T,Arg> {
+    @discardableResult func register<T,Arg>(_ type: T.Type, arg: Arg.Type, factory: @escaping (Resolver,Arg) -> T) -> Registration<T,Arg> {
         let registration = Registration<T,Arg> { [unowned self] (argument) -> T in
             return factory(self, argument)
         }
@@ -24,11 +24,11 @@ public extension Container {
         return registration
     }
 
-    public func resolve<T>(_ type: T.Type) -> T! {
+    func resolve<T>(_ type: T.Type) -> T! {
         return resolve(T.self, with: ())
     }
 
-    public func resolve<T,Arg>(_ type: T.Type, with argument: Arg) -> T! {
+    func resolve<T,Arg>(_ type: T.Type, with argument: Arg) -> T! {
         if let resolved = self as? T {
             return resolved
         } else if let instance = instance(T.self) {
@@ -101,7 +101,7 @@ public class Registration<T,Arg>: RegsteredInstance {
 }
 
 public extension Registration where Arg == Void {
-    public func resolve() -> T {
+    func resolve() -> T {
         return resolve(with: ())
     }
 }

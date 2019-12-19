@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3CC4B76396DF4B683353B9F3 /* Pods_SwiftyWorkflowTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B1B3A162D4BE24E52648A2 /* Pods_SwiftyWorkflowTests.framework */; };
 		453637B403F452CB3F26DBEC /* Pods_WorkflowsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68802B71D0B66A8E04404D56 /* Pods_WorkflowsTests.framework */; };
 		C786AD855AB4DFE10AB742F5 /* Pods_Workflows.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3DD0B1801E71437C68D908 /* Pods_Workflows.framework */; };
+		C8E39DA023ABB630003BE5C4 /* Mock.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E39D9F23ABB630003BE5C4 /* Mock.generated.swift */; };
+		C8E39DA223ABB640003BE5C4 /* Mock.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E39DA123ABB640003BE5C4 /* Mock.generated.swift */; };
+		C8E39DA423ABB6B4003BE5C4 /* Environment.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E39DA323ABB6B3003BE5C4 /* Environment.generated.swift */; };
 		CC9D2F2020542C58004952FA /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F1F20542C58004952FA /* R.generated.swift */; };
 		CC9D2F2620542E00004952FA /* ApplicationWorkflow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9D2F2520542E00004952FA /* ApplicationWorkflow.swift */; };
 		CC9D2F2820543845004952FA /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC9D2F2720543845004952FA /* Settings.storyboard */; };
@@ -114,6 +118,11 @@
 		97C1916E701C5AACC79AA918 /* Pods-Workflows.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workflows.release.xcconfig"; path = "Pods/Target Support Files/Pods-Workflows/Pods-Workflows.release.xcconfig"; sourceTree = "<group>"; };
 		AEDAD6DD94C86989550412AB /* Pods-WorkflowsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkflowsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WorkflowsTests/Pods-WorkflowsTests.release.xcconfig"; sourceTree = "<group>"; };
 		BEDD15D32AAE7D2185688CBC /* Pods-Workflows.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workflows.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Workflows/Pods-Workflows.debug.xcconfig"; sourceTree = "<group>"; };
+		C0B1B3A162D4BE24E52648A2 /* Pods_SwiftyWorkflowTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyWorkflowTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3AA6A5B2E1CC2159B157745 /* Pods-SwiftyWorkflowTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyWorkflowTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyWorkflowTests/Pods-SwiftyWorkflowTests.release.xcconfig"; sourceTree = "<group>"; };
+		C8E39D9F23ABB630003BE5C4 /* Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mock.generated.swift; sourceTree = "<group>"; };
+		C8E39DA123ABB640003BE5C4 /* Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mock.generated.swift; sourceTree = "<group>"; };
+		C8E39DA323ABB6B3003BE5C4 /* Environment.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.generated.swift; sourceTree = "<group>"; };
 		CC9D2F1F20542C58004952FA /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		CC9D2F2520542E00004952FA /* ApplicationWorkflow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationWorkflow.swift; sourceTree = "<group>"; };
 		CC9D2F2720543845004952FA /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -170,6 +179,7 @@
 		CCFE62E820534040000B057B /* WorkflowsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkflowsTests.swift; sourceTree = "<group>"; };
 		CCFE62EA20534040000B057B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCFE62FB20534858000B057B /* UploadWorkflow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadWorkflow.swift; sourceTree = "<group>"; };
+		E1003828523B855DB76AD18F /* Pods-SwiftyWorkflowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyWorkflowTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyWorkflowTests/Pods-SwiftyWorkflowTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCD082CD205579AB00CC66E5 /* SwiftyWorkflow.framework in Frameworks */,
+				3CC4B76396DF4B683353B9F3 /* Pods_SwiftyWorkflowTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +224,7 @@
 			children = (
 				2C3DD0B1801E71437C68D908 /* Pods_Workflows.framework */,
 				68802B71D0B66A8E04404D56 /* Pods_WorkflowsTests.framework */,
+				C0B1B3A162D4BE24E52648A2 /* Pods_SwiftyWorkflowTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -224,6 +236,8 @@
 				97C1916E701C5AACC79AA918 /* Pods-Workflows.release.xcconfig */,
 				13C16ED8D8C63D30E19E512B /* Pods-WorkflowsTests.debug.xcconfig */,
 				AEDAD6DD94C86989550412AB /* Pods-WorkflowsTests.release.xcconfig */,
+				E1003828523B855DB76AD18F /* Pods-SwiftyWorkflowTests.debug.xcconfig */,
+				C3AA6A5B2E1CC2159B157745 /* Pods-SwiftyWorkflowTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -339,6 +353,7 @@
 			isa = PBXGroup;
 			children = (
 				CCD082D3205579AB00CC66E5 /* SwiftyWorkflowTests.swift */,
+				C8E39DA123ABB640003BE5C4 /* Mock.generated.swift */,
 				CCD082D5205579AB00CC66E5 /* Info.plist */,
 			);
 			path = SwiftyWorkflowTests;
@@ -444,6 +459,7 @@
 			children = (
 				CC9D2F2120542C5E004952FA /* Usecases */,
 				CC9D2F1E20542C58004952FA /* Resources */,
+				C8E39DA323ABB6B3003BE5C4 /* Environment.generated.swift */,
 				CCFE62D320534040000B057B /* AppDelegate.swift */,
 				CCFE62D520534040000B057B /* ViewController.swift */,
 				CCFE62DF20534040000B057B /* Info.plist */,
@@ -455,6 +471,7 @@
 			isa = PBXGroup;
 			children = (
 				CCFE62E820534040000B057B /* WorkflowsTests.swift */,
+				C8E39D9F23ABB630003BE5C4 /* Mock.generated.swift */,
 				CCFE62EA20534040000B057B /* Info.plist */,
 			);
 			path = WorkflowsTests;
@@ -496,9 +513,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CCD082DF205579AC00CC66E5 /* Build configuration list for PBXNativeTarget "SwiftyWorkflowTests" */;
 			buildPhases = (
+				BEDFC69937459C599163CC79 /* [CP] Check Pods Manifest.lock */,
 				CCD082C8205579AB00CC66E5 /* Sources */,
 				CCD082C9205579AB00CC66E5 /* Frameworks */,
 				CCD082CA205579AB00CC66E5 /* Resources */,
+				9D12432FCC6C67369AB54C02 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -521,7 +540,6 @@
 				CCFE62CD20534040000B057B /* Frameworks */,
 				CCFE62CE20534040000B057B /* Resources */,
 				C214A7644318019CF5C87530 /* [CP] Embed Pods Frameworks */,
-				DEFD3A1CA9FC265E574BCB31 /* [CP] Copy Pods Resources */,
 				CCD082DE205579AC00CC66E5 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -543,7 +561,6 @@
 				CCFE62E120534040000B057B /* Frameworks */,
 				CCFE62E220534040000B057B /* Resources */,
 				302840D808B35E4D849101BD /* [CP] Embed Pods Frameworks */,
-				4DDA6B7A0156B2531138E76E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -567,6 +584,7 @@
 				TargetAttributes = {
 					CCD082C3205579AB00CC66E5 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1120;
 						ProvisioningStyle = Automatic;
 					};
 					CCD082CB205579AB00CC66E5 = {
@@ -668,7 +686,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-WorkflowsTests/Pods-WorkflowsTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-WorkflowsTests/Pods-WorkflowsTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SwiftyMocky/SwiftyMocky.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -677,7 +695,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WorkflowsTests/Pods-WorkflowsTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorkflowsTests/Pods-WorkflowsTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		31814D2BDA63CF25A6656E2D /* [CP] Check Pods Manifest.lock */ = {
@@ -698,19 +716,44 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4DDA6B7A0156B2531138E76E /* [CP] Copy Pods Resources */ = {
+		9D12432FCC6C67369AB54C02 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftyWorkflowTests/Pods-SwiftyWorkflowTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftyMocky/SwiftyMocky.framework",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyMocky.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WorkflowsTests/Pods-WorkflowsTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftyWorkflowTests/Pods-SwiftyWorkflowTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BEDFC69937459C599163CC79 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftyWorkflowTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C214A7644318019CF5C87530 /* [CP] Embed Pods Frameworks */ = {
@@ -719,7 +762,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Workflows/Pods-Workflows-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Workflows/Pods-Workflows-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -728,7 +771,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Workflows/Pods-Workflows-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Workflows/Pods-Workflows-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CC9D2F1D20542B96004952FA /* [R] Generate */ = {
@@ -737,28 +780,15 @@
 			files = (
 			);
 			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
 			);
 			name = "[R] Generate";
 			outputPaths = (
+				"$SRCROOT/Workflows/Resources/R.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$SRCROOT/Pods/R.swift/rswift generate $SRCROOT/Workflows/Resources";
-		};
-		DEFD3A1CA9FC265E574BCB31 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Workflows/Pods-Workflows-resources.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "$SRCROOT/Pods/R.swift/rswift generate $SRCROOT/Workflows/Resources/R.generated.swift\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -787,6 +817,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8E39DA223ABB640003BE5C4 /* Mock.generated.swift in Sources */,
 				CCD082D4205579AB00CC66E5 /* SwiftyWorkflowTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -818,6 +849,7 @@
 				CC9D2F3C2054551C004952FA /* DashboardPresenter.swift in Sources */,
 				CC9D2F2A2054385D004952FA /* SettingsWorkflow.swift in Sources */,
 				CC9D2F322054389D004952FA /* SettingsFlow.swift in Sources */,
+				C8E39DA423ABB6B4003BE5C4 /* Environment.generated.swift in Sources */,
 				CC9D2F4C20549339004952FA /* SettingFlow.swift in Sources */,
 				CCD0830620557E3100CC66E5 /* ScanQRFlow.swift in Sources */,
 				CCD0831020557E6D00CC66E5 /* ScanDocumentView.swift in Sources */,
@@ -828,6 +860,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8E39DA023ABB630003BE5C4 /* Mock.generated.swift in Sources */,
 				CCFE62E920534040000B057B /* WorkflowsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -880,6 +913,7 @@
 		CCD082DC205579AC00CC66E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -890,12 +924,12 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SwiftyWorkflow/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.girappe.SwiftyWorkflow;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -905,6 +939,7 @@
 		CCD082DD205579AC00CC66E5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -915,12 +950,12 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SwiftyWorkflow/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.girappe.SwiftyWorkflow;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -929,15 +964,15 @@
 		};
 		CCD082E0205579AC00CC66E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1003828523B855DB76AD18F /* Pods-SwiftyWorkflowTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YYAKJ5SR76;
 				INFOPLIST_FILE = SwiftyWorkflowTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.makeAWishFoundation.SwiftyWorkflowTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Workflows.app/Workflows";
 			};
@@ -945,15 +980,15 @@
 		};
 		CCD082E1205579AC00CC66E5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3AA6A5B2E1CC2159B157745 /* Pods-SwiftyWorkflowTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YYAKJ5SR76;
 				INFOPLIST_FILE = SwiftyWorkflowTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.makeAWishFoundation.SwiftyWorkflowTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Workflows.app/Workflows";
 			};
@@ -1015,6 +1050,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1066,6 +1102,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1074,16 +1111,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BEDD15D32AAE7D2185688CBC /* Pods-Workflows.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YYAKJ5SR76;
 				INFOPLIST_FILE = Workflows/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 0.3.0;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.girappe.Workflows;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1092,16 +1130,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 97C1916E701C5AACC79AA918 /* Pods-Workflows.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YYAKJ5SR76;
 				INFOPLIST_FILE = Workflows/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 0.3.0;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DRELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = com.girappe.Workflows;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1110,7 +1149,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13C16ED8D8C63D30E19E512B /* Pods-WorkflowsTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YYAKJ5SR76;
@@ -1118,7 +1157,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.digidentity.WorkflowsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Workflows.app/Workflows";
 			};
@@ -1128,7 +1166,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AEDAD6DD94C86989550412AB /* Pods-WorkflowsTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YYAKJ5SR76;
@@ -1136,7 +1174,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.digidentity.WorkflowsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Workflows.app/Workflows";
 			};

@@ -92,7 +92,7 @@ extension UIViewController: ViewType {
     }
 
     public func present(error: Error) {
-        let alert = UIAlertController(title: nil, message: String(describing: error), preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: nil, message: String(describing: error), preferredStyle: UIAlertController.Style.alert)
         let source = tabBarController ?? navigationController ?? self
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         source.present(alert, animated: true, completion: nil)

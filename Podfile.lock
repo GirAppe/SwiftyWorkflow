@@ -1,23 +1,30 @@
 PODS:
-  - R.swift (4.0.0):
-    - R.swift.Library (~> 4.0.0)
-  - R.swift.Library (4.0.0)
-  - Sourcery (0.10.1)
-  - SwiftyMocky (2.0.1):
-    - SwiftyMocky/Core (= 2.0.1)
-  - SwiftyMocky/Core (2.0.1):
-    - Sourcery
+  - R.swift (5.1.0):
+    - R.swift.Library (~> 5.1.0)
+  - R.swift.Library (5.1.0)
+  - Sourcery (0.17.0)
+  - SwiftyMocky (3.4.0):
+    - SwiftyMocky/Core (= 3.4.0)
+  - SwiftyMocky/Core (3.4.0):
+    - Sourcery (>= 0.17)
 
 DEPENDENCIES:
   - R.swift
-  - SwiftyMocky
+  - SwiftyMocky (~> 3.4.0)
+
+SPEC REPOS:
+  trunk:
+    - R.swift
+    - R.swift.Library
+    - Sourcery
+    - SwiftyMocky
 
 SPEC CHECKSUMS:
-  R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
-  R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
-  Sourcery: ac71ac4d490f62fd381a9f3b558f3093d91bddd5
-  SwiftyMocky: 10aae968ee3f780ad264ba6c001c92e42f5b752e
+  R.swift: 8cbc4fc69b740305b6a17c8a8ed968eb788962d9
+  R.swift.Library: fa85ce1e0d0b7e818cd9e080df910ba54d2776cc
+  Sourcery: 3ed61be7c8a1218fce349266139379dba477efe0
+  SwiftyMocky: 030e1f0e0669952287af29d38b4748461d22312d
 
-PODFILE CHECKSUM: 2f087635a44e8139873a0b3301839c49dbd2b559
+PODFILE CHECKSUM: 94d112d479bd78453834bb85b1b10401e057257d
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.8.4

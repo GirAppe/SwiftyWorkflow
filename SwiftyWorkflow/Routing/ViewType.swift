@@ -33,12 +33,12 @@ public protocol ViewType: class {
 }
 
 public extension ViewType {
-    public var presentingView: ViewType? { return nil }
-    public var presentedView: ViewType? { return nil }
-    public var navigationView: ViewType? { return nil }
-    public var handleError: (Error) -> Void { return { self.present(error: $0) } }
+    var presentingView: ViewType? { return nil }
+    var presentedView: ViewType? { return nil }
+    var navigationView: ViewType? { return nil }
+    var handleError: (Error) -> Void { return { self.present(error: $0) } }
 
-    public func dismiss(animated flag: Bool) {
+    func dismiss(animated flag: Bool) {
         dismiss(animated: flag, completion: nil)
     }
 }

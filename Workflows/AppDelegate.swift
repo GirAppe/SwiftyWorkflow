@@ -16,10 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var assembler: Assembler!
     let main = ApplicationWorkflow()
 
-    func start() {
+    // MARK: - Setup
+
+    func setup() {
         setupAssembly()
-        self.window = UIWindow()
-        main.start(with: window!)
+    }
+
+    func setupEnvironment() {
+        Environment.setVersionFormat(.full)
+        Environment.info.showVersion()
     }
 
     func setupAssembly() {
@@ -28,12 +33,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             MainAssembly()
         ])
     }
+
+    // MARK: - Start
+
+    func start() {
+        setup()
+        self.window = UIWindow()
+        main.start(with: window!)
+    }
+
 }
 
 extension AppDelegate {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-
         start()
         return true
     }

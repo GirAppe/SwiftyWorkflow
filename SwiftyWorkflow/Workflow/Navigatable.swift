@@ -13,11 +13,11 @@ public protocol Navigatable: class {
 }
 
 public extension Navigatable {
-    public func perform(_ transition: Self.Out) {
+    func perform(_ transition: Self.Out) {
         perform(transition, with: ())
     }
     
-    public func perform<Arg>(_ transition: Self.Out, with argument: Arg) {
+    func perform<Arg>(_ transition: Self.Out, with argument: Arg) {
         do {
             guard let transition: Transition<Arg> = transition.asTransition() else {
                 throw TransitionError.wrongType

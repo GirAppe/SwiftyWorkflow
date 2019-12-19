@@ -1,13 +1,30 @@
-# Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+# MARK: - Configuration 
+
+platform :ios, '10.0'
 use_frameworks!
 
+# MARK: - Modules
+
+def tools
+    pod 'R.swift'
+end
+
+def tests
+    pod 'SwiftyMocky', '~> 3.4.0'
+end
+
+# MArK: - Targets
+
 target 'Workflows' do
-  pod 'R.swift'
+    tools
+end
 
-  target 'WorkflowsTests' do
+target 'WorkflowsTests' do
     inherit! :search_paths
+    tests
+end
 
-    pod 'SwiftyMocky'
-  end
+target 'SwiftyWorkflowTests' do
+    inherit! :search_paths
+    tests
 end
