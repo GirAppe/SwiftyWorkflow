@@ -41,6 +41,9 @@ task :deploy do
     version = ARGV[1].to_s
     if version
         sh("sed 's|{{VERSION_NUMBER}}|#{version}|g' ./Podspec.template > ./SwiftyWorkflow.podspec")
+        sh("git add *")
+        sh("git commit -m \"Deploy #{version}\"")
+        sh("git push")
         sh("git tag #{version} && git push --tags")
         sh("pod trunk push")
     end
