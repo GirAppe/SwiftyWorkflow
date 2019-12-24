@@ -616,9 +616,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				CCD082C3205579AB00CC66E5 /* SwiftyWorkflow */,
 				CCFE62CF20534040000B057B /* Workflows */,
 				CCFE62E320534040000B057B /* WorkflowsTests */,
-				CCD082C3205579AB00CC66E5 /* SwiftyWorkflow */,
 				CCD082CB205579AB00CC66E5 /* SwiftyWorkflowTests */,
 			);
 		};
@@ -784,7 +784,7 @@
 			);
 			name = "[R] Generate";
 			outputPaths = (
-				"$SRCROOT/Workflows/Resources/R.generated.swift",
+				$SRCROOT/Workflows/Resources/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1119,7 +1119,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 0.3.0;
-				OTHER_SWIFT_FLAGS = "$(inherited) -DDEBUG";
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-DDEBUG",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.girappe.Workflows;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1138,7 +1141,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 0.3.0;
-				OTHER_SWIFT_FLAGS = "$(inherited) -DRELEASE";
+				OTHER_SWIFT_FLAGS = (
+					"$(inherited)",
+					"-DRELEASE",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.girappe.Workflows;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

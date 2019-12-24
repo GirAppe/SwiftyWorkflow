@@ -1,7 +1,7 @@
-// Generated with AutoEnvironment 0.2.0 by Andrzej Michnia @GirAppe
+// Generated with AutoEnvironment 0.3.0 by Andrzej Michnia @GirAppe
 
 import Foundation
-#if os(iOS)
+#if os(iOS) || os(tvOS)
 import UIKit
 #endif
 
@@ -113,9 +113,11 @@ public extension Environment {
     }
 }
 
-#if os(iOS)
+#if os(iOS) || os(tvOS)
 fileprivate class DummyViewController: UIViewController {
     fileprivate static var shared = DummyViewController()
+
+    #if os(iOS)
     fileprivate static var preferredStatusBarStyle: UIStatusBarStyle = .default {
         didSet { shared.setNeedsStatusBarAppearanceUpdate() }
     }
@@ -123,9 +125,11 @@ fileprivate class DummyViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return DummyViewController.preferredStatusBarStyle
     }
+    #endif
 }
 
 public extension Environment {
+    #if os(iOS)
     enum BarType {
         case white
         case black
@@ -135,7 +139,7 @@ public extension Environment {
             switch DummyViewController.preferredStatusBarStyle {
             case .default: return .black
             case .lightContent: return .white
-            default: return .white
+            @unknown default: return .white
             }
         }
         set {
@@ -145,6 +149,7 @@ public extension Environment {
             }
         }
     }
+    #endif
 
     /// Info container - allows showing environment/configuration version information on top of everything
     static var info = Info()

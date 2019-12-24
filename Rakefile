@@ -21,13 +21,23 @@ task :xcode do
     sh "open #{workspace}"
 end
 
-## [ Dependencies ] ############################################################
+## [ Tools ] ###################################################################
 
 desc "Install tools"
 task :tools do
     begin
         print_info "Installing tools dependencies with Mint"
         sh "mint bootstrap"
+    rescue
+        print_info "Failed - check if Mint installed"
+    end
+end
+
+desc "Setup test app environments"
+task :environment do
+    begin
+        print_info "Runnin AutoEnvironment"
+        sh "mint run autoenvironment autoenvironment -p Workflows.xcodeproj/ -o ./Workflows"
     rescue
         print_info "Failed - check if Mint installed"
     end
