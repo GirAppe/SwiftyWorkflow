@@ -1,5 +1,9 @@
 // MARK: - NavigationContext
 
+#if os(iOS) || os(tvOS)
+import UIKit
+#endif
+
 //sourcery: AutoMockable
 public protocol NavigationContext: class {
 
@@ -32,6 +36,11 @@ public protocol NavigationContext: class {
     // MARK: - Helpers
 
     func wrappedInNavigation() -> NavigationContext
+    func wrappedIn(_ navigation: NavigationContext) -> NavigationContext
+
+    #if os(iOS) || os(tvOS)
+    func withModalPresentationStyle(_ style: UIModalPresentationStyle) -> NavigationContext
+    #endif
 
     // MARK: - Workflows operations
 

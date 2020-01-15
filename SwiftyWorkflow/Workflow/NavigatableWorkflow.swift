@@ -4,7 +4,7 @@ open class NavigatableWorkflow {
 
     public weak var context: NavigationContext?
 
-    internal var wrap: Bool = false
+    internal var wrapper: (NavigationContext) -> NavigationContext = { $0 }
     internal var anyEventHandler: Any?
 
     public init() {}
@@ -17,18 +17,24 @@ public extension Workflow where Self: NavigatableWorkflow {
     }
 
     func wrapInNavigation() -> Self {
-        self.wrap = true; return self
+        self.wrapper = { $0.wrappedInNavigation() }
+        return self
+    }
+
+    func wrapIn(_ navigation: NavigationContext) -> Self {
+        self.wrapper = { $0.wrappedIn(navigation) }
+        return self
     }
 }
 
 // MARK: - Internal
 
-extension Workflow {
-    var wrap: Bool { (self as? NavigatableWorkflow)?.wrap ?? false }
-}
-
 extension NavigationContext {
-    func wrap(if shouldWrap: Bool) -> NavigationContext {
-        shouldWrap ? wrappedInNavigation() : self
+
+    func wrapIfNeeded<W: Workflow>(_ workflow: W) -> NavigationContext {
+        guard let workflow = workflow as? NavigatableWorkflow else {
+            return self
+        }
+        return workflow.wrapper(self)
     }
 }

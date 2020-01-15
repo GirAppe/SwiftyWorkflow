@@ -93,8 +93,24 @@ extension UIViewController: NavigationContext {
 
     // MARK: - Helpers
 
+    public func withModalPresentationStyle(_ style: UIModalPresentationStyle) -> NavigationContext {
+        self.modalPresentationStyle = style
+        return self
+    }
+
     public func wrappedInNavigation() -> NavigationContext {
-        let navigation = BaseNavigationController.defaultClass.init()
+        wrappedIn(BaseNavigationController.defaultClass)
+    }
+
+    public func wrappedIn(_ navigation: NavigationContext) -> NavigationContext {
+        guard let navigation = navigation as? UINavigationController else { return self }
+        let controllers = (self as? UINavigationController)?.viewControllers ?? [self]
+        navigation.setViewControllers(controllers, animated: false)
+        return navigation
+    }
+
+    public func wrappedIn<T: UINavigationController>(_ navigationClass: T.Type) -> NavigationContext {
+        let navigation = navigationClass.init()
         let controllers = (self as? UINavigationController)?.viewControllers ?? [self]
         navigation.setViewControllers(controllers, animated: false)
         return navigation

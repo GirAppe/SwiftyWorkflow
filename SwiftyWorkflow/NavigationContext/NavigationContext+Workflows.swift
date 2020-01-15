@@ -23,7 +23,7 @@ public extension NavigationContext {
     ) -> W {
         DispatchQueue.main.async {
             self.present(
-                workflow.start(with: input).wrap(if: workflow.wrap),
+                workflow.start(with: input).wrapIfNeeded(workflow),
                 animated: animated,
                 completion: completion
             )
