@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Evidence Selection-->
+        <scene sceneID="5oH-tb-U0T">
+            <objects>
+                <viewController storyboardIdentifier="EvidenceSelectionViewController" id="02j-np-15o" customClass="EvidenceSelectionViewController" customModule="WorkflowTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="roZ-Bj-b8A">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Xlt-g7-P4b">
+                                <rect key="frame" x="20" y="373" width="374" height="150"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dox-ib-9Ox">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="T7V-q0-03U"/>
+                                        </constraints>
+                                        <state key="normal" title="Passport"/>
+                                        <connections>
+                                            <action selector="didSelectPassport" destination="02j-np-15o" eventType="touchUpInside" id="O9L-WZ-Ics"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jN2-pc-J8q" userLabel="Driver licence">
+                                        <rect key="frame" x="0.0" y="50" width="374" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="qC3-Ca-tCZ"/>
+                                        </constraints>
+                                        <state key="normal" title="Driver licence"/>
+                                        <connections>
+                                            <action selector="didSelectDrivinglicence" destination="02j-np-15o" eventType="touchUpInside" id="aF6-GM-Rbg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzZ-Dh-fBm">
+                                        <rect key="frame" x="0.0" y="100" width="374" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="r68-ko-C6h"/>
+                                        </constraints>
+                                        <state key="normal" title="ID card"/>
+                                        <connections>
+                                            <action selector="didSelectIdCard" destination="02j-np-15o" eventType="touchUpInside" id="hxa-pU-ApQ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Xlt-g7-P4b" firstAttribute="centerY" secondItem="roZ-Bj-b8A" secondAttribute="centerY" id="EkM-bl-2w6"/>
+                            <constraint firstItem="DtR-m4-ave" firstAttribute="trailing" secondItem="Xlt-g7-P4b" secondAttribute="trailing" constant="20" id="vz9-2v-OG6"/>
+                            <constraint firstItem="Xlt-g7-P4b" firstAttribute="leading" secondItem="DtR-m4-ave" secondAttribute="leading" constant="20" id="yVb-VU-pIB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DtR-m4-ave"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Evidence Selection" id="146-07-utr">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="XTD-w6-8tY">
+                            <connections>
+                                <action selector="cancel" destination="02j-np-15o" id="0zM-AS-oAz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="drivingLicenceButton" destination="jN2-pc-J8q" id="s6E-l4-E56"/>
+                        <outlet property="idCardButton" destination="hzZ-Dh-fBm" id="3n2-sD-3F3"/>
+                        <outlet property="passportButton" destination="Dox-ib-9Ox" id="2nQ-Vf-2FB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MWq-LH-ONd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-272" y="-542"/>
+        </scene>
+        <!--Image Capture-->
+        <scene sceneID="dUd-uR-MyY">
+            <objects>
+                <viewController storyboardIdentifier="ImageCaptureViewController" id="Ig8-gT-BaV" userLabel="Image Capture" customClass="ImageCaptureViewController" customModule="WorkflowTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lHN-Y3-Y88">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZS-W5-ryg" customClass="PrimaryButton" customModule="UIComponents">
+                                <rect key="frame" x="20" y="816" width="374" height="30"/>
+                                <state key="normal" title="Capture"/>
+                                <connections>
+                                    <action selector="capture" destination="Ig8-gT-BaV" eventType="touchUpInside" id="LjM-gT-g74"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGp-ne-yhv">
+                                <rect key="frame" x="20" y="108" width="374" height="688"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="z02-O3-0qU" firstAttribute="trailing" secondItem="FGp-ne-yhv" secondAttribute="trailing" constant="20" id="2yJ-CS-Pbl"/>
+                            <constraint firstItem="FGp-ne-yhv" firstAttribute="leading" secondItem="z02-O3-0qU" secondAttribute="leading" constant="20" id="51F-4m-Mse"/>
+                            <constraint firstItem="z02-O3-0qU" firstAttribute="bottom" secondItem="lZS-W5-ryg" secondAttribute="bottom" constant="16" id="83h-Fl-ERa"/>
+                            <constraint firstItem="z02-O3-0qU" firstAttribute="trailing" secondItem="lZS-W5-ryg" secondAttribute="trailing" constant="20" id="MUp-lj-cUx"/>
+                            <constraint firstItem="lZS-W5-ryg" firstAttribute="top" secondItem="FGp-ne-yhv" secondAttribute="bottom" constant="20" id="ceU-Hd-VIV"/>
+                            <constraint firstItem="lZS-W5-ryg" firstAttribute="centerX" secondItem="lHN-Y3-Y88" secondAttribute="centerX" id="eGO-JN-OmG"/>
+                            <constraint firstItem="FGp-ne-yhv" firstAttribute="top" secondItem="z02-O3-0qU" secondAttribute="top" constant="20" id="kzS-xJ-TFj"/>
+                            <constraint firstItem="lZS-W5-ryg" firstAttribute="leading" secondItem="z02-O3-0qU" secondAttribute="leading" constant="20" id="yuI-Wm-zeB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="z02-O3-0qU"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Capture" id="wi0-Su-Ind">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="66Z-GC-LZE">
+                            <connections>
+                                <action selector="cancel" destination="Ig8-gT-BaV" id="vIh-WA-SGA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="infoLabel" destination="FGp-ne-yhv" id="USI-Pe-z2L"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aif-pQ-eII" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="649" y="-542"/>
+        </scene>
+        <!--Image Review-->
+        <scene sceneID="ASy-vt-xra">
+            <objects>
+                <viewController storyboardIdentifier="ImagesReviewViewController" id="QEV-xS-UGX" userLabel="Image Review" customClass="ImagesReviewViewController" customModule="WorkflowTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ROA-tS-KlC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pGQ-V9-Jez">
+                                <rect key="frame" x="20" y="766" width="374" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZCt-bv-qD5" customClass="SecondaryButton" customModule="UIComponents">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                        <state key="normal" title="Retake"/>
+                                        <connections>
+                                            <action selector="retake" destination="QEV-xS-UGX" eventType="touchUpInside" id="20d-iU-OWM"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sbr-7Q-wro" customClass="PrimaryButton" customModule="UIComponents">
+                                        <rect key="frame" x="0.0" y="50" width="374" height="30"/>
+                                        <state key="normal" title="Confirm"/>
+                                        <connections>
+                                            <action selector="confirm" destination="QEV-xS-UGX" eventType="touchUpInside" id="5pT-wP-mGA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5l7-Xf-zCA">
+                                <rect key="frame" x="20" y="108" width="374" height="638"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Zaw-wg-Wvs" firstAttribute="trailing" secondItem="5l7-Xf-zCA" secondAttribute="trailing" constant="20" id="BG0-vb-qkF"/>
+                            <constraint firstItem="pGQ-V9-Jez" firstAttribute="leading" secondItem="Zaw-wg-Wvs" secondAttribute="leading" constant="20" id="E8I-i9-eHq"/>
+                            <constraint firstItem="5l7-Xf-zCA" firstAttribute="top" secondItem="Zaw-wg-Wvs" secondAttribute="top" constant="20" id="ONp-ue-k3D"/>
+                            <constraint firstItem="Zaw-wg-Wvs" firstAttribute="bottom" secondItem="pGQ-V9-Jez" secondAttribute="bottom" constant="16" id="PnU-d5-gWr"/>
+                            <constraint firstItem="pGQ-V9-Jez" firstAttribute="top" secondItem="5l7-Xf-zCA" secondAttribute="bottom" constant="20" id="m2w-1S-KzK"/>
+                            <constraint firstItem="5l7-Xf-zCA" firstAttribute="leading" secondItem="Zaw-wg-Wvs" secondAttribute="leading" constant="20" id="mbZ-ON-pz2"/>
+                            <constraint firstItem="Zaw-wg-Wvs" firstAttribute="trailing" secondItem="pGQ-V9-Jez" secondAttribute="trailing" constant="20" id="vW5-Oi-ljR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Zaw-wg-Wvs"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Review" id="I7v-YM-J9p">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="Rfm-wm-bol">
+                            <connections>
+                                <action selector="cancel" destination="QEV-xS-UGX" id="i0T-pR-EJR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="infoLabel" destination="5l7-Xf-zCA" id="jYK-Vh-euv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hvh-dR-kWO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1542" y="-542"/>
+        </scene>
+        <!--Capture Another?-->
+        <scene sceneID="zZO-8T-GOC">
+            <objects>
+                <viewController storyboardIdentifier="LetterAnotherViewController" id="JRu-eK-M1t" customClass="LetterAnotherViewController" customModule="WorkflowTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ph8-R7-Bjw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="sqK-I4-Qfa">
+                                <rect key="frame" x="20" y="766" width="374" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ipt-II-6ha" customClass="SecondaryButton" customModule="UIComponents">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                        <state key="normal" title="Capture another letter"/>
+                                        <connections>
+                                            <action selector="captureAnother" destination="JRu-eK-M1t" eventType="touchUpInside" id="Uj7-GJ-upJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66P-Mn-gXy" customClass="PrimaryButton" customModule="UIComponents">
+                                        <rect key="frame" x="0.0" y="50" width="374" height="30"/>
+                                        <state key="normal" title="Continue"/>
+                                        <connections>
+                                            <action selector="next" destination="JRu-eK-M1t" eventType="touchUpInside" id="PEh-oD-NHX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capture another letter?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aX0-m6-Uvo">
+                                <rect key="frame" x="20" y="108" width="374" height="638"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="aX0-m6-Uvo" firstAttribute="top" secondItem="PHu-x3-HPK" secondAttribute="top" constant="20" id="5fl-i8-xf8"/>
+                            <constraint firstItem="PHu-x3-HPK" firstAttribute="trailing" secondItem="aX0-m6-Uvo" secondAttribute="trailing" constant="20" id="GDh-FY-ux5"/>
+                            <constraint firstItem="aX0-m6-Uvo" firstAttribute="leading" secondItem="PHu-x3-HPK" secondAttribute="leading" constant="20" id="HAE-Uv-K82"/>
+                            <constraint firstItem="sqK-I4-Qfa" firstAttribute="leading" secondItem="PHu-x3-HPK" secondAttribute="leading" constant="20" id="OgG-Vz-iTs"/>
+                            <constraint firstItem="PHu-x3-HPK" firstAttribute="bottom" secondItem="sqK-I4-Qfa" secondAttribute="bottom" constant="16" id="ZYo-al-0PF"/>
+                            <constraint firstItem="PHu-x3-HPK" firstAttribute="trailing" secondItem="sqK-I4-Qfa" secondAttribute="trailing" constant="20" id="kYm-WO-VeW"/>
+                            <constraint firstItem="sqK-I4-Qfa" firstAttribute="top" secondItem="aX0-m6-Uvo" secondAttribute="bottom" constant="20" id="sQV-jB-39q"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PHu-x3-HPK"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Capture Another?" id="bdd-HO-bXr">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="9US-JL-5sW">
+                            <connections>
+                                <action selector="cancel" destination="JRu-eK-M1t" id="MCV-Jx-9jZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="50e-Ta-Xbz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2429" y="-542"/>
+        </scene>
+        <!--Upload-->
+        <scene sceneID="Cxy-ZL-pkn">
+            <objects>
+                <viewController storyboardIdentifier="UploadEnvelopeViewController" id="Vsj-Co-BGu" userLabel="Upload" customClass="UploadEnvelopeViewController" customModule="WorkflowTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fWo-iQ-YfN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="AQH-PE-vJD">
+                                <rect key="frame" x="20" y="766" width="374" height="80"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHa-Pw-rHc" customClass="DesctructiveButton" customModule="UIComponents">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                        <state key="normal" title="Failure"/>
+                                        <connections>
+                                            <action selector="failed" destination="Vsj-Co-BGu" eventType="touchUpInside" id="FNp-cS-WQo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8c-0n-u4W" customClass="PrimaryButton" customModule="UIComponents">
+                                        <rect key="frame" x="0.0" y="50" width="374" height="30"/>
+                                        <state key="normal" title="Success"/>
+                                        <connections>
+                                            <action selector="success" destination="Vsj-Co-BGu" eventType="touchUpInside" id="AHq-14-XbV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uploading..." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfm-Uj-KTY">
+                                <rect key="frame" x="20" y="108" width="374" height="638"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bfm-Uj-KTY" firstAttribute="leading" secondItem="Ip6-UB-LzG" secondAttribute="leading" constant="20" id="248-Ms-TMW"/>
+                            <constraint firstItem="Ip6-UB-LzG" firstAttribute="bottom" secondItem="AQH-PE-vJD" secondAttribute="bottom" constant="16" id="LKg-oX-jQ7"/>
+                            <constraint firstItem="Ip6-UB-LzG" firstAttribute="trailing" secondItem="AQH-PE-vJD" secondAttribute="trailing" constant="20" id="TEW-iL-IsF"/>
+                            <constraint firstItem="AQH-PE-vJD" firstAttribute="leading" secondItem="Ip6-UB-LzG" secondAttribute="leading" constant="20" id="Uqp-e6-8Zl"/>
+                            <constraint firstItem="Ip6-UB-LzG" firstAttribute="trailing" secondItem="bfm-Uj-KTY" secondAttribute="trailing" constant="20" id="dQt-AB-Aza"/>
+                            <constraint firstItem="AQH-PE-vJD" firstAttribute="top" secondItem="bfm-Uj-KTY" secondAttribute="bottom" constant="20" id="iIe-HN-kpG"/>
+                            <constraint firstItem="bfm-Uj-KTY" firstAttribute="top" secondItem="Ip6-UB-LzG" secondAttribute="top" constant="20" id="jxQ-NF-Ihm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ip6-UB-LzG"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Upload" id="TNO-PJ-OLA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="mgr-0V-0we">
+                            <connections>
+                                <action selector="cancel" destination="Vsj-Co-BGu" id="ZuR-KF-fyc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="infoLabel" destination="bfm-Uj-KTY" id="PQF-yE-tgR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fpK-oE-sYP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4933" y="-542"/>
+        </scene>
+        <!--Capture Selfie-->
+        <scene sceneID="zCI-kJ-dd8">
+            <objects>
+                <viewController storyboardIdentifier="SelfieCaptureViewController" id="1Mn-D0-mOG" customClass="SelfieCaptureViewController" customModule="WorkflowTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="54W-Tu-WKP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="T3L-eh-SYH">
+                                <rect key="frame" x="20" y="816" width="374" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIt-gS-IJL" customClass="PrimaryButton" customModule="UIComponents">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                        <state key="normal" title="Capture"/>
+                                        <connections>
+                                            <action selector="capture" destination="1Mn-D0-mOG" eventType="touchUpInside" id="rJR-Sz-9Rv"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uploading..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xlh-ha-bjU">
+                                <rect key="frame" x="20" y="108" width="374" height="688"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="h9N-7V-dtR" firstAttribute="bottom" secondItem="T3L-eh-SYH" secondAttribute="bottom" constant="16" id="DNy-mW-bhn"/>
+                            <constraint firstItem="T3L-eh-SYH" firstAttribute="top" secondItem="xlh-ha-bjU" secondAttribute="bottom" constant="20" id="MlU-PS-aTb"/>
+                            <constraint firstItem="h9N-7V-dtR" firstAttribute="trailing" secondItem="T3L-eh-SYH" secondAttribute="trailing" constant="20" id="euj-fT-cHy"/>
+                            <constraint firstItem="T3L-eh-SYH" firstAttribute="leading" secondItem="h9N-7V-dtR" secondAttribute="leading" constant="20" id="iRu-ls-CNc"/>
+                            <constraint firstItem="h9N-7V-dtR" firstAttribute="trailing" secondItem="xlh-ha-bjU" secondAttribute="trailing" constant="20" id="mOr-in-tIR"/>
+                            <constraint firstItem="xlh-ha-bjU" firstAttribute="leading" secondItem="h9N-7V-dtR" secondAttribute="leading" constant="20" id="sBx-rD-Ehz"/>
+                            <constraint firstItem="xlh-ha-bjU" firstAttribute="top" secondItem="h9N-7V-dtR" secondAttribute="top" constant="20" id="sbw-WV-vdN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="h9N-7V-dtR"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Capture Selfie" id="CvV-f5-ed9">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="QfO-Tp-0tO">
+                            <connections>
+                                <action selector="cancel" destination="1Mn-D0-mOG" id="HN7-E7-Dxk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="infoLabel" destination="xlh-ha-bjU" id="b79-GJ-2tU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H5E-U7-QGU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3309" y="-542"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,20 +1,20 @@
-import Foundation
-
 // MARK: - Assembly
+
 public protocol Assembly {
-    func assemble(in parent: Container)
+    func assemble(in parent: DependencyContainer)
 }
 
 // MARK: - Assembler
-public class Assembler: Container {
-    public var parent: Container?
-    public var registrations: [RegsteredInstance] = []
+
+public class Assembler: DependencyContainer {
+    public var parent: DependencyContainer?
+    public var registrations: [RegisteredInstance] = []
 
     public init(_ assemblies: [Assembly]) {
         assemblies.forEach { $0.assemble(in: self) }
     }
 
-    public func assemble(in parent: Container) {
+    public func assemble(in parent: DependencyContainer) {
         self.parent = parent
     }
 
@@ -27,6 +27,7 @@ public class Assembler: Container {
     }
     
     private func registration<T,Arg>(_ type: T.Type, _ argument: Arg.Type) -> Registration<T,Arg>? {
-        return registrations.first { $0 is Registration<T,Arg> } as? Registration<T,Arg>
+        let exactType = registrations.first { $0 is Registration<T,Arg> } as? Registration<T,Arg>
+        return exactType
     }
 }

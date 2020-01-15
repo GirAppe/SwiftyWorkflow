@@ -1,60 +1,19 @@
-import Foundation
-
 // MARK: - Container
+
 //sourcery: AutoMockable
-public protocol Container: Resolver, Assembly {
-    var parent: Container? { get set }
-    var registrations: [RegsteredInstance] { get set }
+public protocol Container: class, Assembly {
+    var registrations: [RegisteredInstance] { get set }
 
     @discardableResult func register<T,Arg>(_ type: T.Type, arg: Arg.Type, factory: @escaping (Resolver,Arg) -> T) -> Registration<T,Arg>
 }
 
-public extension Container {
-    @discardableResult func register<T>(_ type: T.Type, factory: @escaping (Resolver) -> T) -> Registration<T,Void> {
-        return register(type, arg: Void.self) { (resolver: Resolver, arg: Void) -> T in
-            return factory(resolver)
-        }
-    }
-
-    @discardableResult func register<T,Arg>(_ type: T.Type, arg: Arg.Type, factory: @escaping (Resolver,Arg) -> T) -> Registration<T,Arg> {
-        let registration = Registration<T,Arg> { [unowned self] (argument) -> T in
-            return factory(self, argument)
-        }
-        registrations.append(registration)
-        return registration
-    }
-
-    func resolve<T>(_ type: T.Type) -> T! {
-        return resolve(T.self, with: ())
-    }
-
-    func resolve<T,Arg>(_ type: T.Type, with argument: Arg) -> T! {
-        if let resolved = self as? T {
-            return resolved
-        } else if let instance = instance(T.self) {
-            return instance
-        } else if let registration = registration(T.self, Arg.self) {
-            return registration.resolve(with: argument)
-        } else {
-            return parent?.resolve(type, with: argument)
-        }
-    }
-
-    private func instance<T>(_ type: T.Type) -> T? {
-        return registrations.compactMap({ $0.instance(of: T.self) }).first // TODO: Verify flow
-    }
-
-    private func registration<T,Arg>(_ type: T.Type, _ argument: Arg.Type) -> Registration<T,Arg>? {
-        return registrations.first { $0 is Registration<T,Arg> } as? Registration<T,Arg>
-    }
-}
-
 // MARK: - Registration
-public protocol RegsteredInstance {
+
+public protocol RegisteredInstance {
     func instance<T>(of type: T.Type) -> T?
 }
 
-public class Registration<T,Arg>: RegsteredInstance {
+public class Registration<T,Arg>: RegisteredInstance {
     /// Injection scope. Allows to specify behaviour of resolving registration
     ///
     /// - none: always create new instance when resolving. This is **default** behaviour.
@@ -71,11 +30,11 @@ public class Registration<T,Arg>: RegsteredInstance {
     private weak var weakInstance: AnyObject?
     private var strongInstance: T?
 
-    public init(factory: @escaping (Arg) -> T) {
+    init(factory: @escaping (Arg) -> T) {
         self.factory = factory
     }
 
-    public func resolve(with input: Arg) -> T {
+    func resolve(with input: Arg) -> T {
         switch scope {
         case .none:
             return factory(input)
@@ -100,7 +59,7 @@ public class Registration<T,Arg>: RegsteredInstance {
     }
 }
 
-public extension Registration where Arg == Void {
+extension Registration where Arg == Void {
     func resolve() -> T {
         return resolve(with: ())
     }

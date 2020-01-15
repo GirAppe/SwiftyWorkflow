@@ -1,6 +1,5 @@
-import Foundation
-
 // MARK: - Resolver
+
 //sourcery: AutoMockable
 public protocol Resolver: class {
     func resolve<T>(_ type: T.Type) -> T!

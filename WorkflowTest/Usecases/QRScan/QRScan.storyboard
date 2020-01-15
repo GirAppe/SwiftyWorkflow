@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--QR Scan-->
+        <scene sceneID="Gou-B0-aCG">
+            <objects>
+                <viewController storyboardIdentifier="QRScanViewController" title="QR Scan" id="H5m-e5-iLv" customClass="QRScanViewController" customModule="WorkflowTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NIt-Lg-Sgb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="6Jj-za-zf1">
+                                <rect key="frame" x="20" y="348" width="374" height="200"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGf-US-wLo">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="OEJ-Md-soH"/>
+                                        </constraints>
+                                        <state key="normal" title="Did Scan Evidence (all)"/>
+                                        <connections>
+                                            <action selector="startWithEvidenceSelectionAll" destination="H5m-e5-iLv" eventType="touchUpInside" id="9yk-ak-iSK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7V-5U-Yew">
+                                        <rect key="frame" x="0.0" y="50" width="374" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="1Lr-NU-jw4"/>
+                                        </constraints>
+                                        <state key="normal" title="Did Scan Evidence (passport + id)"/>
+                                        <connections>
+                                            <action selector="startWithEvidenceSelectionPassportAndId" destination="H5m-e5-iLv" eventType="touchUpInside" id="to1-vq-26F"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K3X-2s-iGB">
+                                        <rect key="frame" x="0.0" y="100" width="374" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="rdi-Xk-lG1"/>
+                                        </constraints>
+                                        <state key="normal" title="Did scan letter"/>
+                                        <connections>
+                                            <action selector="startWithLetter" destination="H5m-e5-iLv" eventType="touchUpInside" id="po4-37-lyQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJp-lQ-ds1">
+                                        <rect key="frame" x="0.0" y="150" width="374" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="FJd-Z2-kbX"/>
+                                        </constraints>
+                                        <state key="normal" title="Did scan custom payload"/>
+                                        <connections>
+                                            <action selector="didscanOtherPayload" destination="H5m-e5-iLv" eventType="touchUpInside" id="bmK-vC-ubV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Jj-za-zf1" firstAttribute="leading" secondItem="6Hm-na-Ewj" secondAttribute="leading" constant="20" id="3Ae-EZ-Mr0"/>
+                            <constraint firstItem="6Hm-na-Ewj" firstAttribute="trailing" secondItem="6Jj-za-zf1" secondAttribute="trailing" constant="20" id="TU5-h2-D1c"/>
+                            <constraint firstItem="6Jj-za-zf1" firstAttribute="centerY" secondItem="NIt-Lg-Sgb" secondAttribute="centerY" id="bO6-1C-HW3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Hm-na-Ewj"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="QR Scan" id="BnE-KK-gwS">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="uup-vb-fIe">
+                            <connections>
+                                <action selector="cancel" destination="H5m-e5-iLv" id="RZn-tc-4WS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2QF-jL-oTv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="121"/>
+        </scene>
+    </scenes>
+</document>

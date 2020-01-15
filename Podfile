@@ -1,30 +1,24 @@
-# MARK: - Configuration 
+# ============= GENERAL ============ #
 
-platform :ios, '10.0'
+workspace 'WorkflowTest.xcworkspace'
+platform :ios, "10.0"
 use_frameworks!
+inhibit_all_warnings!
+source 'https://github.com/CocoaPods/Specs.git'
 
-# MARK: - Modules
-
-def tools
-    pod 'R.swift'
-end
+# ============= SCOPES ============= #
 
 def tests
     pod 'SwiftyMocky', '~> 3.5.0'
 end
 
-# MArK: - Targets
+# ============= TARGETS ============ #
 
-target 'Workflows' do
-    tools
+target 'WorkflowTest' do
+    
 end
 
-target 'WorkflowsTests' do
-    inherit! :search_paths
-    tests
-end
-
-target 'SwiftyWorkflowTests' do
+target 'WorkflowUnitTests' do
     inherit! :search_paths
     tests
 end

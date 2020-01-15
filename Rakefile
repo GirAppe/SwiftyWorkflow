@@ -1,3 +1,7 @@
+## [ Defines ] #################################################################
+
+projectName = "WorkflowTest"
+
 ## [ CocoaPods ] ###############################################################
 
 desc "Install project dependencies"
@@ -17,7 +21,7 @@ end
 
 desc "Open the workspace in Xcode"
 task :xcode do
-    workspace = "./Workflows.xcworkspace"
+    workspace = "./#{projectName}.xcworkspace"
     sh "open #{workspace}"
 end
 
@@ -37,7 +41,7 @@ desc "Setup test app environments"
 task :environment do
     begin
         print_info "Runnin AutoEnvironment"
-        sh "mint run autoenvironment autoenvironment -p Workflows.xcodeproj/ -o ./Workflows"
+        sh "mint run autoenvironment autoenvironment -p #{projectName}.xcodeproj/ -o ./#{projectName}"
     rescue
         print_info "Failed - check if Mint installed"
     end
