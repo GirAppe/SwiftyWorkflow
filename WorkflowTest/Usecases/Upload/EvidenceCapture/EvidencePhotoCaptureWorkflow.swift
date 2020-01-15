@@ -36,7 +36,7 @@ class EvidencePhotoCaptureWorkflow: NavigatableWorkflow, Workflow, ImageCaptureW
     private var evidenceCaptureContext: EvidenceCaptureContext!
     var captureContext: ImageCaptureContext { evidenceCaptureContext }
 
-    func start(with input: EvidenceCaptureContext) -> NavigationContext {
+    func start(with input: EvidenceCaptureContext) -> NavigationContext? {
         evidenceCaptureContext = input
 
         let view = Factory.instance.evidenceCaptureView()

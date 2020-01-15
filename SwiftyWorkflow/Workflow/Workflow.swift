@@ -12,7 +12,7 @@ public protocol Workflow: class {
 
     func perform(_ event: Event)
 
-    func start(with input: In) -> NavigationContext
+    func start(with input: In) -> NavigationContext?
 
     func onEvent(_ onEvent: @escaping EventHandler)
 }
@@ -35,21 +35,21 @@ public extension Workflow {
 
 public extension Workflow {
 
-    func start(with context: NavigationContext) -> NavigationContext {
+    func start(with context: NavigationContext?) -> NavigationContext? {
         self.context = context
         return context
     }
 
-    func start<W>(with other: W) -> NavigationContext where W: Workflow, W.In == Void {
+    func start<W>(with other: W) -> NavigationContext? where W: Workflow, W.In == Void {
         start(with: other.start())
     }
 
-    func start<W>(with other: W, with input: W.In) -> NavigationContext where W: Workflow {
+    func start<W>(with other: W, with input: W.In) -> NavigationContext? where W: Workflow {
         start(with: other.start(with: input))
     }
 }
 
 public extension Workflow where In == Void {
 
-    func start() -> NavigationContext { start(with: ()) }
+    func start() -> NavigationContext? { start(with: ()) }
 }

@@ -20,7 +20,7 @@ class UploadWorkflow: NavigatableWorkflow, Workflow {
 
     // MARK: - Lifecycle
 
-    func start(with input: UploadPayload) -> NavigationContext {
+    func start(with input: UploadPayload) -> NavigationContext? {
         self.payload = input
 
         if !payload.letter {
@@ -32,11 +32,11 @@ class UploadWorkflow: NavigatableWorkflow, Workflow {
 
     // MARK: - Actions
 
-    func startFromEvidence() -> NavigationContext {
+    func startFromEvidence() -> NavigationContext? {
         return start(with: buildEvidenceCapture(), with: payload.evidences)
     }
 
-    func startFromCaptureLetter() -> NavigationContext {
+    func startFromCaptureLetter() -> NavigationContext? {
         return start(with: buildLetterCapture(), with: payload.letterRequirements!)
     }
 

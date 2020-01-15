@@ -11,7 +11,7 @@ class EvidenceReviewWorkflow: NavigatableWorkflow, Workflow, ImagesReviewWorkflo
     private var evidence: CapturedEvidence!
     var reviewContext: ImagesReviewContext { evidence }
 
-    func start(with input: CapturedEvidence) -> NavigationContext {
+    func start(with input: CapturedEvidence) -> NavigationContext? {
         self.evidence = input
 
         let view = Factory.instance.evidenceReviewView()

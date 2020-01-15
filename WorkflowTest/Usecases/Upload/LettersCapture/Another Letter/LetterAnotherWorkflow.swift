@@ -8,7 +8,7 @@ class LetterAnotherWorkflow: NavigatableWorkflow, Workflow {
         case cancel
     }
 
-    func start(with input: Void) -> NavigationContext {
+    func start(with input: Void) -> NavigationContext? {
         let view = Factory.instance.anotherLetterView()
         view.workflow = self
         return start(with: view)

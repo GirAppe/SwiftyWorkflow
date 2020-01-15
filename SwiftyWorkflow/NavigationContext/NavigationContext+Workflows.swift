@@ -22,8 +22,9 @@ public extension NavigationContext {
         completion: NavigationCompletion? = nil
     ) -> W {
         DispatchQueue.main.async {
+            guard let context = workflow.start(with: input) else { return }
             self.present(
-                workflow.start(with: input).wrapIfNeeded(workflow),
+                context.wrapIfNeeded(workflow),
                 animated: animated,
                 completion: completion
             )
@@ -46,7 +47,8 @@ public extension NavigationContext {
         animated: Bool = true
     ) -> W {
         DispatchQueue.main.async {
-            self.push(workflow.start(with: input), animated: animated)
+            guard let context = workflow.start(with: input) else { return }
+            self.push(context, animated: animated)
         }
         return workflow
     }

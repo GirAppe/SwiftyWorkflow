@@ -16,7 +16,7 @@ class UploadEnvelopeWorkflow: NavigatableWorkflow, Workflow {
 
     var envelope: UploadEnvelope!
 
-    func start(with input: UploadEnvelope) -> NavigationContext {
+    func start(with input: UploadEnvelope) -> NavigationContext? {
         self.envelope = input
 
         let view = Factory.instance.uploadView()

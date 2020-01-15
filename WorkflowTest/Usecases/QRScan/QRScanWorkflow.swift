@@ -8,7 +8,7 @@ class QRScanWorkflow: NavigatableWorkflow, Workflow {
         case cancel
     }
 
-    func start(with input: Void) -> NavigationContext {
+    func start(with input: Void) -> NavigationContext? {
         let view = Factory.instance.qrScanView()
         view.workflow = self
         return start(with: view)

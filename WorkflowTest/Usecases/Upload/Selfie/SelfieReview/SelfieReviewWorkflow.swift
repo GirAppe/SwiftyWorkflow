@@ -16,7 +16,7 @@ class SelfieReviewWorkflow: NavigatableWorkflow, Workflow {
 
     var capturedSelfie: CapturedSelfie!
 
-    func start(with input: CapturedSelfie) -> NavigationContext {
+    func start(with input: CapturedSelfie) -> NavigationContext? {
         capturedSelfie = input
 
         let view = Factory.instance.selfieReviewView()
