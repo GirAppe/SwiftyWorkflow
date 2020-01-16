@@ -1,5 +1,6 @@
 #if os(iOS) || os(tvOS)
 import UIKit
+import Foundation
 
 // MARK: - Base navigation controller
 

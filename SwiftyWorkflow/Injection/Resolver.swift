@@ -1,3 +1,5 @@
+import Foundation
+
 // MARK: - Resolver
 
 //sourcery: AutoMockable

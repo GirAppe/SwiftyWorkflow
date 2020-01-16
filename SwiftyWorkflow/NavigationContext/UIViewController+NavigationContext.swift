@@ -1,4 +1,5 @@
 #if os(iOS) || os(tvOS)
+import Foundation
 import UIKit.UIViewController
 
 public struct ViewToDismiss {

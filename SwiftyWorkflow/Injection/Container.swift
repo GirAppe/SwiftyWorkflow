@@ -1,3 +1,5 @@
+import Foundation
+
 // MARK: - Container
 
 //sourcery: AutoMockable

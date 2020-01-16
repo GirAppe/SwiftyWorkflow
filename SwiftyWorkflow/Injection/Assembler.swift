@@ -1,3 +1,5 @@
+import Foundation
+
 // MARK: - Assembly
 
 public protocol Assembly {

@@ -1,5 +1,6 @@
 #if os(iOS) || os(tvOS)
 import UIKit.UIWindow
+import Foundation
 
 extension UIWindow: WindowContext {
 

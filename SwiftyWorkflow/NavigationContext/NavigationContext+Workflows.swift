@@ -1,5 +1,12 @@
+import Foundation
+
 public extension NavigationContext {
 
+    /// Presents new workflow modally. It would implicitely call `workflow.start(with: In)` method, and present provided context modally.
+    /// - Parameters:
+    ///   - workflow: Workflow to present modally
+    ///   - animated: Animated transition
+    ///   - completion: Completion block
     @discardableResult
     func present<W: Workflow>(
         _ workflow: W,
@@ -14,6 +21,12 @@ public extension NavigationContext {
         )
     }
 
+    /// Presents new workflow modally. It would implicitely call `workflow.start(with: In)` method, and present provided context modally.
+    /// - Parameters:
+    ///   - workflow: Workflow to present modally
+    ///   - input: Workflow input data
+    ///   - animated: Animated transition
+    ///   - completion: Completion block
     @discardableResult
     func present<W: Workflow>(
         _ workflow: W,
@@ -21,6 +34,7 @@ public extension NavigationContext {
         animated: Bool = true,
         completion: NavigationCompletion? = nil
     ) -> W {
+        workflow.parentContext = self
         DispatchQueue.main.async {
             guard let context = workflow.start(with: input) else { return }
             self.present(
@@ -32,6 +46,10 @@ public extension NavigationContext {
         return workflow
     }
 
+    /// Pushes new workflow to the stack. It would implicitely call `workflow.start(with: In)` method, and push provided context onto stack.
+    /// - Parameters:
+    ///   - workflow: Workflow to push onto stack
+    ///   - animated: Animated transition
     @discardableResult
     func push<W: Workflow>(
         _ workflow: W,
@@ -40,12 +58,18 @@ public extension NavigationContext {
         push(workflow, with: (), animated: animated)
     }
 
+    /// Pushes new workflow to the stack. It would implicitely call `workflow.start(with: In)` method, and push provided context onto stack.
+    /// - Parameters:
+    ///   - workflow: Workflow to push onto stack
+    ///   - input: Workflow input data
+    ///   - animated: Animated transition
     @discardableResult
     func push<W: Workflow>(
         _ workflow: W,
         with input: W.In,
         animated: Bool = true
     ) -> W {
+        workflow.parentContext = self
         DispatchQueue.main.async {
             guard let context = workflow.start(with: input) else { return }
             self.push(context, animated: animated)

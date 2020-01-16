@@ -1,3 +1,5 @@
+import Foundation
+
 // MARK: - DependencyContainer
 
 public protocol DependencyContainer: Container, Resolver {
@@ -5,6 +7,7 @@ public protocol DependencyContainer: Container, Resolver {
 }
 
 public extension DependencyContainer {
+    
     @discardableResult func register<T>(_ type: T.Type, factory: @escaping (Resolver) -> T) -> Registration<T,Void> {
         return register(type, arg: Void.self) { (resolver: Resolver, arg: Void) -> T in
             return factory(resolver)
