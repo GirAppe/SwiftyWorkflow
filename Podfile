@@ -14,10 +14,6 @@ end
 
 # ============= TARGETS ============ #
 
-target 'WorkflowTest' do
-    
-end
-
 target 'WorkflowUnitTests' do
     inherit! :search_paths
     tests

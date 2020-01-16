@@ -2,7 +2,7 @@
 //  SwiftyWorkflow.h
 //  SwiftyWorkflow
 //
-//  Created by Andrzej Michnia on 13/01/2020.
+//  Created by Andrzej Michnia on 16/01/2020.
 //  Copyright © 2020 Digidentity BV. All rights reserved.
 //
 

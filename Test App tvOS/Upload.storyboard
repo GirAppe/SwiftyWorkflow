@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15702" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="appleTV" appearance="light"/>
+    <dependencies>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Evidence Selection-->
+        <scene sceneID="QFL-ir-1nB">
+            <objects>
+                <viewController storyboardIdentifier="EvidenceSelectionViewController" id="2pL-Yf-q20" customClass="EvidenceSelectionViewController" customModule="Test_App_tvOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="T0N-Wq-LjH"/>
+                        <viewControllerLayoutGuide type="bottom" id="96d-6T-ddy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MlB-hC-Fqe">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="z9z-dX-Kex">
+                                <rect key="frame" x="192" y="391" width="1536" height="298"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OsO-Rs-IyZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="1536" height="86"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" title="Passport"/>
+                                        <connections>
+                                            <action selector="didSelectPassport" destination="2pL-Yf-q20" eventType="touchDown" id="e8F-oQ-ViK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3IW-rP-EEH">
+                                        <rect key="frame" x="0.0" y="106" width="1536" height="86"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" title="Driving licence"/>
+                                        <connections>
+                                            <action selector="didSelectDrivinglicence" destination="2pL-Yf-q20" eventType="touchDown" id="Zeg-il-jrJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xxY-pq-1MJ">
+                                        <rect key="frame" x="0.0" y="212" width="1536" height="86"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" title="ID Card"/>
+                                        <connections>
+                                            <action selector="didSelectIdCard" destination="2pL-Yf-q20" eventType="touchDown" id="82Y-1S-gDC"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="z9z-dX-Kex" firstAttribute="width" secondItem="MlB-hC-Fqe" secondAttribute="width" multiplier="0.8" id="96k-IF-4ZO"/>
+                            <constraint firstItem="z9z-dX-Kex" firstAttribute="centerY" secondItem="MlB-hC-Fqe" secondAttribute="centerY" id="CgH-gb-fj6"/>
+                            <constraint firstItem="z9z-dX-Kex" firstAttribute="centerX" secondItem="MlB-hC-Fqe" secondAttribute="centerX" id="Rfj-p5-mEU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GAA-tY-u68"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Evidence Selection" id="X4j-fO-0Lh">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="3e0-X2-04C">
+                            <connections>
+                                <action selector="cancel" destination="2pL-Yf-q20" id="xzy-y0-md0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="drivingLicenceButton" destination="3IW-rP-EEH" id="lQ1-MF-7iq"/>
+                        <outlet property="idCardButton" destination="xxY-pq-1MJ" id="7fX-Ev-XZg"/>
+                        <outlet property="passportButton" destination="OsO-Rs-IyZ" id="cq8-DX-2kA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iE2-wG-TAI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-330" y="-113"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="UaK-y1-pGJ">
+            <objects>
+                <viewController id="k8I-9n-4LH" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="c2D-GQ-vDP"/>
+                        <viewControllerLayoutGuide type="bottom" id="eK9-dS-mRs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Q5r-2F-i0g">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Gwt-by-ZXa">
+                                <rect key="frame" x="192" y="391" width="1536" height="298"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W12-in-3Ml">
+                                        <rect key="frame" x="0.0" y="0.0" width="1536" height="86"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" title="Evidence (all)"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ulf-oh-0vx">
+                                        <rect key="frame" x="0.0" y="106" width="1536" height="86"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" title="Evidence (passpor + id)"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QVK-7Z-tsS">
+                                        <rect key="frame" x="0.0" y="212" width="1536" height="86"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" title="Letter"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Gwt-by-ZXa" firstAttribute="centerX" secondItem="Q5r-2F-i0g" secondAttribute="centerX" id="39V-iW-y3H"/>
+                            <constraint firstItem="Gwt-by-ZXa" firstAttribute="width" secondItem="Q5r-2F-i0g" secondAttribute="width" multiplier="0.8" id="P02-AH-ufq"/>
+                            <constraint firstItem="Gwt-by-ZXa" firstAttribute="centerY" secondItem="Q5r-2F-i0g" secondAttribute="centerY" id="yZH-8H-ZW6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3ug-zH-Q1F"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="jIn-Qb-HT7">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="PYf-4Y-34d"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="59M-Rv-3Ah" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1420" y="1639"/>
+        </scene>
+    </scenes>
+</document>

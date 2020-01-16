@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15702" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="appleTV" appearance="light"/>
+    <dependencies>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--QR Scan-->
+        <scene sceneID="cqi-hs-Q6l">
+            <objects>
+                <viewController storyboardIdentifier="QRScanViewController" id="FMY-Gf-efU" customClass="QRScanViewController" customModule="Test_App_tvOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l2U-PF-3Zk"/>
+                        <viewControllerLayoutGuide type="bottom" id="UkM-jp-9Wo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kei-VA-EQA">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="0E8-2G-bt0">
+                                <rect key="frame" x="674" y="338" width="572" height="404"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzY-3T-Pj5">
+                                        <rect key="frame" x="0.0" y="0.0" width="572" height="86"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" title="Evidence (all)"/>
+                                        <connections>
+                                            <action selector="startWithEvidenceSelectionAll" destination="FMY-Gf-efU" eventType="touchDown" id="bIs-su-gNQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r58-SW-tUO">
+                                        <rect key="frame" x="0.0" y="106" width="572" height="86"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" title="Evidence (passpor + id)"/>
+                                        <connections>
+                                            <action selector="startWithEvidenceSelectionPassportAndId" destination="FMY-Gf-efU" eventType="touchDown" id="fqy-Pn-qXM"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="doM-K1-VR3">
+                                        <rect key="frame" x="0.0" y="212" width="572" height="86"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" title="Letter"/>
+                                        <connections>
+                                            <action selector="startWithLetter" destination="FMY-Gf-efU" eventType="touchDown" id="nE3-fU-QgJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFn-aP-DC3">
+                                        <rect key="frame" x="0.0" y="318" width="572" height="86"/>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" title="Other unprocessable payload"/>
+                                        <connections>
+                                            <action selector="didscanOtherPayload" destination="FMY-Gf-efU" eventType="touchDown" id="j9F-MM-iVD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="400" id="HwZ-q5-h3G"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="0E8-2G-bt0" firstAttribute="centerY" secondItem="kei-VA-EQA" secondAttribute="centerY" id="gO6-QI-RWN"/>
+                            <constraint firstItem="0E8-2G-bt0" firstAttribute="centerX" secondItem="kei-VA-EQA" secondAttribute="centerX" id="k3X-oB-ZDN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fBv-Dm-d7a"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="QR Scan" id="rbq-8d-oxS">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="LRW-ey-OHZ">
+                            <connections>
+                                <action selector="cancel" destination="FMY-Gf-efU" id="Dcu-gg-fDe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JSJ-gW-F64" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-74" y="-99"/>
+        </scene>
+    </scenes>
+</document>

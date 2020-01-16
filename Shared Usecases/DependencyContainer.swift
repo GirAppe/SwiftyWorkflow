@@ -72,7 +72,7 @@ extension UIStoryboardLoading where Self : UIViewController {
     static func loadFromStoryboard(named name: String, in bundle: Bundle? = nil) -> Self {
         let identifier = "\(self)".split{$0 == "."}.map(String.init).last!
         let storyboard = UIStoryboard(name: name, bundle: bundle)
-        return storyboard.instantiateViewController(identifier: identifier) as! Self
+        return storyboard.instantiateViewController(withIdentifier: identifier) as! Self
     }
 }
 

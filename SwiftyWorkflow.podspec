@@ -12,6 +12,7 @@ Contains UIKit independent navigation abstraction.
   s.author           = { 'Andrzej Michnia' => 'amichnia@gmail.com' }
   s.source           = { :git => 'https://github.com/GirAppe/SwiftyWorkflow.git', :tag => s.version.to_s }
   s.ios.deployment_target = '10.0'
+  s.tvos.deployment_target = '10.0'
   s.swift_versions    = ['5.0', '5.1.2']
 
   s.default_subspec  = "Core"
