@@ -7,7 +7,7 @@ class MainWorkflow: NavigatableWorkflow, Workflow {
 
     // MARK: - Workflow
 
-    func start(with input: Void) -> NavigationContext? {
+    func start(with input: Void) -> NavigationContext {
         return context ?? UIViewController()
     }
 

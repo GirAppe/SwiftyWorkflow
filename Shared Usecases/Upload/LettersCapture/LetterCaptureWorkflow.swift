@@ -24,7 +24,7 @@ class LetterCaptureWorkflow: NavigatableWorkflow, Workflow {
     var capturedImages: [ImageData?] = []
     var letter: CapturedLetter?
 
-    func start(with input: LetterCapture) -> NavigationContext? {
+    func start(with input: LetterCapture) -> NavigationContext {
         capture = input
         letter = nil
         capturedImages = Array(repeating: nil, count: input.pages.count + 2)

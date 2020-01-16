@@ -19,14 +19,14 @@ class EvidenceCaptureWorkflow: NavigatableWorkflow, Workflow {
         CapturedEvidence(type: evidenceType, images: capturedImages)
     }
 
-    func start(with input: EvidenceType) -> NavigationContext? {
+    func start(with input: EvidenceType) -> NavigationContext {
         evidenceType = input
         capturedImages = []
 
         return self.start(with: build())
     }
 
-    func build() -> NavigationContext? {
+    func build() -> NavigationContext {
         // Front
         let captureFront = EvidencePhotoCaptureWorkflow()
         let frontContext = EvidenceCaptureContext(

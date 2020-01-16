@@ -101,6 +101,20 @@ public protocol NavigationContext: class {
         completion: NavigationCompletion?
     ) -> W
 
+    /// Presents new workflow modally. It would implicitely call `workflow.start(with: In)` method, and present provided context modally.
+    /// - Parameters:
+    ///   - workflow: Workflow to present modally
+    ///   - input: Workflow input data
+    ///   - animated: Animated transition
+    ///   - completion: Completion block
+    @discardableResult
+    func present<W: AsyncWorkflow>(
+        _ workflow: W,
+        with input: W.In,
+        animated: Bool,
+        completion: NavigationCompletion?
+    ) -> W
+
     /// Pushes new workflow to the stack. It would implicitely call `workflow.start(with: In)` method, and push provided context onto stack.
     /// - Parameters:
     ///   - workflow: Workflow to push onto stack
@@ -108,6 +122,18 @@ public protocol NavigationContext: class {
     ///   - animated: Animated transition
     @discardableResult
     func push<W: Workflow>(
+        _ workflow: W,
+        with input: W.In,
+        animated: Bool
+    ) -> W
+
+    /// Pushes new workflow to the stack. It would implicitely call `workflow.start(with: In)` method, and push provided context onto stack.
+    /// - Parameters:
+    ///   - workflow: Workflow to push onto stack
+    ///   - input: Workflow input data
+    ///   - animated: Animated transition
+    @discardableResult
+    func push<W: AsyncWorkflow>(
         _ workflow: W,
         with input: W.In,
         animated: Bool

@@ -3,7 +3,7 @@ import SwiftyWorkflow
 
 // MARK: - UploadWorkflow
 
-class UploadWorkflow: NavigatableWorkflow, Workflow {
+class UploadWorkflow: NavigatableWorkflow, AsyncWorkflow {
     typealias In = UploadPayload
     enum Event {
         case success
@@ -20,23 +20,36 @@ class UploadWorkflow: NavigatableWorkflow, Workflow {
 
     // MARK: - Lifecycle
 
-    func start(with input: UploadPayload) -> NavigationContext? {
+    func start(with input: UploadPayload, in context: NavigationContext, completion: @escaping (NavigationContext) -> Void) {
+        guard input.geolocation == false, input.notify == false else {
+            return perform(.failure(reason: "Test"))
+        }
+
+        // Start normally
         self.payload = input
 
         if !payload.letter {
-            return startFromEvidence()
+            return completion(startFromEvidence())
         } else {
-            return startFromCaptureLetter()
+            return completion(startFromCaptureLetter())
         }
+    }
+
+    func failWorkflowStart() {
+        parentContext?.present(Dialog(title: "Failed", message: "Notify and Geolocation are not supported.", actions: [
+            .init(title: "OK", style: .primary, onTap: {
+                self.perform(.failure(reason: "Unsupported"))
+            })
+        ]))
     }
 
     // MARK: - Actions
 
-    func startFromEvidence() -> NavigationContext? {
+    func startFromEvidence() -> NavigationContext {
         return start(with: buildEvidenceCapture(), with: payload.evidences)
     }
 
-    func startFromCaptureLetter() -> NavigationContext? {
+    func startFromCaptureLetter() -> NavigationContext {
         return start(with: buildLetterCapture(), with: payload.letterRequirements!)
     }
 

@@ -20,7 +20,7 @@ class SelfieWorkflow: NavigatableWorkflow, Workflow {
 
     private var requirements: SelfieCaptureRequirements!
 
-    func start(with input: SelfieCaptureRequirements) -> NavigationContext? {
+    func start(with input: SelfieCaptureRequirements) -> NavigationContext {
         requirements = input
 
         let capture = SelfieCaptureWorkflow()

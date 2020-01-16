@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,13 +11,13 @@
         <!--QR Scan-->
         <scene sceneID="Gou-B0-aCG">
             <objects>
-                <viewController storyboardIdentifier="QRScanViewController" title="QR Scan" id="H5m-e5-iLv" customClass="QRScanViewController" customModule="WorkflowTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QRScanViewController" title="QR Scan" id="H5m-e5-iLv" customClass="QRScanViewController" customModule="Test_App_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NIt-Lg-Sgb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="6Jj-za-zf1">
-                                <rect key="frame" x="20" y="348" width="374" height="200"/>
+                                <rect key="frame" x="20" y="323" width="374" height="250"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGf-US-wLo">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
@@ -48,8 +49,18 @@
                                             <action selector="startWithLetter" destination="H5m-e5-iLv" eventType="touchUpInside" id="po4-37-lyQ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJp-lQ-ds1">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tA5-d2-JjQ">
                                         <rect key="frame" x="0.0" y="150" width="374" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="1ns-YA-j66"/>
+                                        </constraints>
+                                        <state key="normal" title="Did scan letter wit GEO"/>
+                                        <connections>
+                                            <action selector="startWithLetterAndGeolocation" destination="H5m-e5-iLv" eventType="touchUpInside" id="ruL-e1-L5D"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJp-lQ-ds1">
+                                        <rect key="frame" x="0.0" y="200" width="374" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="FJd-Z2-kbX"/>
                                         </constraints>

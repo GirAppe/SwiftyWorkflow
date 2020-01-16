@@ -19,7 +19,7 @@ class LetterPageCaptureWorkflow: NavigatableWorkflow, Workflow {
         self.pageCapture = pageCapture
     }
 
-    func start(with input: Void) -> NavigationContext? {
+    func start(with input: Void) -> NavigationContext {
         let view = Factory.instance.letterCaptureView()
         view.workflow = self
         return start(with: view)

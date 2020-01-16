@@ -10,7 +10,7 @@ class EvidenceSelectionWorkflow: NavigatableWorkflow, Workflow {
 
     var allowedEvidenceTypes: AllowedEvidenceTypes!
 
-    func start(with input: AllowedEvidenceTypes) -> NavigationContext? {
+    func start(with input: AllowedEvidenceTypes) -> NavigationContext {
         self.allowedEvidenceTypes = input
 
         let view = Factory.instance.evidenceSelectionView()

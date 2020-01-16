@@ -14,7 +14,7 @@ open class NavigatableWorkflow {
     public init() {}
 }
 
-public extension Workflow where Self: NavigatableWorkflow {
+public extension AnyWorkflow where Self: NavigatableWorkflow {
     var onEvent: EventHandler? {
         get { anyEventHandler as? EventHandler }
         set { anyEventHandler = newValue }
@@ -40,7 +40,7 @@ extension NavigationContext {
 
     /// [Internal] Convenience method to wrap in context if needed
     /// - Parameter workflow: Workflow that defines wrapping context
-    func wrapIfNeeded<W: Workflow>(_ workflow: W) -> NavigationContext {
+    func wrapIfNeeded<W: AnyWorkflow>(_ workflow: W) -> NavigationContext {
         guard let workflow = workflow as? NavigatableWorkflow else {
             return self
         }

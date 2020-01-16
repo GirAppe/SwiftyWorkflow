@@ -15,7 +15,7 @@ class LetterReviewWorkflow: NavigatableWorkflow, Workflow {
 
     private var letter: CapturedLetter!
 
-    func start(with input: CapturedLetter) -> NavigationContext? {
+    func start(with input: CapturedLetter) -> NavigationContext {
         letter = input
 
         let view = Factory.instance.letterReviewView()
