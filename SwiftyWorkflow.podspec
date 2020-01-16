@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SwiftyWorkflow'
-  s.version          = '0.9.0'
+  s.version          = '0.9.0-rc1'
   s.summary          = 'Workflows abstraction for Swift. Business oriented declarative way of creating Swift apps.'
   s.description      = <<-DESC
 Library that abstracts navigation, to provide business oriented declarative way of creating workflow.
