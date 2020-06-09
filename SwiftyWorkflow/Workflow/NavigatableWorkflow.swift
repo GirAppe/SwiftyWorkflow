@@ -15,6 +15,7 @@ open class NavigatableWorkflow {
 }
 
 public extension AnyWorkflow where Self: NavigatableWorkflow {
+
     var onEvent: EventHandler? {
         get { anyEventHandler as? EventHandler }
         set { anyEventHandler = newValue }

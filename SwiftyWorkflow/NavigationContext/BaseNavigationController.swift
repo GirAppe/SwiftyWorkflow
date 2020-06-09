@@ -6,7 +6,7 @@ import Foundation
 
 public class BaseNavigationController: UINavigationController {
 
-    /// This class wouldbe used whenever `wrappedInNavigation` modifier is used
+    /// This class would be used whenever `wrappedInNavigation` modifier is used
     public static var defaultClass: UINavigationController.Type = BaseNavigationController.self
 
     #if os(iOS)

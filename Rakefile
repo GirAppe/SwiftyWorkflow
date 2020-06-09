@@ -47,6 +47,13 @@ task :environment do
     end
 end
 
+## [ Build ] ###################################################################
+
+desc "Build SwiftyWorkflow"
+task :build do
+    sh("swift build")
+end
+
 ## [ Deploy ] ##################################################################
 
 desc "Deploys new version of a binary, by pushing passed tag"
