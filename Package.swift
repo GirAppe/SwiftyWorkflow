@@ -9,7 +9,6 @@ let package = Package(
     products: [
         .library(
             name: "SwiftyWorkflow",
-            type: .dynamic,
             targets: ["SwiftyWorkflow"]
         ),
     ],
