@@ -111,10 +111,9 @@ extension UIViewController: NavigationContext {
     }
 
     public func wrappedIn<T: UINavigationController>(_ navigationClass: T.Type) -> NavigationContext {
-        let navigation = navigationClass.init()
-        let controllers = (self as? UINavigationController)?.viewControllers ?? [self]
-        navigation.setViewControllers(controllers, animated: false)
-        return navigation
+        self.wrappedIn(navigationClass.make {
+            ($0 as? ContextWithDefaultAppearance)?.setupDefaultAppearance()
+        })
     }
 }
 #endif

@@ -80,6 +80,12 @@ public protocol NavigationContext: class {
     func wrappedIn(_ navigation: NavigationContext) -> NavigationContext
 
     #if os(iOS) || os(tvOS)
+    /// Wrpas context in specified navigation context
+    /// - Parameter navigation: Wrapping navigation context type
+    func wrappedIn<T: UINavigationController>(_ navigationClass: T.Type) -> NavigationContext
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// Changes context underlying modal presentation style
     /// - Parameter style: Desired modal presentation style
     func withModalPresentationStyle(_ style: UIModalPresentationStyle) -> NavigationContext
