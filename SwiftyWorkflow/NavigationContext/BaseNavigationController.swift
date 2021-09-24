@@ -4,8 +4,8 @@ import Foundation
 
 // MARK: - Deafult UI Navigation
 
-public protocol ContextWithDefaultAppearance {
-    func setupDefaultAppearance()
+@objc public protocol ContextWithDefaultAppearance {
+    @objc func setupDefaultAppearance()
 }
 
 // MARK: - Base navigation controller
@@ -15,7 +15,7 @@ open class BaseNavigationController: UINavigationController, ContextWithDefaultA
     /// This class would be used whenever `wrappedInNavigation` modifier is used
     public static var defaultClass: BaseNavigationController.Type = BaseNavigationController.self
 
-    open func setupDefaultAppearance() {
+    @objc open func setupDefaultAppearance() {
         if #available(iOS 13.0, *) {
             self.navigationBar.standardAppearance = .make {
                 $0.configureWithDefaultBackground()
