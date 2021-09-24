@@ -13,7 +13,7 @@ public protocol ContextWithDefaultAppearance {
 open class BaseNavigationController: UINavigationController, ContextWithDefaultAppearance {
 
     /// This class would be used whenever `wrappedInNavigation` modifier is used
-    public static var defaultClass: UINavigationController.Type = BaseNavigationController.self
+    public static var defaultClass: BaseNavigationController.Type = BaseNavigationController.self
 
     open func setupDefaultAppearance() {
         if #available(iOS 13.0, *) {
