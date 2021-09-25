@@ -3,7 +3,7 @@ import Foundation
 // MARK: - Workflow
 
 /// The easiest way to adopt Workflow protocol is to subclass `NavigatableWorkflow` class, as it already adopts some requirements
-public protocol AnyWorkflow: class {
+public protocol AnyWorkflow: AnyObject {
     associatedtype In
     associatedtype Event
     typealias EventHandler = (Event, NavigationContext) -> Void

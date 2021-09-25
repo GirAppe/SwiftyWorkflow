@@ -5,8 +5,10 @@ import Foundation
 import UIKit
 #endif
 
+// MARK: - Navigation Context
+
 //sourcery: AutoMockable
-public protocol NavigationContext: class {
+public protocol NavigationContext: AnyObject {
 
     // MARK: - Properties
 
@@ -82,7 +84,7 @@ public protocol NavigationContext: class {
     #if os(iOS) || os(tvOS)
     /// Wrpas context in specified navigation context
     /// - Parameter navigation: Wrapping navigation context type
-    func wrappedIn<T: UINavigationController>(_ navigationClass: T.Type) -> NavigationContext
+    func wrappedIn(_ navigationClass: NavigationWrappingContext.Type) -> NavigationContext
     #endif
 
     #if os(iOS) || os(tvOS)
@@ -144,6 +146,14 @@ public protocol NavigationContext: class {
         with input: W.In,
         animated: Bool
     ) -> W
+}
+
+// MARK: - Navigation Wrapping Context
+
+public protocol NavigationWrappingContext: NavigationContext, SimpleInitializable {}
+
+public protocol NavigationContextWithAppearance {
+    func setupAppearance()
 }
 
 // MARK: - Default implementations

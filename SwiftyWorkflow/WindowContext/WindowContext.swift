@@ -1,7 +1,7 @@
 import Foundation
 
 //sourcery: AutoMockable
-public protocol WindowContext: class {
+public protocol WindowContext: AnyObject {
     var rootView: NavigationContext? { get set }
     func makeKeyAndVisible()
 }

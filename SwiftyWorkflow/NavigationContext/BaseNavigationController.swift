@@ -2,35 +2,31 @@
 import UIKit
 import Foundation
 
-// MARK: - Deafult UI Navigation
-
-@objc public protocol ContextWithDefaultAppearance {
-    @objc init()
-    @objc func setupDefaultAppearance()
-}
-
 // MARK: - Base navigation controller
 
-@objc open class BaseNavigationController: UINavigationController, ContextWithDefaultAppearance {
+open class BaseNavigationController: UINavigationController, NavigationWrappingContext, NavigationContextWithAppearance {
 
     /// This class would be used whenever `wrappedInNavigation` modifier is used
-    public static var defaultClass: UINavigationController.Type = BaseNavigationController.self
+    public static var defaultClass: NavigationWrappingContext.Type = BaseNavigationController.self
 
-    @objc open func setupDefaultAppearance() {
+    /// Specify default appearance setup closure.
+    public static var appearance: (BaseNavigationController) -> Void = {
         if #available(iOS 13.0, *) {
-            self.navigationBar.standardAppearance = .make {
+            $0.navigationBar.standardAppearance = .make {
                 $0.configureWithDefaultBackground()
                 $0.backgroundColor = .systemBackground
                 $0.backgroundEffect = .init(style: .regular)
             }
-            self.navigationBar.scrollEdgeAppearance = .make {
+            $0.navigationBar.scrollEdgeAppearance = .make {
                 $0.configureWithDefaultBackground()
                 $0.backgroundColor = .systemBackground
                 $0.backgroundEffect = .init(style: .regular)
             }
-        } else {
-            // No fallback here.
         }
+    }
+
+    final public func setupAppearance() {
+        BaseNavigationController.appearance(self)
     }
 
     #if os(iOS)

@@ -3,7 +3,7 @@ import Foundation
 // MARK: - Container
 
 //sourcery: AutoMockable
-public protocol Container: class, Assembly {
+public protocol Container: AnyObject, Assembly {
     var registrations: [RegisteredInstance] { get set }
 
     @discardableResult func register<T,Arg>(_ type: T.Type, arg: Arg.Type, factory: @escaping (Resolver,Arg) -> T) -> Registration<T,Arg>
