@@ -10,10 +10,10 @@ import Foundation
 
 // MARK: - Base navigation controller
 
-open class BaseNavigationController: UINavigationController, ContextWithDefaultAppearance {
+@objc open class BaseNavigationController: UINavigationController, ContextWithDefaultAppearance {
 
     /// This class would be used whenever `wrappedInNavigation` modifier is used
-    public static var defaultClass: BaseNavigationController.Type = BaseNavigationController.self
+    public static var defaultClass: UINavigationController.Type = BaseNavigationController.self
 
     @objc open func setupDefaultAppearance() {
         if #available(iOS 13.0, *) {
