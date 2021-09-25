@@ -5,6 +5,7 @@ import Foundation
 // MARK: - Deafult UI Navigation
 
 @objc public protocol ContextWithDefaultAppearance {
+    @objc init()
     @objc func setupDefaultAppearance()
 }
 
